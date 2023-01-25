@@ -1,0 +1,27 @@
+import { Navigate, Outlet } from 'react-router-dom';
+import { LoginPage } from '../pages/LoginPage';
+import { RegisterPage } from '../pages/RegisterPage';
+
+export const AuthRoutes = () => {
+  return <Outlet />;
+};
+
+export const childAuthRoutes = [
+  {
+    path: 'login',
+    element: <LoginPage />,
+  },
+  {
+    path: 'register',
+    element: <RegisterPage />,
+  },
+  {
+    path: '/auth/**',
+    element: (
+      <Navigate
+        to="/auth/login"
+        replace
+      />
+    ),
+  },
+];
