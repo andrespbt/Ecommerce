@@ -3,6 +3,9 @@ import { useForm } from 'react-hook-form';
 import { LoginPassIcon, LoginGithubIcon, LoginGoogleIcon } from '../icons';
 import { Link } from 'react-router-dom';
 import { LoginEmailIcon } from '../icons/index';
+import { Button, Spinner } from '../components';
+import { useDispatch, useSelector } from 'react-redux';
+import { startGoogleLogin } from '@/store/auth/thunks';
 
 export const LoginPage = () => {
   const {
@@ -14,14 +17,28 @@ export const LoginPage = () => {
     defaultValues: { email: '', password: '' },
   });
 
-  console.log(errors);
-  const onSubmit = data => console.log(data);
+  const { status, errorMessage } = useSelector(state => state.auth);
 
-  console.log(watch('example')); // watch input value by passing the name of it
+  const onSubmit = data => {};
+
+  const dispatch = useDispatch();
+
+  const onGithubLogin = () => {
+    console.log('onGithub');
+  };
+
+  const onGoogleLogin = e => {
+    e.preventDefault();
+    dispatch(startGoogleLogin());
+  };
+
+  const onPasswordEmailLogin = () => {
+    console.log('email password login');
+  };
 
   return (
     <AuthLayout>
-      <div className="shadow-3xl w-10/12 rounded-3xl bg-white  lg:w-6/12 lg:min-w-[812px]">
+      <div className="w-10/12 rounded-3xl bg-white shadow-3xl lg:w-6/12 lg:min-w-[812px]">
         <form
           className="p-12 md:p-24"
           onSubmit={handleSubmit(onSubmit)}>
@@ -53,6 +70,7 @@ export const LoginPage = () => {
               type="password"
               placeholder="Password"
               autoComplete="current-password"
+              onKeyDown={e => (e.code === 'Space' ? e.preventDefault() : '')}
               {...register('password', {
                 required: 'Password is required',
                 minLength: {
@@ -66,31 +84,36 @@ export const LoginPage = () => {
             <small className="relative bottom-7 left-2 text-red-600">{errors.password.message}</small>
           )}
 
-          {/* Buttons */}
-          <button
-            className="w-full rounded-2xl bg-gradient-to-b from-gray-700 to-gray-900 p-2 font-medium uppercase text-white hover:cursor-pointer hover:text-orange md:p-4"
-            type="submit">
-            Login
-          </button>
-          <button
-            className="mt-3 flex w-full items-center justify-center rounded-2xl bg-gradient-to-b from-gray-700 to-gray-900 p-2 font-medium uppercase text-white hover:cursor-pointer hover:text-orange  md:p-4 "
-            type="submit">
-            <LoginGoogleIcon className="mr-4 w-fit" />
-            Login with Google
-          </button>
+          {/* Buttons dissapear when status 2 = checkingAuth */}
 
-          <button
-            className="mt-3 flex w-full items-center justify-center rounded-2xl bg-gradient-to-b from-gray-700 to-gray-900 p-2 font-medium uppercase text-white hover:cursor-pointer hover:text-orange md:p-4"
-            type="submit">
-            <LoginGithubIcon className=" mr-4" />
-            Login with Github
-          </button>
+          {status !== 2 ? (
+            <>
+              <Button
+                text="Login"
+                type="submit"
+                onClick={onPasswordEmailLogin}></Button>
 
-          <Link
-            className="mt-5 block text-center text-gray-400 underline hover:text-gray-300"
-            to="/auth/register">
-            Create an account
-          </Link>
+              <Button
+                text="Login with Google"
+                onClick={onGoogleLogin}>
+                <LoginGoogleIcon className="mr-4" />
+              </Button>
+
+              <Button
+                text="Login with Github"
+                onClick={onGithubLogin}>
+                <LoginGithubIcon className="mr-4" />
+              </Button>
+
+              <Link
+                className="mt-5 block text-center text-gray-400 underline hover:text-gray-300"
+                to="/auth/register">
+                Create an account
+              </Link>
+            </>
+          ) : (
+            <Spinner />
+          )}
         </form>
       </div>
     </AuthLayout>

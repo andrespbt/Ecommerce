@@ -1,30 +1,77 @@
+import { useDispatch, useSelector } from 'react-redux';
 import { AuthLayout } from '../layout/AuthLayout';
 import { useForm } from 'react-hook-form';
-import { LoginPassIcon, LoginGithubIcon, LoginGoogleIcon } from '../icons';
-import { Link } from 'react-router-dom';
-import { LoginEmailIcon } from '../icons/index';
+import { LoginPassIcon } from '../icons';
+import { Link, useNavigate } from 'react-router-dom';
+import { LoginEmailIcon, LoginUserIcon, LoginWarningIcon } from '../icons';
+import { Button } from '../components/Button';
+import { startCreatingUserWithEmailPassword } from '@/store/auth/thunks';
+import { useEffect, useMemo, useState } from 'react';
+import { Spinner } from '../components/Spinner';
 
 export const RegisterPage = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const { status, errorMessage = null, accountCreated = false } = useSelector(state => state.auth);
+
   const {
     register,
     handleSubmit,
-    watch,
-    formState: { errors },
+    formState: { errors = '', isSubmitting },
+    setError,
+    clearErrors,
+    setFocus,
   } = useForm({
     defaultValues: { email: '', password: '' },
   });
 
-  console.log(errors);
-  const onSubmit = data => console.log(data);
+  const isAccountCreated = useMemo(() => accountCreated === true, [isSubmitting]);
 
-  console.log(watch('example')); // watch input value by passing the name of it
+  const handleError = error => {
+    if (error.includes('email-already-in-use')) {
+      setError('email', { type: 'custom', message: 'Email already in use' });
+      setFocus('email');
+    }
+  };
+
+  const onSubmit = (data, e) => {
+    dispatch(startCreatingUserWithEmailPassword(data));
+
+    if (isAccountCreated === false) {
+      handleError(errorMessage);
+      return;
+    }
+
+    setTimeout(() => {
+      navigate('/auth/');
+    }, 3000);
+  };
 
   return (
     <AuthLayout>
-      <div className="shadow-3xl w-10/12 rounded-3xl bg-white  lg:w-6/12 lg:min-w-[812px]">
+      <div className="w-10/12 rounded-3xl bg-white shadow-3xl  lg:w-6/12 lg:min-w-[812px]">
         <form
           className="p-12 md:p-24"
           onSubmit={handleSubmit(onSubmit)}>
+          <div className="mb-6 flex items-center text-lg md:mb-8">
+            <LoginUserIcon />
+            <input
+              className="w-full rounded-2xl bg-gray-200 py-2 pl-12 focus:border focus:outline-none focus:ring focus:ring-darkPaleOrange focus:placeholder:text-transparent md:py-4 "
+              type="text"
+              placeholder="Full name"
+              autoComplete="name"
+              name="displayName"
+              {...register('name', {
+                required: 'Full name is required',
+                minLength: {
+                  value: 3,
+                  message: '3 characters minimum',
+                },
+              })}
+            />
+          </div>
+          {errors.name && <small className="relative bottom-7 left-2 text-red-600">{errors.name.message}</small>}
+
           {/* Email input */}
           <div className="mb-6 flex items-center text-lg md:mb-8">
             <LoginEmailIcon />
@@ -33,6 +80,7 @@ export const RegisterPage = () => {
               placeholder="Email"
               type="email"
               autoComplete="email"
+              onChange={() => clearErrors()}
               {...register('email', {
                 required: 'Email is required',
                 pattern: {
@@ -43,7 +91,9 @@ export const RegisterPage = () => {
               })}
             />
           </div>
-          {errors.email && <small className=" relative bottom-7 left-2 text-red-600">{errors.email.message}</small>}
+          {errors.email?.type !== 'custom' && (
+            <small className=" relative bottom-7 left-2 text-red-600">{errors.email?.message}</small>
+          )}
 
           {/* Password Input */}
           <div className="mb-6 flex items-center text-lg md:mb-8">
@@ -53,11 +103,12 @@ export const RegisterPage = () => {
               type="password"
               placeholder="Password"
               autoComplete="current-password"
+              onKeyDown={e => (e.code === 'Space' ? e.preventDefault() : '')}
               {...register('password', {
                 required: 'Password is required',
                 minLength: {
                   value: 6,
-                  message: 'Invalid password',
+                  message: '6 characters minimum',
                 },
               })}
             />
@@ -66,12 +117,20 @@ export const RegisterPage = () => {
             <small className="relative bottom-7 left-2 text-red-600">{errors.password.message}</small>
           )}
 
-          {/* Buttons */}
-          <button
-            className="w-full rounded-2xl bg-gradient-to-b from-gray-700 to-gray-900 p-2 font-medium uppercase text-white hover:cursor-pointer hover:text-orange md:p-4"
-            type="submit">
-            Create an account
-          </button>
+          {status !== 2 ? (
+            <Button
+              text="Create an account"
+              type="submit"></Button>
+          ) : (
+            <Spinner className="mb-5" />
+          )}
+
+          {errors.email?.type === 'custom' && (
+            <div className="mx-auto mt-4 flex h-12 w-80 items-center justify-center rounded-xl border-2 border-solid border-red-600 bg-red-200 text-center text-red-600">
+              <LoginWarningIcon className="text-lg" />
+              <p className="font-bold">{errors.email?.message}</p>
+            </div>
+          )}
 
           <Link
             className="mt-5 block text-center text-gray-400 underline hover:text-gray-300"
