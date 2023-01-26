@@ -1,29 +1,42 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { AuthLayout } from '../layout/AuthLayout';
 import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
-import { LoginEmailIcon, LoginUserIcon, LoginWarningIcon, LoginPassIcon } from '../icons';
-import { Button, Spinner } from '../components';
 import { startCreatingUserWithEmailPassword } from '@/store/auth/thunks';
 import Swal from 'sweetalert2';
+import { AuthLayout } from '../layout/AuthLayout';
+import { LoginEmailIcon, LoginUserIcon, LoginWarningIcon, LoginPassIcon } from '../icons';
 import { logout } from '@/store/auth/authSlice';
+import { Button, Spinner } from '../components';
+import { ErrorMessage } from '../components/ErrorMessage';
+import { useHandlerError } from '../hooks/useHandlerError';
 
 export const RegisterPage = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { status, errorMessage = null } = useSelector(state => state.auth);
+  const { status, errorMessage } = useSelector(state => state.auth);
 
   const {
     register,
     handleSubmit,
     formState: { errors = '', submitCount },
+    watch,
     setError,
     clearErrors,
     setFocus,
   } = useForm({
     defaultValues: { displayName: '', email: '', password: '' },
   });
+
+  useEffect(() => {
+    if (
+      errors.email?.type === 'custom' ||
+      errors.password?.type === 'custom' ||
+      errors.displayName?.type === 'custom'
+    ) {
+      clearErrors();
+    }
+  }, [watch('email'), watch('password'), watch('displayName'), submitCount]);
 
   useEffect(() => {
     if (errorMessage) {
@@ -71,20 +84,20 @@ export const RegisterPage = () => {
 
   return (
     <AuthLayout>
-      <div className="w-10/12 animate-fade-in-down rounded-3xl bg-white shadow-3xl lg:w-6/12 lg:min-w-[812px]">
+      <div className="mt-20 w-10/12 animate-fade-in-down rounded-3xl bg-white shadow-3xl md:mt-16 lg:w-6/12 lg:min-w-[812px]">
         <form
           className="p-12 md:p-24"
           onSubmit={handleSubmit(onSubmit)}>
           <div className="mb-6 flex items-center text-lg md:mb-8">
             <LoginUserIcon />
             <input
-              className="w-full rounded-2xl bg-gray-200 py-2 pl-12 focus:border focus:outline-none focus:ring focus:ring-darkPaleOrange focus:placeholder:text-transparent md:py-4 "
+              className="w-full rounded-2xl bg-gray-200 py-2 pl-10 text-sm  focus:outline-none focus:ring  focus:ring-darkPaleOrange focus:placeholder:text-transparent md:py-4 md:pl-12 md:text-xl "
               type="text"
               placeholder="Full name"
               autoComplete="name"
-              name="name"
-              aria-invalid={errors.name ? 'true' : 'false'}
-              {...register('name', {
+              name="displayName"
+              aria-invalid={errors.displayName ? 'true' : 'false'}
+              {...register('displayName', {
                 required: 'Full name is required',
                 minLength: {
                   value: 3,
@@ -93,11 +106,11 @@ export const RegisterPage = () => {
               })}
             />
           </div>
-          {errors.name && (
+          {errors.displayName && (
             <small
               className="relative bottom-7 left-2 text-red-600"
               role="alert">
-              {errors.name.message}
+              {errors.displayName.message}
             </small>
           )}
 
@@ -105,7 +118,7 @@ export const RegisterPage = () => {
           <div className="mb-6 flex items-center text-lg md:mb-8">
             <LoginEmailIcon />
             <input
-              className="w-full rounded-2xl bg-gray-200 py-2 pl-12 focus:outline-none focus:ring focus:ring-darkPaleOrange focus:placeholder:text-transparent md:py-4"
+              className="w-full rounded-2xl bg-gray-200 py-2 pl-12 text-sm focus:outline-none focus:ring focus:ring-darkPaleOrange focus:placeholder:text-transparent md:py-4 md:text-xl"
               placeholder="Email"
               type="email"
               autoComplete="email"
@@ -132,7 +145,7 @@ export const RegisterPage = () => {
           <div className="mb-6 flex items-center text-lg md:mb-8">
             <LoginPassIcon />
             <input
-              className="w-full rounded-2xl bg-gray-200 py-2 pl-12 focus:border focus:outline-none focus:ring focus:ring-darkPaleOrange focus:placeholder:text-transparent md:py-4 "
+              className="w-full rounded-2xl bg-gray-200 py-2 pl-12 text-sm focus:outline-none focus:ring focus:ring-darkPaleOrange focus:placeholder:text-transparent md:py-4 md:text-xl "
               type="password"
               placeholder="Password"
               autoComplete="current-password"
@@ -163,19 +176,10 @@ export const RegisterPage = () => {
             <Spinner className="mb-5" />
           )}
 
-          {errors.email?.type === 'custom' && (
-            <div className="mx-auto mt-4 flex h-12 w-80 items-center justify-center rounded-xl border-2 border-solid border-red-600 bg-red-200 text-center text-red-600">
-              <LoginWarningIcon className="text-lg" />
-              <p
-                className="font-bold"
-                role="alert">
-                {errors.email?.message}
-              </p>
-            </div>
-          )}
+          {errors.email?.type === 'custom' && <ErrorMessage message={errors.email.message} />}
 
           <Link
-            className="mt-5 block text-center text-gray-400 underline hover:text-gray-300"
+            className="mt-5 block text-center text-sm text-gray-400 underline hover:text-gray-300 md:text-lg"
             to="/auth/login">
             Already have an account ? Login
           </Link>

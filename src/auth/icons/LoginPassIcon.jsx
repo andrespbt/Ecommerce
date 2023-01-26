@@ -1,7 +1,7 @@
 export const LoginPassIcon = () => {
   return (
     <svg
-      className="absolute ml-3 mr-2"
+      className="absolute ml-3 mr-2 scale-75 md:scale-100"
       fill="black"
       viewBox="0 0 24 24"
       width={24}>
