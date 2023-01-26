@@ -35,13 +35,77 @@ module.exports = {
         '3xl': '-3px 10px 24px 0px rgba(0,0,0,0.69);',
       },
       keyframes: {
-        roller: {
-          '0%': { transform: 'rotate(0deg)' },
-          '100%': { transform: 'rotate(360deg)' },
+        roll: {
+          '0%': {
+            transform: 'rotate(360deg)',
+            transform: 'translateX(-100%)',
+          },
+
+          '50%': {
+            transform: 'translateX(100px)',
+            transform: 'rotate(-180deg)',
+          },
+
+          '100%': {
+            transform: 'translateX(0%)',
+          },
+        },
+        wiggle: {
+          '0%, 100%': {
+            transform: 'rotate(-3deg)',
+          },
+          '50%': {
+            transform: 'rotate(3deg)',
+          },
+        },
+        'fade-in-down': {
+          '0%': {
+            opacity: '0',
+            transform: 'translateY(-10px)',
+          },
+          '100%': {
+            opacity: '1',
+            transform: 'translateY(0)',
+          },
+        },
+        'fade-out-down': {
+          from: {
+            opacity: '1',
+            transform: 'translateY(0px)',
+          },
+          to: {
+            opacity: '0',
+            transform: 'translateY(10px)',
+          },
+        },
+        'fade-in-up': {
+          '0%': {
+            opacity: '0',
+            transform: 'translateY(10px)',
+          },
+          '100%': {
+            opacity: '1',
+            transform: 'translateY(0)',
+          },
+        },
+        'fade-out-up': {
+          from: {
+            opacity: '1',
+            transform: 'translateY(0px)',
+          },
+          to: {
+            opacity: '0',
+            transform: 'translateY(10px)',
+          },
         },
       },
       animation: {
-        'spin-roll': 'roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite',
+        roll: 'roll 3s',
+        wiggle: 'wiggle 1s ease-in-out infinite',
+        'fade-in-down': 'fade-in-down 0.5s ease-out',
+        'fade-out-down': 'fade-out-down 0.5s ease-out',
+        'fade-in-up': 'fade-in-up 0.5s ease-out',
+        'fade-out-up': 'fade-out-up 0.5s ease-out',
       },
       transformOrigin: {
         spin: '40px 40px',

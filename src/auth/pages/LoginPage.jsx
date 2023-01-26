@@ -1,6 +1,6 @@
 import { AuthLayout } from '../layout/AuthLayout';
 import { useForm } from 'react-hook-form';
-import { LoginPassIcon, LoginGithubIcon, LoginGoogleIcon } from '../icons';
+import { LoginPassIcon, LoginGoogleIcon } from '../icons';
 import { Link } from 'react-router-dom';
 import { LoginEmailIcon } from '../icons/index';
 import { Button, Spinner } from '../components';
@@ -11,7 +11,6 @@ export const LoginPage = () => {
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
   } = useForm({
     defaultValues: { email: '', password: '' },
@@ -22,10 +21,6 @@ export const LoginPage = () => {
   const onSubmit = data => {};
 
   const dispatch = useDispatch();
-
-  const onGithubLogin = () => {
-    console.log('onGithub');
-  };
 
   const onGoogleLogin = e => {
     e.preventDefault();
@@ -38,7 +33,7 @@ export const LoginPage = () => {
 
   return (
     <AuthLayout>
-      <div className="w-10/12 rounded-3xl bg-white shadow-3xl lg:w-6/12 lg:min-w-[812px]">
+      <div className="w-10/12 animate-fade-in-down rounded-3xl bg-white shadow-3xl lg:w-6/12 lg:min-w-[812px]">
         <form
           className="p-12 md:p-24"
           onSubmit={handleSubmit(onSubmit)}>
@@ -97,12 +92,6 @@ export const LoginPage = () => {
                 text="Login with Google"
                 onClick={onGoogleLogin}>
                 <LoginGoogleIcon className="mr-4" />
-              </Button>
-
-              <Button
-                text="Login with Github"
-                onClick={onGithubLogin}>
-                <LoginGithubIcon className="mr-4" />
               </Button>
 
               <Link

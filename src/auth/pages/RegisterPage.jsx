@@ -1,55 +1,77 @@
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { AuthLayout } from '../layout/AuthLayout';
 import { useForm } from 'react-hook-form';
-import { LoginPassIcon } from '../icons';
 import { Link, useNavigate } from 'react-router-dom';
-import { LoginEmailIcon, LoginUserIcon, LoginWarningIcon } from '../icons';
-import { Button } from '../components/Button';
+import { LoginEmailIcon, LoginUserIcon, LoginWarningIcon, LoginPassIcon } from '../icons';
+import { Button, Spinner } from '../components';
 import { startCreatingUserWithEmailPassword } from '@/store/auth/thunks';
-import { useEffect, useMemo, useState } from 'react';
-import { Spinner } from '../components/Spinner';
+import Swal from 'sweetalert2';
+import { logout } from '@/store/auth/authSlice';
 
 export const RegisterPage = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { status, errorMessage = null, accountCreated = false } = useSelector(state => state.auth);
+  const { status, errorMessage = null } = useSelector(state => state.auth);
 
   const {
     register,
     handleSubmit,
-    formState: { errors = '', isSubmitting },
+    formState: { errors = '', submitCount },
     setError,
     clearErrors,
     setFocus,
   } = useForm({
-    defaultValues: { email: '', password: '' },
+    defaultValues: { displayName: '', email: '', password: '' },
   });
 
-  const isAccountCreated = useMemo(() => accountCreated === true, [isSubmitting]);
+  useEffect(() => {
+    if (errorMessage) {
+      handleError(errorMessage);
+      console.log(errors);
+      return;
+    }
+
+    if (status === 4) {
+      dispatch(logout());
+      let timerInterval;
+      Swal.fire({
+        title: 'Account created successfully',
+        icon: 'success',
+        html: 'You will be redirected to login page in <b></b> seconds.',
+        timer: 5000,
+        timerProgressBar: true,
+        didOpen: () => {
+          Swal.showLoading();
+          const b = Swal.getHtmlContainer().querySelector('b');
+          timerInterval = setInterval(() => {
+            b.textContent = Math.round(Swal.getTimerLeft() / 1000);
+          }, 100);
+        },
+        willClose: () => {
+          clearInterval(timerInterval);
+        },
+      });
+      setTimeout(() => {
+        navigate('/auth/');
+      }, 5000);
+    }
+  }, [submitCount]);
 
   const handleError = error => {
-    if (error.includes('email-already-in-use')) {
+    if (error?.includes('email-already-in-use')) {
       setError('email', { type: 'custom', message: 'Email already in use' });
       setFocus('email');
     }
   };
 
-  const onSubmit = (data, e) => {
-    dispatch(startCreatingUserWithEmailPassword(data));
-
-    if (isAccountCreated === false) {
-      handleError(errorMessage);
-      return;
-    }
-
-    setTimeout(() => {
-      navigate('/auth/');
-    }, 3000);
+  const onSubmit = async data => {
+    await dispatch(startCreatingUserWithEmailPassword(data));
   };
 
   return (
     <AuthLayout>
-      <div className="w-10/12 rounded-3xl bg-white shadow-3xl  lg:w-6/12 lg:min-w-[812px]">
+      <div className="w-10/12 animate-fade-in-down rounded-3xl bg-white shadow-3xl lg:w-6/12 lg:min-w-[812px]">
         <form
           className="p-12 md:p-24"
           onSubmit={handleSubmit(onSubmit)}>
@@ -60,7 +82,8 @@ export const RegisterPage = () => {
               type="text"
               placeholder="Full name"
               autoComplete="name"
-              name="displayName"
+              name="name"
+              aria-invalid={errors.name ? 'true' : 'false'}
               {...register('name', {
                 required: 'Full name is required',
                 minLength: {
@@ -70,7 +93,13 @@ export const RegisterPage = () => {
               })}
             />
           </div>
-          {errors.name && <small className="relative bottom-7 left-2 text-red-600">{errors.name.message}</small>}
+          {errors.name && (
+            <small
+              className="relative bottom-7 left-2 text-red-600"
+              role="alert">
+              {errors.name.message}
+            </small>
+          )}
 
           {/* Email input */}
           <div className="mb-6 flex items-center text-lg md:mb-8">
@@ -80,7 +109,7 @@ export const RegisterPage = () => {
               placeholder="Email"
               type="email"
               autoComplete="email"
-              onChange={() => clearErrors()}
+              aria-invalid={errors.email ? 'true' : 'false'}
               {...register('email', {
                 required: 'Email is required',
                 pattern: {
@@ -92,7 +121,11 @@ export const RegisterPage = () => {
             />
           </div>
           {errors.email?.type !== 'custom' && (
-            <small className=" relative bottom-7 left-2 text-red-600">{errors.email?.message}</small>
+            <small
+              className=" relative bottom-7 left-2 text-red-600"
+              role="alert">
+              {errors.email?.message}
+            </small>
           )}
 
           {/* Password Input */}
@@ -103,6 +136,7 @@ export const RegisterPage = () => {
               type="password"
               placeholder="Password"
               autoComplete="current-password"
+              aria-invalid={errors.password ? 'true' : 'false'}
               onKeyDown={e => (e.code === 'Space' ? e.preventDefault() : '')}
               {...register('password', {
                 required: 'Password is required',
@@ -114,7 +148,11 @@ export const RegisterPage = () => {
             />
           </div>
           {errors.password && (
-            <small className="relative bottom-7 left-2 text-red-600">{errors.password.message}</small>
+            <small
+              className="relative bottom-7 left-2 text-red-600"
+              role="alert">
+              {errors.password.message}
+            </small>
           )}
 
           {status !== 2 ? (
@@ -128,7 +166,11 @@ export const RegisterPage = () => {
           {errors.email?.type === 'custom' && (
             <div className="mx-auto mt-4 flex h-12 w-80 items-center justify-center rounded-xl border-2 border-solid border-red-600 bg-red-200 text-center text-red-600">
               <LoginWarningIcon className="text-lg" />
-              <p className="font-bold">{errors.email?.message}</p>
+              <p
+                className="font-bold"
+                role="alert">
+                {errors.email?.message}
+              </p>
             </div>
           )}
 
