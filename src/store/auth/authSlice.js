@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 export const authSlice = createSlice({
   name: 'auth',
   initialState: {
-    status: 1, //* 1 : not-authenticated, 2: checking, 3: authenticated, 4: account created
+    status: 2, //* 1 : not-authenticated, 2: checking, 3: authenticated, 4: account created
     email: null,
     uid: null,
     logged: false,
@@ -33,7 +33,7 @@ export const authSlice = createSlice({
     checkingCredentials: state => {
       state.status = 2;
     },
-    accountCreatedSuccesfully: (state) => {
+    accountCreatedSuccesfully: state => {
       state.status = 4;
       state.errorMessage = null;
     },

@@ -10,13 +10,14 @@ module.exports = {
         sans: ['Kumbh Sans', ...defaultTheme.fontFamily.sans],
       },
       fontSize: {
-        sm: ['14px', '20px'],
-        base: ['16px', '24px'],
-        lg: ['20px', '28px'],
-        xl: ['24px', '32px'],
+        sm: ['.875rem', '1.25rem'],
+        base: ['1rem', '1.5rem'],
+        lg: ['1.25rem', '1.75rem'],
+        xl: ['1.5rem', '2rem'],
       },
       screens: {
-        sm: '375px',
+        xs: '375px',
+        sm: '640px',
         md: '768px',
         lg: '976px',
         xl: '1440px',
@@ -48,6 +49,16 @@ module.exports = {
 
           '100%': {
             transform: 'translateX(0%)',
+          },
+        },
+
+        spin: {
+          '0%': {
+            transform: 'rotate(-360deg)',
+          },
+
+          '100%': {
+            transform: 'rotate(360deg)',
           },
         },
         wiggle: {
@@ -100,6 +111,7 @@ module.exports = {
         },
       },
       animation: {
+        spin: 'spin 2s linear infinite',
         roll: 'roll 3s',
         wiggle: 'wiggle 1s ease-in-out infinite',
         'fade-in-down': 'fade-in-down 0.5s ease-out',

@@ -5,11 +5,10 @@ import { Link, useNavigate } from 'react-router-dom';
 import { startCreatingUserWithEmailPassword } from '@/store/auth/thunks';
 import Swal from 'sweetalert2';
 import { AuthLayout } from '../layout/AuthLayout';
-import { LoginEmailIcon, LoginUserIcon, LoginWarningIcon, LoginPassIcon } from '../icons';
+import { LoginEmailIcon, LoginUserIcon, LoginPassIcon } from '../icons';
 import { logout } from '@/store/auth/authSlice';
 import { Button, Spinner } from '../components';
 import { ErrorMessage } from '../components/ErrorMessage';
-import { useHandlerError } from '../hooks/useHandlerError';
 
 export const RegisterPage = () => {
   const dispatch = useDispatch();
@@ -41,7 +40,6 @@ export const RegisterPage = () => {
   useEffect(() => {
     if (errorMessage) {
       handleError(errorMessage);
-      console.log(errors);
       return;
     }
 

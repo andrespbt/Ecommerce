@@ -1,9 +1,9 @@
-import { Header } from '../components/menu/Header';
+import { Header } from '../components/header/Header';
 
 export const EcommerceLayout = ({ children }) => {
   return (
     <>
-      <div className="px-20 py-5">
+      <div>
         <Header />
         {children}
       </div>
