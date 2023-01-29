@@ -6,9 +6,6 @@ module.exports = {
   content: ['./index.html', './src/**/*.{html,js,ts,jsx,tsx}', './node_modules/tw-elements/dist/js/**/*.js'],
   theme: {
     extend: {
-      fontFamily: {
-        sans: ['Kumbh Sans', ...defaultTheme.fontFamily.sans],
-      },
       fontSize: {
         sm: ['.875rem', '1.25rem'],
         base: ['1rem', '1.5rem'],
@@ -19,7 +16,7 @@ module.exports = {
         xs: '375px',
         sm: '640px',
         md: '768px',
-        lg: '976px',
+        lg: '1200px',
         xl: '1440px',
       },
       colors: {
@@ -31,11 +28,40 @@ module.exports = {
         grayBlue: '#b6bcc8',
         lightGrayBlue: '#f7f8fd',
         white: '#fff',
+        darkGray: '#2D2D2D',
+        lightGray: '#535051',
       },
       boxShadow: {
         '3xl': '-3px 10px 24px 0px rgba(0,0,0,0.69);',
       },
       keyframes: {
+        dropDown: {
+          '0%': {
+            display: 'inline-block',
+            heigth: '100px',
+          },
+
+          '50%': {
+            display: 'inline-block',
+            heigth: '211px',
+          },
+
+          '100%': {
+            display: 'inline-block',
+            heigth: '211px',
+          },
+        },
+        fadeOut: {
+          0: {},
+        },
+        'fade-in': {
+          '0%': {
+            opacity: '0',
+          },
+          '100%': {
+            opacity: '1',
+          },
+        },
         roll: {
           '0%': {
             transform: 'rotate(360deg)',
@@ -111,6 +137,7 @@ module.exports = {
         },
       },
       animation: {
+        'fade-in': 'fade-in 0.5s ease-in',
         spin: 'spin 2s linear infinite',
         roll: 'roll 3s',
         wiggle: 'wiggle 1s ease-in-out infinite',

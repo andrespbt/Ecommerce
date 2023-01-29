@@ -1,3 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  header {
+    font-family: 'Bitter', serif;
+  }
+
+  html {
+    font-family: 'Lato', sans-serif;
+  }
+
+  .active {
+    background-color: #535051;
+  }
+}
