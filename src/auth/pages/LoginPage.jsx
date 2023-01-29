@@ -4,10 +4,9 @@ import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 import { startGoogleLogin, startLoginWithEmailPassword } from '@/store/auth/thunks';
 import { AuthLayout } from '../layout/AuthLayout';
-import { Button, Spinner, ErrorMessage } from '../components';
+import { Button, Spinner, ErrorMessage, SmallErrorMessage } from '../components';
 import { useHandlerError } from '../hooks/useHandlerError';
-import { LoginPassIcon, LoginGoogleIcon } from '../icons';
-import { LoginEmailIcon } from '../icons';
+import { LoginPassIcon, LoginGoogleIcon, LoginEmailIcon } from '../icons';
 
 export const LoginPage = () => {
   const {
@@ -49,15 +48,15 @@ export const LoginPage = () => {
 
   return (
     <AuthLayout>
-      <div className="mt-10 w-10/12 animate-fade-in-down rounded-3xl bg-white shadow-3xl md:mt-16 lg:w-6/12 lg:min-w-[812px]">
+      <div className="mt-10 w-10/12 min-w-[400px] max-w-[400px] animate-fade-in-down rounded-3xl bg-white shadow-3xl sm:min-w-[620px] md:mt-16 md:w-[812px] md:max-w-[812px] lg:w-6/12 lg:min-w-[812px]">
         <form
-          className="p-12 md:p-24"
+          className="p-12 sm:p-24"
           onSubmit={handleSubmit(onSubmit)}>
           {/* Email input */}
-          <div className="mb-6 flex items-center text-lg md:mb-8">
+          <div className="mb-6 flex items-center text-lg sm:mb-8">
             <LoginEmailIcon />
             <input
-              className="w-full rounded-2xl bg-gray-200 py-2 pl-10 text-sm focus:outline-none focus:ring focus:ring-darkPaleOrange focus:placeholder:text-transparent md:py-4 md:pl-12 md:text-xl"
+              className="w-full max-w-[620px] rounded-2xl bg-gray-200 py-2 pl-10 text-sm focus:outline-none focus:ring focus:ring-gray-300 focus:placeholder:text-transparent sm:py-4 sm:pl-12 sm:text-xl"
               placeholder="Email"
               type="email"
               autoComplete="email"
@@ -73,15 +72,13 @@ export const LoginPage = () => {
               })}
             />
           </div>
-          {errors.email?.type !== 'custom' && (
-            <small className=" relative bottom-7 left-2 text-red-600">{errors.email?.message}</small>
-          )}
+          {errors.email?.type !== 'custom' && <SmallErrorMessage message={errors.email?.message} />}
 
           {/* Password Input */}
-          <div className="mb-6 flex items-center text-lg md:mb-8">
+          <div className="mb-6 flex items-center text-lg sm:mb-8">
             <LoginPassIcon />
             <input
-              className="w-full rounded-2xl bg-gray-200 py-2 pl-10 text-sm  focus:border focus:outline-none focus:ring focus:ring-darkPaleOrange focus:placeholder:text-transparent md:py-4 md:pl-12 md:text-xl "
+              className="w-full max-w-[620px] rounded-2xl bg-gray-200 py-2 pl-10 text-sm  focus:border focus:outline-none focus:ring focus:ring-gray-300 focus:placeholder:text-transparent sm:py-4 sm:pl-12 sm:text-xl "
               type="password"
               placeholder="Password"
               autoComplete="current-password"
@@ -97,9 +94,7 @@ export const LoginPage = () => {
               })}
             />
           </div>
-          {errors.password?.type !== 'custom' && (
-            <small className="relative bottom-7 left-2 text-red-600">{errors.password?.message}</small>
-          )}
+          {errors.password?.type !== 'custom' && <SmallErrorMessage message={errors.password?.message} />}
 
           {/* Buttons dissapear when status 2 = checkingAuth */}
 
@@ -124,7 +119,7 @@ export const LoginPage = () => {
           {errors.password?.type === 'custom' && <ErrorMessage message={errors.password?.message} />}
 
           <Link
-            className="mt-5 block text-center text-sm text-gray-400 underline hover:text-gray-300 md:text-lg"
+            className="mt-5 block text-center text-sm text-gray-400 underline hover:text-gray-300 sm:text-lg"
             to="/auth/register">
             Create an account
           </Link>

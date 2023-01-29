@@ -1,6 +1,7 @@
 import { useSelector } from 'react-redux';
 import { NavHeartIcon, NavSearchIcon, NavShopIcon, NavUserIcon } from '@/ecommerce/icons/header';
 import { NavCaretUpIcon } from '@/ecommerce/icons/header/NavCaretUpIcon';
+import { Link } from 'react-router-dom';
 
 export const RightNavBar = () => {
   const { status } = useSelector(state => state.auth);
@@ -9,9 +10,9 @@ export const RightNavBar = () => {
     <div className="ml-3 flex h-full w-40 items-center justify-between gap-3 text-xl md:justify-evenly xl:basis-1/6 xl:justify-start xl:gap-8">
       <NavSearchIcon className="h-[1.4em] w-[1.4em] fill-white stroke-[0.1px] hover:cursor-pointer sm:hidden " />
       <div className="inline-block h-full">
-        <div className="relative flex h-full items-center">
-          <div className="peer/user absolute h-full w-full"></div>
-          <NavUserIcon className="h-[1.6em] w-[1.6em] items-center fill-white stroke-[0.1px] md:h-[1.8em] md:w-[1.8em]" />
+        <div className="relative flex h-full items-center hover:cursor-pointer">
+          <NavUserIcon className="peer h-[1.6em] w-[1.6em] items-center fill-white stroke-[0.1px] hover:cursor-pointer md:h-[1.8em] md:w-[1.8em]" />
+          <div className="peer/user right-30 absolute top-0 h-[96px] w-10 peer-hover:block"></div>
           {/* User menu on hover */}
 
           <div className="absolute left-[-127px] top-[25px] hidden h-fit w-72 animate-fade-in overflow-hidden bg-transparent md:top-[65px] md:left-[-120px] md:hover:inline-block md:peer-hover/user:inline">

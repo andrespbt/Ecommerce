@@ -7,8 +7,7 @@ import Swal from 'sweetalert2';
 import { AuthLayout } from '../layout/AuthLayout';
 import { LoginEmailIcon, LoginUserIcon, LoginPassIcon } from '../icons';
 import { logout } from '@/store/auth/authSlice';
-import { Button, Spinner } from '../components';
-import { ErrorMessage } from '../components/ErrorMessage';
+import { Button, Spinner, ErrorMessage, SmallErrorMessage } from '../components';
 
 export const RegisterPage = () => {
   const dispatch = useDispatch();
@@ -82,14 +81,14 @@ export const RegisterPage = () => {
 
   return (
     <AuthLayout>
-      <div className="mt-20 w-10/12 animate-fade-in-down rounded-3xl bg-white shadow-3xl md:mt-16 lg:w-6/12 lg:min-w-[812px]">
+      <div className="mt-20 w-10/12 min-w-[400px] max-w-[400px] animate-fade-in-down rounded-3xl bg-white shadow-3xl sm:min-w-[620px] md:mt-16  md:w-[812px] md:max-w-[812px] lg:w-6/12 lg:min-w-[812px]">
         <form
-          className="p-12 md:p-24"
+          className="p-12 sm:p-24"
           onSubmit={handleSubmit(onSubmit)}>
-          <div className="mb-6 flex items-center text-lg md:mb-8">
+          <div className="mb-6 flex items-center text-lg sm:mb-8">
             <LoginUserIcon />
             <input
-              className="w-full rounded-2xl bg-gray-200 py-2 pl-10 text-sm  focus:outline-none focus:ring  focus:ring-darkPaleOrange focus:placeholder:text-transparent md:py-4 md:pl-12 md:text-xl "
+              className="w-full max-w-[620px] rounded-2xl bg-gray-200 py-2 pl-10 text-sm  focus:outline-none focus:ring  focus:ring-gray-300  focus:placeholder:text-transparent sm:py-4 sm:pl-12 sm:text-xl "
               type="text"
               placeholder="Full name"
               autoComplete="name"
@@ -104,19 +103,13 @@ export const RegisterPage = () => {
               })}
             />
           </div>
-          {errors.displayName && (
-            <small
-              className="relative bottom-7 left-2 text-red-600"
-              role="alert">
-              {errors.displayName.message}
-            </small>
-          )}
+          {errors.displayName?.type !== 'custom' && <SmallErrorMessage message={errors.displayName?.message} />}
 
           {/* Email input */}
-          <div className="mb-6 flex items-center text-lg md:mb-8">
+          <div className="mb-6 flex items-center text-lg sm:mb-8">
             <LoginEmailIcon />
             <input
-              className="w-full rounded-2xl bg-gray-200 py-2 pl-12 text-sm focus:outline-none focus:ring focus:ring-darkPaleOrange focus:placeholder:text-transparent md:py-4 md:text-xl"
+              className="w-full max-w-[620px] rounded-2xl bg-gray-200 py-2 pl-12 text-sm focus:outline-none focus:ring focus:ring-gray-300  focus:placeholder:text-transparent sm:py-4 sm:text-xl"
               placeholder="Email"
               type="email"
               autoComplete="email"
@@ -131,19 +124,13 @@ export const RegisterPage = () => {
               })}
             />
           </div>
-          {errors.email?.type !== 'custom' && (
-            <small
-              className=" relative bottom-7 left-2 text-red-600"
-              role="alert">
-              {errors.email?.message}
-            </small>
-          )}
+          {errors.email?.type !== 'custom' && <SmallErrorMessage message={errors.email?.message} />}
 
           {/* Password Input */}
-          <div className="mb-6 flex items-center text-lg md:mb-8">
+          <div className="mb-6 flex items-center text-lg sm:mb-8">
             <LoginPassIcon />
             <input
-              className="w-full rounded-2xl bg-gray-200 py-2 pl-12 text-sm focus:outline-none focus:ring focus:ring-darkPaleOrange focus:placeholder:text-transparent md:py-4 md:text-xl "
+              className="w-full max-w-[620px] rounded-2xl bg-gray-200 py-2 pl-12 text-sm focus:outline-none focus:ring focus:ring-gray-300 focus:placeholder:text-transparent sm:py-4 sm:text-xl "
               type="password"
               placeholder="Password"
               autoComplete="current-password"
@@ -158,13 +145,7 @@ export const RegisterPage = () => {
               })}
             />
           </div>
-          {errors.password && (
-            <small
-              className="relative bottom-7 left-2 text-red-600"
-              role="alert">
-              {errors.password.message}
-            </small>
-          )}
+          {errors.password?.type !== 'custom' && <SmallErrorMessage message={errors.password?.message} />}
 
           {status !== 2 ? (
             <Button
@@ -177,7 +158,7 @@ export const RegisterPage = () => {
           {errors.email?.type === 'custom' && <ErrorMessage message={errors.email.message} />}
 
           <Link
-            className="mt-5 block text-center text-sm text-gray-400 underline hover:text-gray-300 md:text-lg"
+            className="mt-5 block text-center text-sm text-gray-400 underline hover:text-gray-300 sm:text-lg"
             to="/auth/login">
             Already have an account ? Login
           </Link>

@@ -5,24 +5,16 @@ import { CheckingAuth } from '@/ui/components/CheckingAuth';
 import { createBrowserRouter, RouterProvider, Navigate } from 'react-router-dom';
 
 export const AppRouter = () => {
-  const status = useCheckAuth();
-
-  const isAuthenticated = status === 1;
-
-  if (status === 2) {
-    return <CheckingAuth />;
-  }
-
   const router = createBrowserRouter([
     {
       path: '/auth/*',
-      element: isAuthenticated ? <Navigate to="/" /> : <AuthRoutes />,
+      element: <AuthRoutes />,
       children: childAuthRoutes,
     },
 
     {
       path: '/',
-      element: isAuthenticated ? <EcommerceRoutes /> : <Navigate to="/auth/login" />,
+      element: <EcommerceRoutes />,
       children: childEcommerceRoutes,
     },
   ]);

@@ -1,12 +1,14 @@
+import { useEffect, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
-import { NavHamburgerIcon } from '../../icons/header';
-import { NavSearchIcon } from '@/ecommerce/icons/header/index';
+import { NavSearchIcon } from '../../icons/header';
 import logo from '../../../assets/images/logo.svg';
+import { MenuModal } from './index';
 
 export const LeftNavBar = () => {
   return (
     <div className="w-30 flex h-full flex-nowrap items-center justify-center gap-5 sm:grow sm:justify-start md:ml-0 md:h-full md:gap-0 md:text-center xl:mr-10 xl:max-w-7xl">
-      <NavHamburgerIcon className="h-[2.5em] w-[2.5em] min-w-[40px] fill-white sm:basis-1/12 md:hidden" />
+
+      <MenuModal/>
 
       <Link
         to="/"

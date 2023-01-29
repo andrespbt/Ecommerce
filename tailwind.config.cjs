@@ -35,20 +35,12 @@ module.exports = {
         '3xl': '-3px 10px 24px 0px rgba(0,0,0,0.69);',
       },
       keyframes: {
-        dropDown: {
+        slideInLeft: {
           '0%': {
-            display: 'inline-block',
-            heigth: '100px',
+            transform: 'translateX(-900px)',
           },
-
-          '50%': {
-            display: 'inline-block',
-            heigth: '211px',
-          },
-
           '100%': {
-            display: 'inline-block',
-            heigth: '211px',
+            transform: 'translateX(0)',
           },
         },
         fadeOut: {
@@ -85,14 +77,6 @@ module.exports = {
 
           '100%': {
             transform: 'rotate(360deg)',
-          },
-        },
-        wiggle: {
-          '0%, 100%': {
-            transform: 'rotate(-3deg)',
-          },
-          '50%': {
-            transform: 'rotate(3deg)',
           },
         },
         'fade-in-down': {
@@ -137,10 +121,10 @@ module.exports = {
         },
       },
       animation: {
+        slideInLeft: 'slideInLeft 0.2s linear',
         'fade-in': 'fade-in 0.5s ease-in',
         spin: 'spin 2s linear infinite',
         roll: 'roll 3s',
-        wiggle: 'wiggle 1s ease-in-out infinite',
         'fade-in-down': 'fade-in-down 0.5s ease-out',
         'fade-out-down': 'fade-out-down 0.5s ease-out',
         'fade-in-up': 'fade-in-up 0.5s ease-out',
