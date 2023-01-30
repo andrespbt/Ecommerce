@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
-import { startGoogleLogin, startLoginWithEmailPassword } from '@/store/auth/thunks';
+import { Link, useNavigate } from 'react-router-dom';
+import { startAnonymusLogin, startGoogleLogin, startLoginWithEmailPassword } from '@/store/auth/thunks';
 import { AuthLayout } from '../layout/AuthLayout';
 import { Button, Spinner, ErrorMessage, SmallErrorMessage } from '../components';
 import { useHandlerError } from '../hooks/useHandlerError';
@@ -20,18 +20,17 @@ export const LoginPage = () => {
   } = useForm({
     defaultValues: { email: '', password: '' },
   });
+  const { status } = useSelector(state => state.auth);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   useHandlerError(setError, submitCount, setFocus);
-
-  const { status } = useSelector(state => state.auth);
 
   useEffect(() => {
     if (errors.email?.type === 'custom' || errors.password?.type === 'custom') {
       clearErrors();
     }
   }, [watch('email'), watch('password')]);
-
-  const dispatch = useDispatch();
 
   const onSubmit = (data, e) => {
     e.preventDefault();
@@ -44,6 +43,18 @@ export const LoginPage = () => {
   const onGoogleLogin = e => {
     e.preventDefault();
     dispatch(startGoogleLogin());
+  };
+
+  const onAnonymousLogin = async e => {
+    e.preventDefault();
+    if (status === 5) {
+      navigate('/');
+      window.location.reload();
+    } else {
+      await dispatch(startAnonymusLogin());
+      navigate('/');
+      window.location.reload();
+    }
   };
 
   return (
@@ -105,10 +116,14 @@ export const LoginPage = () => {
                 type="submit"></Button>
 
               <Button
-                text="Login with Google"
+                text="Google Login"
                 onClick={onGoogleLogin}>
                 <LoginGoogleIcon />
               </Button>
+
+              <Button
+                text="Anonymous Login "
+                onClick={onAnonymousLogin}></Button>
             </>
           ) : (
             <Spinner />

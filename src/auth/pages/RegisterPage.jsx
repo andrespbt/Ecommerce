@@ -43,7 +43,6 @@ export const RegisterPage = () => {
     }
 
     if (status === 4) {
-      dispatch(logout());
       let timerInterval;
       Swal.fire({
         title: 'Account created successfully',
@@ -63,7 +62,7 @@ export const RegisterPage = () => {
         },
       });
       setTimeout(() => {
-        navigate('/auth/');
+        navigate('/auth/login');
       }, 5000);
     }
   }, [submitCount]);

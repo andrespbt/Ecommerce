@@ -35,6 +35,14 @@ module.exports = {
         '3xl': '-3px 10px 24px 0px rgba(0,0,0,0.69);',
       },
       keyframes: {
+        slideOutLeft: {
+          '0%': {
+            transform: 'translateX(0)',
+          },
+          '100%': {
+            transform: 'translateX(-900px)',
+          },
+        },
         slideInLeft: {
           '0%': {
             transform: 'translateX(-900px)',
@@ -121,6 +129,7 @@ module.exports = {
         },
       },
       animation: {
+        slideOutLeft: 'slideOutLeft 0.2s linear',
         slideInLeft: 'slideInLeft 0.2s linear',
         'fade-in': 'fade-in 0.5s ease-in',
         spin: 'spin 2s linear infinite',

@@ -1,10 +1,25 @@
-import { useSelector } from 'react-redux';
-import { NavHeartIcon, NavSearchIcon, NavShopIcon, NavUserIcon } from '@/ecommerce/icons/header';
-import { NavCaretUpIcon } from '@/ecommerce/icons/header/NavCaretUpIcon';
-import { Link } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { Link, useNavigate } from 'react-router-dom';
+import { startLogOut } from '@/store/auth/thunks';
+import { logout } from '@/store/auth/authSlice';
+import { NavHeartIcon, NavSearchIcon, NavShopIcon, NavUserIcon, NavCaretUpIcon } from '@/ecommerce/icons/header';
 
 export const RightNavBar = () => {
   const { status } = useSelector(state => state.auth);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const onLogOut = () => {
+    dispatch(startLogOut());
+  };
+
+  const onSignIn = e => {
+    if (e.target.innerText.includes('Join')) {
+      navigate('/auth/register');
+    } else {
+      navigate('/auth/login');
+    }
+  };
 
   return (
     <div className="ml-3 flex h-full w-40 items-center justify-between gap-3 text-xl md:justify-evenly xl:basis-1/6 xl:justify-start xl:gap-8">
@@ -17,13 +32,25 @@ export const RightNavBar = () => {
 
           <div className="absolute left-[-127px] top-[25px] hidden h-fit w-72 animate-fade-in overflow-hidden bg-transparent md:top-[65px] md:left-[-120px] md:hover:inline-block md:peer-hover/user:inline">
             <NavCaretUpIcon className="relative left-[127px] top-3 h-fit animate-fade-in fill-gray-200 peer-hover/user:inline peer-hover/menu:inline" />
-            <div className="flex h-14 items-center justify-center bg-gray-200">
-              <span className="w-full border-r-2 border-r-gray-400 text-center text-base text-gray-400 hover:cursor-pointer hover:underline">
+            <div
+              className={`${
+                status === 3 ? 'table w-full text-center' : 'flex'
+              } h-14 items-center justify-center bg-gray-200`}>
+              <Link
+                onClick={status === 3 ? onLogOut : ''}
+                to={'/auth/login'}
+                className={`w-full ${
+                  status === 3
+                    ? 'table-cell border-none align-middle text-lg'
+                    : 'border-r-2 border-r-gray-400 text-base'
+                } text-center  text-gray-400 hover:cursor-pointer hover:underline`}>
                 {status === 3 ? 'Logout' : 'Sign In'}
-              </span>
-              <span className="w-full text-center text-base text-gray-400 hover:cursor-pointer hover:underline ">
+              </Link>
+              <Link
+                to={'/auth/register'}
+                className="w-full text-center text-base text-gray-400 hover:cursor-pointer hover:underline ">
                 {status === 3 ? '' : 'Join'}
-              </span>
+              </Link>
             </div>
 
             <div className="bg-gray-5 grid grid-cols-10 grid-rows-5 bg-gray-50">
