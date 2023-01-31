@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
+import { Transition } from '@headlessui/react';
 import { NavHamburgerIcon } from '@/ecommerce/icons/header/index';
 import AddUserImage from '@/assets/images/addPhotoUser.png';
 import { ItemListMenuModal } from './ItemListMenuModal';
@@ -14,13 +15,24 @@ export const MenuModal = () => {
         className="h-[2.5em] w-[2.5em] min-w-[40px] fill-white hover:cursor-pointer sm:basis-1/12 md:hidden"
         onClick={() => setIsMenuActive(!isMenuActive)}
       />
-      <div
+      <Transition
+        show={isMenuActive}
+        enter="transition-opacity ease-linear duration-300"
+        enterFrom="opacity-0"
+        enterTo="opacity-100"
+        leave="transition-opacity ease-linear duration-300"
+        leaveFrom="opacity-100"
+        leaveTo="opacity-0"
         onClick={() => setIsMenuActive(false)}
-        className={`absolute left-0 top-0 z-10 h-screen w-full bg-black/40 md:hidden ${
-          isMenuActive ? 'block' : 'hidden  '
-        } overflow-x-hidden overflow-y-hidden`}>
-        <div
-          className={`z-20 h-full w-80 animate-slideInLeft overflow-y-scroll bg-lightGrayBlue`}
+        className={`absolute left-0 top-0 z-10 h-screen w-full overflow-x-hidden overflow-y-hidden bg-black/40 md:hidden`}>
+        <Transition.Child
+          enter="transition ease-in-out duration-300 transform"
+          enterFrom="-translate-x-full"
+          enterTo="translate-x-0"
+          leave="transition ease-in-out duration-300 transform"
+          leaveFrom="translate-x-0"
+          leaveTo="-translate-x-full"
+          className={`z-20 h-full w-80 overflow-y-scroll bg-lightGrayBlue`}
           onClick={e => e.stopPropagation()}>
           {/* Header menu */}
 
@@ -41,8 +53,8 @@ export const MenuModal = () => {
           <ItemListMenuModal />
 
           {/* Footer menu */}
-        </div>
-      </div>
+        </Transition.Child>
+      </Transition>
     </>
   );
 };
