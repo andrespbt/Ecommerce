@@ -1,9 +1,9 @@
 import { EcommerceLayout } from '../layout/EcommerceLayout';
 
-export const ContactPage = () => {
+export const HomePage = () => {
   return (
     <EcommerceLayout>
-      <h1>Contact</h1>
+      <h1>Home</h1>
     </EcommerceLayout>
   );
 };

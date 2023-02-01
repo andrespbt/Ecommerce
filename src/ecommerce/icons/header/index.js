@@ -6,3 +6,5 @@ export * from './NavUserIcon';
 export * from './NavCaretUpIcon';
 export * from './NavHamburgerIcon';
 export * from './NavLogoIcon';
+export * from './NavMenuModalCloseIcon';
+export * from './NavMenuModalArrowLeftIcon';

@@ -5,20 +5,9 @@ import Home from '@/assets/images/home.png';
 import Search from '@/assets/images/search.png';
 import Purchases from '@/assets/images/purchases.png';
 import Favorite from '@/assets/images/favorite.png';
-import { ItemListSubMenuMenModal, ItemListSubMenuWomenModal } from './index';
-import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
-export const ItemListMenuModal = () => {
-  const [isModalMenOpen, setIsModalMenOpen] = useState(false);
-  const [isModalWomenOpen, setIsModalWomenOpen] = useState(false);
-
-  const onModalMenClick = () => {
-    setIsModalMenOpen(!isModalMenOpen);
-  };
-  const onModalWomenClick = () => {
-    setIsModalWomenOpen(!isModalWomenOpen);
-  };
-
+export const ItemListMenuModal = ({ onModalMenClick, onModalWomenClick }) => {
   return (
     <ul className="px-6">
       <div
@@ -29,7 +18,6 @@ export const ItemListMenuModal = () => {
           image={ManModel}
           altImage="Men model"
         />
-        <ItemListSubMenuMenModal isModalMenOpen={isModalMenOpen} />
       </div>
       <div onClick={onModalWomenClick}>
         <ItemCardMenuModal
@@ -37,28 +25,40 @@ export const ItemListMenuModal = () => {
           image={WomanModel}
           altImage="Woman model"
         />
-        <ItemListSubMenuWomenModal isModalWomenOpen={isModalWomenOpen} />
       </div>
-      <ItemCardMenuModal
-        text="Home"
-        image={Home}
-        altImage="Home"
-      />
-      <ItemCardMenuModal
-        text="Search"
-        image={Search}
-        altImage="Search"
-      />
-      <ItemCardMenuModal
-        text="My purchases"
-        image={Purchases}
-        altImage="Purchases"
-      />
-      <ItemCardMenuModal
-        text="My Favorites"
-        image={Favorite}
-        altImage="Favorite"
-      />
+      <Link
+        to="/"
+        replace>
+        <ItemCardMenuModal
+          text="Home"
+          image={Home}
+          altImage="Home"
+        />
+      </Link>
+
+      <Link>
+        <ItemCardMenuModal
+          text="Search"
+          image={Search}
+          altImage="Search"
+        />
+      </Link>
+
+      <Link to="/purchases">
+        <ItemCardMenuModal
+          text="My purchases"
+          image={Purchases}
+          altImage="Purchases"
+        />
+      </Link>
+
+      <Link to="/favorites">
+        <ItemCardMenuModal
+          text="My Favorites"
+          image={Favorite}
+          altImage="Favorite"
+        />{' '}
+      </Link>
     </ul>
   );
 };

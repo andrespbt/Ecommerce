@@ -1,9 +1,9 @@
 import { EcommerceLayout } from '../layout/EcommerceLayout';
 
-export const CollectionsPage = () => {
+export const PurchasesPage = () => {
   return (
     <EcommerceLayout>
-      <h1>Collections</h1>
+      <div>Purchases</div>
     </EcommerceLayout>
   );
 };

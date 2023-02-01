@@ -7,8 +7,7 @@ import { MenuModal } from './index';
 export const LeftNavBar = () => {
   return (
     <div className="w-30 flex h-full flex-nowrap items-center justify-center gap-5 sm:grow sm:justify-start md:ml-0 md:h-full md:gap-0 md:text-center xl:mr-10 xl:max-w-7xl">
-
-      <MenuModal/>
+      <MenuModal />
 
       <Link
         to="/"
@@ -43,7 +42,7 @@ export const LeftNavBar = () => {
           placeholder="Search for items and brands"
         />
         <button>
-          <NavSearchIcon className="absolute top-[10px] right-3 mx-auto hidden h-[1.3em] w-[1.3em] fill-black text-center sm:inline md:top-[10.5px] lg:top-[.6em] lg:right-[1em] lg:h-[1.6em] lg:w-[1.6em]" />
+          <NavSearchIcon className="absolute top-[10px] right-3 mx-auto hidden h-[1.3em] w-[1.3em] fill-black stroke-black text-center sm:inline md:top-[10.5px] lg:top-[.6em] lg:right-[1em] lg:h-[1.6em] lg:w-[1.6em]" />
         </button>
       </div>
     </div>

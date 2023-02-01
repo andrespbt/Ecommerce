@@ -20,7 +20,7 @@ export const AppRouter = () => {
       path: '/auth/*',
       element:
         isAuthenticated || (isAnon && window.location.pathname.includes('auth/login')) ? (
-          <Navigate to="/" />
+          <Navigate to="/home" />
         ) : (
           <AuthRoutes />
         ),

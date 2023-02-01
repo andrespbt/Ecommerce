@@ -1,29 +1,34 @@
+import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { startLogOut } from '@/store/auth/thunks';
-import { logout } from '@/store/auth/authSlice';
 import { NavHeartIcon, NavSearchIcon, NavShopIcon, NavUserIcon, NavCaretUpIcon } from '@/ecommerce/icons/header';
+import { Search } from './index';
 
 export const RightNavBar = () => {
   const { status } = useSelector(state => state.auth);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
   const dispatch = useDispatch();
-  const navigate = useNavigate();
 
   const onLogOut = () => {
     dispatch(startLogOut());
   };
 
-  const onSignIn = e => {
-    if (e.target.innerText.includes('Join')) {
-      navigate('/auth/register');
-    } else {
-      navigate('/auth/login');
-    }
+  const onSearchClick = () => {
+    setIsSearchOpen(!isSearchOpen);
   };
 
   return (
     <div className="ml-3 flex h-full w-40 items-center justify-between gap-3 text-xl md:justify-evenly xl:basis-1/6 xl:justify-start xl:gap-8">
-      <NavSearchIcon className="h-[1.4em] w-[1.4em] fill-white stroke-[0.1px] hover:cursor-pointer sm:hidden " />
+      <NavSearchIcon
+        className="h-[1.4em] w-[1.4em] fill-white stroke-black stroke-[0.1px] hover:cursor-pointer sm:hidden"
+        onClick={onSearchClick}
+      />
+      <Search
+        setOpen={onSearchClick}
+        isOpen={isSearchOpen}
+      />
+
       <div className="inline-block h-full">
         <div className="relative flex h-full items-center hover:cursor-pointer">
           <NavUserIcon className="peer h-[1.6em] w-[1.6em] items-center fill-white stroke-[0.1px] hover:cursor-pointer md:h-[1.8em] md:w-[1.8em]" />
