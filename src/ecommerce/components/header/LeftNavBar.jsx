@@ -16,7 +16,7 @@ export const LeftNavBar = () => {
         to="/"
         className="min-w-[50px] sm:basis-1/12 md:relative md:mr-2 md:h-full md:w-10 md:basis-[10%] xl:mr-0">
         <img
-          className="pointer-events-none h-10 max-h-[50px] w-full min-w-[40px] max-w-[65px] md:absolute md:top-0 md:bottom-0 md:left-0 md:right-0 md:m-auto md:mr-2 md:h-full md:min-w-[65px]"
+          className="pointer-events-none h-10 max-h-[50px] w-full min-w-[40px] max-w-[65px] md:absolute md:top-0 md:bottom-0 md:left-0 md:right-0 md:m-auto md:mr-2 md:h-full md:min-w-[65px] xl:mr-8 xl:min-h-[60px] xl:min-w-[70px]"
           src={logo}
           alt="Logo"
         />
