@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
-import AddUserImage from '@/assets/images/addPhotoUser.png';
-import { NavMenuModalCloseIcon } from '@/ecommerce/icons/header';
+import AddUserImage from '../../../../assets/images/addPhotoUser.png';
+import { NavMenuModalCloseIcon } from '../../../icons/header';
 
 export const HeaderMenuModal = ({ onClick }) => {
   const { photoURL, displayName, logged } = useSelector(state => state.auth);

@@ -1,10 +1,10 @@
 import {
-  registerUserWithEmailPassword,
-  signUpWithGoogle,
   logInWithEmailPassword,
   logoutFirebase,
+  registerUserWithEmailPassword,
   signInAnon,
-} from '@/firebase/providers';
+  signUpWithGoogle,
+} from '../../firebase/providers';
 import { accountCreatedSuccesfully, checkingCredentials, login, logout } from './authSlice';
 
 export const startGoogleLogin = () => {

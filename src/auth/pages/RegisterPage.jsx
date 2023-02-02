@@ -2,12 +2,11 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
-import { startCreatingUserWithEmailPassword } from '@/store/auth/thunks';
 import Swal from 'sweetalert2';
 import { AuthLayout } from '../layout/AuthLayout';
 import { LoginEmailIcon, LoginUserIcon, LoginPassIcon } from '../icons';
-import { logout } from '@/store/auth/authSlice';
 import { Button, Spinner, ErrorMessage, SmallErrorMessage } from '../components';
+import { startCreatingUserWithEmailPassword } from '../../store/auth';
 
 export const RegisterPage = () => {
   const dispatch = useDispatch();

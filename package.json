@@ -9,9 +9,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@reduxjs/toolkit": "^1.9.1",
+    "@headlessui/react": "^1.7.8",
+    "@reduxjs/toolkit": "^1.9.2",
     "firebase": "^9.16.0",
     "install": "^0.13.0",
+    "query-string": "^8.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.42.1",

@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { Transition } from '@headlessui/react';
-import { NavHamburgerIcon } from '@/ecommerce/icons/header/index';
 import { ItemListMenuModal } from './ItemListMenuModal';
 import { HeaderMenuModal } from './HeaderMenuModal';
 import { MenCategoryListMenuModal } from './MenCategoryListMenuModal';
 import { WomenCategoryListMenuModal } from './WomenCategoryListMenuModal';
+import { NavHamburgerIcon } from '../../../icons/header';
 
 export const MenuModal = () => {
   const [isMenuActive, setIsMenuActive] = useState(false);

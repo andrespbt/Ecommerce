@@ -1,10 +1,10 @@
 import { ItemCardMenuModal } from './ItemCardMenuModal';
-import ManModel from '@/assets/images/man-model.png';
-import WomanModel from '@/assets/images/woman-model.png';
-import Home from '@/assets/images/home.png';
-import Search from '@/assets/images/search.png';
-import Purchases from '@/assets/images/purchases.png';
-import Favorite from '@/assets/images/favorite.png';
+import ManModel from '../../../../assets/images/man-model.png';
+import WomanModel from '../../../../assets/images/woman-model.png';
+import Home from '../../../../assets/images/home.png';
+import Search from '../../../../assets/images/search.png';
+import Purchases from '../../../../assets/images/purchases.png';
+import Favorite from '../../../../assets/images/favorite.png';
 import { Link } from 'react-router-dom';
 
 export const ItemListMenuModal = ({ onModalMenClick, onModalWomenClick }) => {

@@ -2,11 +2,11 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
-import { startAnonymusLogin, startGoogleLogin, startLoginWithEmailPassword } from '@/store/auth/thunks';
 import { AuthLayout } from '../layout/AuthLayout';
 import { Button, Spinner, ErrorMessage, SmallErrorMessage } from '../components';
 import { useHandlerError } from '../hooks/useHandlerError';
 import { LoginPassIcon, LoginGoogleIcon, LoginEmailIcon } from '../icons';
+import { startAnonymusLogin, startGoogleLogin, startLoginWithEmailPassword } from '../../store/auth';
 
 export const LoginPage = () => {
   const {

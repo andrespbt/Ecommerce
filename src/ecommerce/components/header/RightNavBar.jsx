@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { startLogOut } from '@/store/auth/thunks';
-import { NavHeartIcon, NavSearchIcon, NavShopIcon, NavUserIcon, NavCaretUpIcon } from '@/ecommerce/icons/header';
 import { Search } from './index';
+import { startLogOut } from '../../../store/auth';
+import { NavHeartIcon, NavSearchIcon, NavShopIcon, NavUserIcon, NavCaretUpIcon } from '../../icons/header';
 
 export const RightNavBar = () => {
   const { status } = useSelector(state => state.auth);

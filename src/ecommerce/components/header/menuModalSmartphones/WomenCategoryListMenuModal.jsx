@@ -1,9 +1,9 @@
-import { NavMenuModalArrowLeftIcon } from '@/ecommerce/icons/header/index';
 import { Link } from 'react-router-dom';
 import { ItemCardMenuModal } from './ItemCardMenuModal';
-import WomenDresses from '@/assets/images/women-dresses.png';
-import WomenShoes from '@/assets/images/women-shoes.png';
-import WomenWatches from '@/assets/images/women-watches2.png';
+import WomenDresses from '../../../../assets//images/women-dresses.png';
+import WomenShoes from '../../../../assets//images/women-shoes.png';
+import WomenWatches from '../../../../assets//images/women-watches2.png';
+import { NavMenuModalArrowLeftIcon } from '../../../icons/header';
 
 export const WomenCategoryListMenuModal = ({ onClick }) => {
   return (

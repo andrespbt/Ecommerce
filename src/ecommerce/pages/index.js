@@ -5,3 +5,5 @@ export * from './FavoritesPage';
 export * from './MenPage';
 export * from './PurchasesPage';
 export * from './WomenPage';
+export * from './SearchPage';
+export * from './ErrorPageMain';
