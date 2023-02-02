@@ -6,8 +6,11 @@ import Search from '../../../../assets/images/search.png';
 import Purchases from '../../../../assets/images/purchases.png';
 import Favorite from '../../../../assets/images/favorite.png';
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
 
-export const ItemListMenuModal = ({ onModalMenClick, onModalWomenClick }) => {
+export const ItemListMenuModal = ({ onModalMenClick, onModalWomenClick, onSearchClick }) => {
+  // TODO: Implement search modal on search item on menu modal
+
   return (
     <ul className="px-6">
       <div
@@ -36,13 +39,12 @@ export const ItemListMenuModal = ({ onModalMenClick, onModalWomenClick }) => {
         />
       </Link>
 
-      <Link>
-        <ItemCardMenuModal
-          text="Search"
-          image={Search}
-          altImage="Search"
-        />
-      </Link>
+      <ItemCardMenuModal
+        onClick={onSearchClick}
+        text="Search"
+        image={Search}
+        altImage="Search"
+      />
 
       <Link to="/purchases">
         <ItemCardMenuModal

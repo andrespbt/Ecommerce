@@ -5,11 +5,13 @@ import { HeaderMenuModal } from './HeaderMenuModal';
 import { MenCategoryListMenuModal } from './MenCategoryListMenuModal';
 import { WomenCategoryListMenuModal } from './WomenCategoryListMenuModal';
 import { NavHamburgerIcon } from '../../../icons/header';
+import { Search } from '../Search';
 
 export const MenuModal = () => {
   const [isMenuActive, setIsMenuActive] = useState(false);
   const [isModalMenOpen, setIsModalMenOpen] = useState(false);
   const [isModalWomenOpen, setIsModalWomenOpen] = useState(false);
+  const [isSearching, setIsSearching] = useState(false);
 
   const onMenuActive = () => {
     if (isModalMenOpen) setIsModalMenOpen(false);
@@ -22,6 +24,11 @@ export const MenuModal = () => {
   };
   const onModalWomenClick = () => {
     setIsModalWomenOpen(!isModalWomenOpen);
+  };
+
+  const onSearchClick = () => {
+    setIsSearching(!isSearching);
+    setIsMenuActive(!isMenuActive);
   };
 
   return (
@@ -58,6 +65,7 @@ export const MenuModal = () => {
           <ItemListMenuModal
             onModalMenClick={onModalMenClick}
             onModalWomenClick={onModalWomenClick}
+            onSearchClick={onSearchClick}
           />
 
           {/* Footer menu */}
@@ -93,6 +101,11 @@ export const MenuModal = () => {
         <HeaderMenuModal onClick={onMenuActive} />
         <WomenCategoryListMenuModal onClick={onModalWomenClick} />
       </Transition>
+
+      <Search
+        setOpen={onSearchClick}
+        isOpen={isSearching}
+      />
     </>
   );
 };

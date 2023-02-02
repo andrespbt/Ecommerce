@@ -30,7 +30,7 @@ export const authSlice = createSlice({
       state.photoURL = null;
       state.errorMessage = payload?.errorMessage;
     },
-    checkingCredentials: state => {
+    isLoading: state => {
       state.status = 2;
     },
     accountCreatedSuccesfully: state => {
@@ -45,4 +45,4 @@ export const authSlice = createSlice({
   },
 });
 
-export const { login, logout, checkingCredentials, accountCreatedSuccesfully } = authSlice.actions;
+export const { login, logout, isLoading, accountCreatedSuccesfully } = authSlice.actions;

@@ -5,7 +5,6 @@ import { AuthLayout } from '../layout/AuthLayout';
 
 export const ErrorPageAuth = () => {
   const error = useRouteError();
-  console.error(error);
   return (
     <AuthLayout>
       <h1>Oops!</h1>

@@ -5,11 +5,11 @@ import {
   signInAnon,
   signUpWithGoogle,
 } from '../../firebase/providers';
-import { accountCreatedSuccesfully, checkingCredentials, login, logout } from './authSlice';
+import { accountCreatedSuccesfully, isLoading, login, logout } from './authSlice';
 
 export const startGoogleLogin = () => {
   return async dispatch => {
-    dispatch(checkingCredentials());
+    dispatch(isLoading());
 
     const result = await signUpWithGoogle();
 
@@ -21,7 +21,7 @@ export const startGoogleLogin = () => {
 
 export const startCreatingUserWithEmailPassword = ({ email, password, displayName }) => {
   return async dispatch => {
-    dispatch(checkingCredentials());
+    dispatch(isLoading());
 
     const result = await registerUserWithEmailPassword({ email, password, displayName });
 
@@ -33,7 +33,7 @@ export const startCreatingUserWithEmailPassword = ({ email, password, displayNam
 
 export const startLoginWithEmailPassword = ({ email, password }) => {
   return async dispatch => {
-    dispatch(checkingCredentials());
+    dispatch(isLoading());
 
     const result = await logInWithEmailPassword({ email, password });
 
@@ -45,7 +45,7 @@ export const startLoginWithEmailPassword = ({ email, password }) => {
 
 export const startAnonymusLogin = () => {
   return async dispatch => {
-    dispatch(checkingCredentials());
+    dispatch(isLoading());
 
     const result = await signInAnon();
 

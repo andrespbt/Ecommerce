@@ -5,7 +5,6 @@ import { EcommerceLayout } from '../layout/EcommerceLayout';
 
 export const ErrorPageMain = () => {
   const error = useRouteError();
-  console.error(error);
   return (
     <EcommerceLayout>
       <h1>Oops!</h1>
