@@ -1,10 +1,13 @@
-import { useEffect, useState } from 'react';
+import { useState, useRef } from 'react';
 import { Link, NavLink } from 'react-router-dom';
-import { NavSearchIcon } from '../../icons/header';
 import logo from '../../../assets/images/logo.svg';
 import { MenuModal } from './index';
+import { SearchBigScreenModal } from './menuModalSmartphones/SearchBigScreenModal';
+import { NavSearchIcon } from '../../icons/header/NavSearchIcon.jsx';
 
 export const LeftNavBar = () => {
+  const [isSearching, setIsSearching] = useState(false);
+
   return (
     <div className="w-30 flex h-full flex-nowrap items-center justify-center gap-5 sm:grow sm:justify-start md:ml-0 md:h-full md:gap-0 md:text-center xl:mr-10 xl:max-w-7xl">
       <MenuModal />
@@ -35,15 +38,27 @@ export const LeftNavBar = () => {
           </NavLink>
         </li>
       </ul>
-      <div className="relative mr-8 hidden w-[80%] sm:inline md:mx-auto md:mr-0 lg:w-[65%] xl:mx-0 xl:max-w-4xl xl:focus-within:w-full xl:active:w-full">
+
+      <div
+        className={`${
+          isSearching ? 'opacity-0' : 'bg-white'
+        } relative mr-8 hidden w-[80%] min-w-[300px] divide-y overflow-hidden rounded-xl   shadow-2xl ring-1 ring-black/5 sm:inline md:mx-auto md:mr-0 lg:w-[65%] xl:mx-0 xl:max-w-4xl`}
+        onClick={() => setIsSearching(true)}>
         <input
-          className="w-full min-w-[300px] rounded-xl px-2 text-center placeholder:text-xs focus:placeholder:text-transparent sm:h-11 sm:max-w-4xl sm:basis-10/12 sm:rounded-2xl sm:placeholder:text-base lg:placeholder:text-lg xl:h-12 xl:basis-6/12 xl:rounded-3xl xl:text-lg"
+          className="w-full border-0 px-3 placeholder:text-xs focus:outline-0 sm:h-11 sm:max-w-4xl sm:basis-10/12 sm:rounded-2xl sm:placeholder:text-base xl:h-12 xl:basis-6/12 xl:rounded-3xl xl:text-lg"
           type="text"
           placeholder="Search for items and brands"
         />
         <button>
-          <NavSearchIcon className="absolute top-[10px] right-3 mx-auto hidden h-[1.3em] w-[1.3em] fill-black stroke-black text-center sm:inline md:top-[10.5px] lg:top-[.6em] lg:right-[1em] lg:h-[1.6em] lg:w-[1.6em]" />
+          <NavSearchIcon
+            className="absolute top-[10px] right-3 mx-auto hidden h-[1.3em] w-[1.3em] fill-black stroke-black text-center sm:inline md:top-[10.5px] lg:top-[.6em] lg:right-[1em] lg:h-[1.6em] lg:w-[1.6em]"
+            onClick={() => setIsSearching(true)}
+          />
         </button>
+        <SearchBigScreenModal
+          isOpen={isSearching}
+          setIsOpen={setIsSearching}
+        />
       </div>
     </div>
   );

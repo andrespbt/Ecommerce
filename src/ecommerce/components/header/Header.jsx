@@ -13,7 +13,9 @@ export const Header = () => {
         <RightNavBar />
       </nav>
       {/* Sub navbar */}
-      {currentPath && <SubNavbar currentPath={currentPath} />}
+      {(window.location.pathname.includes('women') || window.location.pathname.includes('men')) && (
+        <SubNavbar currentPath={currentPath} />
+      )}
     </header>
   );
 };

@@ -58,6 +58,8 @@ export const RightNavBar = () => {
               </Link>
             </div>
 
+            {/* End User menu on hover */}
+
             <div className="bg-gray-5 grid grid-cols-10 grid-rows-5 bg-gray-50">
               {/*  */}
               <div className="col-start-2 col-end-8 row-start-2 row-end-3 flex flex-row-reverse items-center justify-end hover:cursor-pointer hover:fill-gray-400 hover:text-gray-400">
