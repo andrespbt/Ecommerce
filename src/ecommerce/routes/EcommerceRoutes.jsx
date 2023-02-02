@@ -32,7 +32,15 @@ export const childEcommerceRoutes = [
     element: <MenPage />,
   },
   {
+    path: '/men/:category',
+    element: <MenPage />,
+  },
+  {
     path: '/women',
+    element: <WomenPage />,
+  },
+  {
+    path: '/women/:category',
     element: <WomenPage />,
   },
   {

@@ -117,9 +117,8 @@ export const LoginPage = () => {
 
               <Button
                 text="Google Login"
-                onClick={onGoogleLogin}>
-                <LoginGoogleIcon />
-              </Button>
+                onClick={onGoogleLogin}
+                icon={<LoginGoogleIcon className="absolute left-10 sm:scale-150" />}></Button>
 
               <Button
                 text="Anonymous Login "

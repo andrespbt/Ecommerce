@@ -32,7 +32,6 @@ export const RightNavBar = () => {
   };
 
   const onUserIconClick = () => {
-    console.log('Click');
     navigate('/auth/login');
   };
 

@@ -1,10 +1,11 @@
+import { useState } from 'react';
 import { LeftNavBar } from './LeftNavBar';
 import { RightNavBar } from './RightNavBar';
 import { SubNavbar } from './SubNavbar';
 
 export const Header = () => {
   const currentPath =
-    window.location.pathname.slice(1) === '' ? null : window.location.pathname.slice(1) === 'women' ? 'women' : 'men';
+    window.location.pathname.slice(1) === '' ? null : window.location.pathname.includes('women') ? 'women' : 'men';
 
   return (
     <header className=" block bg-darkGray md:h-24">
@@ -14,7 +15,10 @@ export const Header = () => {
       </nav>
       {/* Sub navbar */}
       {(window.location.pathname.includes('women') || window.location.pathname.includes('men')) && (
-        <SubNavbar currentPath={currentPath} />
+        <SubNavbar
+          currentPath={currentPath}
+          isOpen={currentPath ? true : false}
+        />
       )}
     </header>
   );
