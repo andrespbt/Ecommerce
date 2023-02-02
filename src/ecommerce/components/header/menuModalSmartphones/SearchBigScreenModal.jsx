@@ -31,7 +31,7 @@ export const SearchBigScreenModal = ({ isOpen, setIsOpen }) => {
           leave="duration-200 ease in"
           leaveFrom="opacity-100"
           leaveTo="opacity-0">
-          <Dialog.Overlay className="fixed inset-0 bg-black/30 transition-opacity" />
+          <Dialog.Overlay className="fixed inset-0 bg-black/60 transition-opacity" />
         </Transition.Child>
 
         {/* Transition on elements  */}
@@ -58,7 +58,10 @@ export const SearchBigScreenModal = ({ isOpen, setIsOpen }) => {
               onChange={e => setSearchText(e.target.value.toLowerCase())}
             />
             <button className="absolute top-[0.4rem] right-2 mx-auto bg-white">
-              <NavSearchIcon className=" h-[1.7em] w-[1.7em] fill-black text-center " />
+              <NavSearchIcon
+                className=" h-[1.7em] w-[1.7em] fill-black text-center "
+                viewBox="-2 -2 20 20"
+              />
             </button>
 
             {productsFiltered.length > 0 && (

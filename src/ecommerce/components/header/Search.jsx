@@ -12,7 +12,6 @@ export const Search = ({ setOpen, isOpen }) => {
   const { data } = useGetProductBySearchQuery(searchText);
   const productsFiltered = searchText ? filterProductsCategory(data.products) : [];
 
-
   return (
     <Transition.Root
       afterLeave={() => {
@@ -60,7 +59,10 @@ export const Search = ({ setOpen, isOpen }) => {
               onChange={e => setSearchText(e.target.value.toLowerCase())}
             />
             <button className="absolute top-[0.4rem] right-2 mx-auto bg-white">
-              <NavSearchIcon className=" h-[1.7em] w-[1.7em] fill-black text-center " />
+              <NavSearchIcon
+                className=" h-[1.7em] w-[1.7em] fill-black text-center "
+                viewBox="-2 -2 20 20"
+              />
             </button>
 
             {productsFiltered.length > 0 && (
