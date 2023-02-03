@@ -14,6 +14,7 @@ export const MenuModal = () => {
   const [isSearching, setIsSearching] = useState(false);
 
   const onMenuActive = () => {
+    console.log(isMenuActive);
     if (isModalMenOpen) setIsModalMenOpen(false);
     if (isModalWomenOpen) setIsModalWomenOpen(false);
     setIsMenuActive(!isMenuActive);
@@ -66,6 +67,7 @@ export const MenuModal = () => {
             onModalMenClick={onModalMenClick}
             onModalWomenClick={onModalWomenClick}
             onSearchClick={onSearchClick}
+            setIsMenuActive={setIsMenuActive}
           />
 
           {/* Footer menu */}
@@ -73,7 +75,6 @@ export const MenuModal = () => {
       </Transition>
 
       {/* Men Categories */}
-
       <Transition
         show={isModalMenOpen && isMenuActive}
         enter="transition-opacity ease-linear duration-300"
@@ -82,7 +83,7 @@ export const MenuModal = () => {
         leave="transition-opacity ease-linear duration-300"
         leaveFrom="opacity-100"
         leaveTo="opacity-0"
-        className="absolute left-0 top-0 z-10 h-full w-80 overflow-x-hidden overflow-y-scroll bg-lightGrayBlue md:hidden">
+        className="absolute left-0 top-0 z-10 h-screen w-80 overflow-x-hidden overflow-y-scroll bg-lightGrayBlue md:hidden">
         <HeaderMenuModal onClick={onMenuActive} />
         <MenCategoryListMenuModal onClick={onModalMenClick} />
       </Transition>
@@ -97,9 +98,12 @@ export const MenuModal = () => {
         leave="transition-opacity ease-linear duration-300"
         leaveFrom="opacity-100"
         leaveTo="opacity-0"
-        className={`absolute left-0 top-0 z-10 h-full w-80 overflow-x-hidden overflow-y-scroll bg-lightGrayBlue md:hidden`}>
+        className={`absolute left-0 top-0 z-10 h-screen w-80 overflow-x-hidden overflow-y-scroll bg-lightGrayBlue md:hidden`}>
         <HeaderMenuModal onClick={onMenuActive} />
-        <WomenCategoryListMenuModal onClick={onModalWomenClick} />
+        <WomenCategoryListMenuModal
+          onClick={onModalWomenClick}
+          setIsMenuActive={setIsMenuActive}
+        />
       </Transition>
 
       <Search

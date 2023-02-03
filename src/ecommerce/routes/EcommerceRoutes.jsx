@@ -32,7 +32,7 @@ export const childEcommerceRoutes = [
     element: <MenPage />,
   },
   {
-    path: '/men/:category',
+    path: '/men/category/:category',
     element: <MenPage />,
   },
   {
@@ -40,7 +40,7 @@ export const childEcommerceRoutes = [
     element: <WomenPage />,
   },
   {
-    path: '/women/:category',
+    path: '/women/category/:category',
     element: <WomenPage />,
   },
   {

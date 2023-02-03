@@ -21,7 +21,7 @@ export const SearchBigScreenModal = ({ isOpen, setIsOpen }) => {
       show={isOpen}
       as={Fragment}>
       <Dialog
-        className="fixed inset-0 hidden overflow-y-auto sm:inline-block "
+        className="fixed inset-0 z-[5000] hidden overflow-y-auto sm:inline-block "
         onClose={() => setIsOpen(false)}>
         {/* Transition on background  */}
         <Transition.Child

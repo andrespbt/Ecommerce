@@ -20,7 +20,7 @@ export const Search = ({ setOpen, isOpen }) => {
       show={isOpen}
       as={Fragment}>
       <Dialog
-        className="fixed inset-0 overflow-y-auto "
+        className="fixed inset-0 z-[5000] overflow-y-auto "
         onClose={setOpen}>
         {/* Transition on background  */}
         <Transition.Child

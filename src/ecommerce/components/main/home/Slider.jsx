@@ -18,21 +18,16 @@ export const Slider = () => {
   };
 
   const removeAnimation = () => {
-    slideRef.current?.addEventListener('animationend', slideRef.current.classList.remove('animate-fade-in'));
-  };
+    slideRef.current?.addEventListener('animationend', slideRef.current.classList.remove('animate-slideInRight'));
 
-  const startSlide = () => {
-    setInterval(() => {
-      slideRef.current?.classList.add('animate-fade-in');
-      setCurrentIndex((currentIndex + 1) % featuredImages.length);
-    }, 3000);
+    slideRef.current?.addEventListener('animationend', slideRef.current.classList.remove('animate-slideInLeft'));
   };
 
   useEffect(() => {
     let timeout = setInterval(() => {
-      slideRef.current?.classList.add('animate-fade-in');
+      slideRef.current?.classList.add('animate-slideInRight');
       setCurrentIndex((currentIndex + 1) % featuredImages.length);
-    }, 3000);
+    }, 5000);
 
     return () => {
       slideRef.current?.addEventListener('animationend', removeAnimation);
@@ -42,23 +37,22 @@ export const Slider = () => {
 
   const onPrevClick = () => {
     setCurrentIndex((currentIndex - 1 + featuredImages.length) % featuredImages.length);
-    slideRef.current?.classList.add('animate-fade-in');
+    slideRef.current?.classList.add('animate-slideInRight');
   };
 
   const onNextClick = () => {
     setCurrentIndex((currentIndex + 1) % featuredImages.length);
-    slideRef.current?.classList.add('animate-fade-in');
+    slideRef.current?.classList.add('animate-slideInLeft');
   };
 
   return (
     <div className="m-auto max-w-screen-xl lg:max-w-none">
-      <div
-        ref={slideRef}
-        className="select-non relative">
+      <div className="select-non relative">
         <div
+          ref={slideRef}
           style={divStyle}
           className="peer relative h-[400px] w-full bg-cover bg-center bg-no-repeat md:h-[500px] lg:h-[600px]"></div>
-        <div className="absolute top-1/2 hidden  w-full -translate-y-1/2 transform animate-fade-in items-start justify-between px-3 hover:flex peer-hover:flex md:justify-around md:gap-60 xl:justify-between xl:p-16">
+        <div className="absolute top-1/2 hidden  w-full -translate-y-1/2 transform animate-fade-in items-start justify-between px-3  hover:flex peer-hover:flex md:justify-around md:gap-60 xl:justify-between xl:p-16 ">
           <button
             onClick={onPrevClick}
             className=" h-[50px] w-[50px]">
@@ -75,7 +69,7 @@ export const Slider = () => {
                   slideIndex === currentIndex ? 'bg-black' : 'bg-white'
                 } h-[.8rem] w-[.8rem] rounded-full xl:h-[1.2rem] xl:w-[1.2rem]`}
                 onClick={() => {
-                  slideRef.current?.classList.add('animate-fade-in');
+                  slideRef.current?.classList.add('animate-slideInRight');
                   setCurrentIndex(slideIndex);
                 }}></button>
             ))}

@@ -5,7 +5,7 @@ import MenShoes from '../../../../assets/images/men-shoes.png';
 import MenWatches from '../../../../assets/images/men-watches.png';
 import { NavMenuModalArrowLeftIcon } from '../../../icons/header';
 
-export const MenCategoryListMenuModal = ({ onClick }) => {
+export const MenCategoryListMenuModal = ({ onClick, setIsMenuActive }) => {
   return (
     <>
       <NavMenuModalArrowLeftIcon
@@ -18,6 +18,7 @@ export const MenCategoryListMenuModal = ({ onClick }) => {
             text="Shirts"
             image={MenShirts}
             altImage="Men Shirts"
+            onClick={() => setIsMenuActive(false)}
           />
         </Link>
         <Link to="/men/category/shoes">
@@ -25,6 +26,7 @@ export const MenCategoryListMenuModal = ({ onClick }) => {
             text="Shoes"
             image={MenShoes}
             altImage="Men Shoes"
+            onClick={() => setIsMenuActive(false)}
           />
         </Link>
         <Link to="/men/category/watches">
@@ -32,6 +34,7 @@ export const MenCategoryListMenuModal = ({ onClick }) => {
             text="Watches"
             image={MenWatches}
             altImage="Men Watches"
+            onClick={() => setIsMenuActive(false)}
           />
         </Link>
       </ul>

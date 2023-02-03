@@ -4,7 +4,7 @@ export const EcommerceLayout = ({ children }) => {
   return (
     <>
       <Header />
-      {children}
+      <main className="bg-gray-50">{children}</main>
     </>
   );
 };

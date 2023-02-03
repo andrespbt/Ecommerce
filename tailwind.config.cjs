@@ -35,6 +35,19 @@ module.exports = {
         '3xl': '-3px 10px 24px 0px rgba(0,0,0,0.69);',
       },
       keyframes: {
+        slideInRight: {
+          '0%': {
+            transform: 'translateX(100%)',
+            opacity: '0',
+          },
+          '50%': {
+            opacity: '0.5',
+          },
+          '100%': {
+            transform: 'translateX(0)',
+            opacity: '1',
+          },
+        },
         slideOutLeft: {
           '0%': {
             transform: 'translateX(0)',
@@ -46,9 +59,14 @@ module.exports = {
         slideInLeft: {
           '0%': {
             transform: 'translateX(-900px)',
+            opacity: '0',
+          },
+          '50%': {
+            opacity: '0.5',
           },
           '100%': {
             transform: 'translateX(0)',
+            opacity: '1',
           },
         },
         fadeOut: {
@@ -129,8 +147,9 @@ module.exports = {
         },
       },
       animation: {
+        slideInRight: 'slideInRight 0.5s ease-out',
         slideOutLeft: 'slideOutLeft 0.2s linear',
-        slideInLeft: 'slideInLeft 0.2s linear',
+        slideInLeft: 'slideInLeft 0.5s ease-out',
         'fade-in': 'fade-in 0.5s ease-in',
         spin: 'spin 2s linear infinite',
         roll: 'roll 3s',

@@ -8,9 +8,7 @@ import Favorite from '../../../../assets/images/favorite.png';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 
-export const ItemListMenuModal = ({ onModalMenClick, onModalWomenClick, onSearchClick }) => {
-  // TODO: Implement search modal on search item on menu modal
-
+export const ItemListMenuModal = ({ onModalMenClick, onModalWomenClick, onSearchClick, setIsMenuActive }) => {
   return (
     <ul className="px-6">
       <div
@@ -36,6 +34,7 @@ export const ItemListMenuModal = ({ onModalMenClick, onModalWomenClick, onSearch
           text="Home"
           image={Home}
           altImage="Home"
+          onClick={() => setIsMenuActive(false)}
         />
       </Link>
 
@@ -51,6 +50,7 @@ export const ItemListMenuModal = ({ onModalMenClick, onModalWomenClick, onSearch
           text="My purchases"
           image={Purchases}
           altImage="Purchases"
+          onClick={() => setIsMenuActive(false)}
         />
       </Link>
 
@@ -59,6 +59,7 @@ export const ItemListMenuModal = ({ onModalMenClick, onModalWomenClick, onSearch
           text="My Favorites"
           image={Favorite}
           altImage="Favorite"
+          onClick={() => setIsMenuActive(false)}
         />{' '}
       </Link>
     </ul>

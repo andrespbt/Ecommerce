@@ -5,7 +5,7 @@ import WomenShoes from '../../../../assets//images/women-shoes.png';
 import WomenWatches from '../../../../assets//images/women-watches2.png';
 import { NavMenuModalArrowLeftIcon } from '../../../icons/header';
 
-export const WomenCategoryListMenuModal = ({ onClick }) => {
+export const WomenCategoryListMenuModal = ({ onClick, setIsMenuActive }) => {
   return (
     <>
       <NavMenuModalArrowLeftIcon
@@ -18,6 +18,7 @@ export const WomenCategoryListMenuModal = ({ onClick }) => {
             text="Dresses"
             image={WomenDresses}
             altImage="Women Dresses"
+            onClick={() => setIsMenuActive(false)}
           />
         </Link>
         <Link to="/women/category/shoes">
@@ -25,6 +26,7 @@ export const WomenCategoryListMenuModal = ({ onClick }) => {
             text="Shoes"
             image={WomenShoes}
             altImage="Women Shoes"
+            onClick={() => setIsMenuActive(false)}
           />
         </Link>
         <Link to="/women/category/watches">
@@ -32,6 +34,7 @@ export const WomenCategoryListMenuModal = ({ onClick }) => {
             text="Watches"
             image={WomenWatches}
             altImage="Women Watches"
+            onClick={() => setIsMenuActive(false)}
           />
         </Link>
       </ul>

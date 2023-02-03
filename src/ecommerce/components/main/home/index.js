@@ -1,2 +1,2 @@
-export * from './ShopByCategory';
-export * from './Slider';
+export * from './Slider.jsx';
+export * from './shop-by-category-section';
