@@ -8,7 +8,7 @@ export const Header = () => {
     window.location.pathname.slice(1) === '' ? null : window.location.pathname.includes('women') ? 'women' : 'men';
 
   return (
-    <header className=" block bg-darkGray md:h-24">
+    <header className=" block animate-fade-in-down bg-darkGray md:h-24">
       <nav className="flex h-[8vh] flex-nowrap items-center justify-between  px-8 py-8 md:h-full md:py-0 xl:justify-center">
         <LeftNavBar />
         <RightNavBar />

@@ -69,16 +69,15 @@ export const Slider = () => {
           </button>
           <div className="relative top-[180px] flex w-40 justify-between md:top-[220px] xl:top-[260px] xl:w-60">
             {featuredImages.map((slide, slideIndex) => (
-              <div
+              <button
                 key={slideIndex}
                 className={`${
                   slideIndex === currentIndex ? 'bg-black' : 'bg-white'
-                } h-[.8rem] w-[.8rem] cursor-pointer rounded-full xl:h-[1.2rem] xl:w-[1.2rem]`}
+                } h-[.8rem] w-[.8rem] rounded-full xl:h-[1.2rem] xl:w-[1.2rem]`}
                 onClick={() => {
                   slideRef.current?.classList.add('animate-fade-in');
                   setCurrentIndex(slideIndex);
-                }}
-              />
+                }}></button>
             ))}
           </div>
 

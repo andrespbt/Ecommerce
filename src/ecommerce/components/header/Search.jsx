@@ -75,10 +75,10 @@ export const Search = ({ setOpen, isOpen }) => {
                     value={product}>
                     {({ active }) => (
                       <div
-                        className={`space-x-1 px-4 py-2 ${
+                        className={`space-x-1 px-4 py-2 capitalize ${
                           active ? 'cursor-pointer bg-gray-600 text-white' : 'bg-white'
                         }`}>
-                        {product.title}
+                        {product.title.toLowerCase()}
                       </div>
                     )}
                   </Combobox.Option>

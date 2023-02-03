@@ -1,9 +1,10 @@
 export const ItemCardMenuModal = ({ text, image, altImage, onClick }) => {
+  //bg-gray-300
   return (
     <li
       onClick={onClick}
-      className="relative z-10 my-6 flex h-20 select-none list-none items-center justify-start rounded-lg bg-gray-300
-        hover:cursor-pointer hover:bg-gray-400">
+      className="ring-3  relative z-10 my-6 flex h-20 select-none list-none items-center justify-start
+        rounded-lg bg-gradient-to-b from-gray-300 to-white shadow-xl ring-black/10 hover:cursor-pointer hover:bg-gradient-to-b hover:from-gray-400 hover:to-gray-100 hover:ring-0">
       <span className="ml-4 w-[135px] min-w-[130px] text-lg font-bold">{text}</span>
       <img
         className={`absolute right-2 w-[60px]
