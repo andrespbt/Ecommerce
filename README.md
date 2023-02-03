@@ -1,2 +1,2 @@
-# Ecommerce-App---Practice
+# Ecommerce Practice
 Ecommerce App ( React, Vite, Tailwind )
