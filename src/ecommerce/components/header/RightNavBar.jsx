@@ -54,7 +54,7 @@ export const RightNavBar = () => {
           <NavUserIcon className="peer h-[1.6em] w-[1.6em] items-center fill-white stroke-[0.1px] hover:cursor-pointer md:h-[1.8em] md:w-[1.8em]" />
           {/* User menu on hover */}
           <div className="peer/user right-30 absolute top-[-40px] h-[96px] w-10 peer-hover:block md:h-[136px]"></div>
-          <div className="absolute left-[-127px] top-[30px] z-0 hidden w-72 animate-fade-in overflow-hidden bg-transparent md:top-[80px] md:left-[-120px] md:hover:inline-block md:peer-hover/user:inline">
+          <div className="absolute left-[-127px] top-[30px] z-10 hidden w-72 animate-fade-in overflow-hidden bg-transparent md:top-[80px] md:left-[-120px] md:hover:inline-block md:peer-hover/user:inline">
             <NavCaretUpIcon className="relative left-[127px] top-0 z-50 h-fit animate-fade-in fill-gray-200 peer-hover/user:inline peer-hover/menu:inline" />
             <div
               className={`${

@@ -1,12 +1,8 @@
 import { NavLink } from 'react-router-dom';
 import { Transition, Popover } from '@headlessui/react';
 
-const menCategories = ['Shirts', 'Shoes', 'Watches'];
-const womenCategories = ['Dresses', 'Shoes', 'Watches'];
-
 export const SubNavbar = ({ currentPath, isOpen }) => {
   const dynamicCategory = currentPath === 'men' ? 'Shirts' : 'Dresses';
-  console.log(currentPath);
   return (
     <Popover className="relative hidden animate-fade-in-down md:inline">
       <Transition
