@@ -6,6 +6,7 @@ export const HeaderProvider = ({ children }) => {
   const [isModalMenOpen, setIsModalMenOpen] = useState(false);
   const [isModalWomenOpen, setIsModalWomenOpen] = useState(false);
   const [isSearching, setIsSearching] = useState(false);
+  const [isSearchingBigScreen, setIsSearchingBigScreen] = useState(false);
 
   return (
     <HeaderContext.Provider
@@ -18,6 +19,8 @@ export const HeaderProvider = ({ children }) => {
         setIsModalWomenOpen,
         isSearching,
         setIsSearching,
+        isSearchingBigScreen, 
+        setIsSearchingBigScreen
       }}>
       {children}
     </HeaderContext.Provider>

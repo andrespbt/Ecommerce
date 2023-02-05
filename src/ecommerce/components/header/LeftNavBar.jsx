@@ -1,12 +1,13 @@
-import { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import logo from '../../../assets/images/logo.svg';
 import { MenuModal, SearchBigScreenModal } from './index';
 
 import { NavSearchIcon } from '../../icons/header/NavSearchIcon.jsx';
+import { useContext } from 'react';
+import { HeaderContext } from './context/HeaderContext';
 
 export const LeftNavBar = () => {
-  const [isSearching, setIsSearching] = useState(false);
+  const { isSearchingBigScreen, setIsSearchingBigScreen } = useContext(HeaderContext);
 
   return (
     <div className="w-30 flex h-full flex-nowrap items-center justify-center gap-5 sm:grow sm:justify-start md:ml-0 md:h-full md:gap-0 md:text-center xl:mr-10 xl:max-w-7xl">
@@ -40,9 +41,9 @@ export const LeftNavBar = () => {
 
       <div
         className={`${
-          isSearching ? 'opacity-0' : 'bg-white'
+          isSearchingBigScreen ? 'opacity-0' : 'bg-white'
         } relative mr-8 hidden w-[80%] min-w-[300px] divide-y overflow-hidden rounded-xl   shadow-2xl ring-1 ring-black/5 sm:inline md:mx-auto md:mr-0 lg:w-[65%] xl:mx-0 xl:max-w-4xl`}
-        onClick={() => setIsSearching(true)}>
+        onClick={() => setIsSearchingBigScreen(true)}>
         <input
           className="w-full border-0 px-3 placeholder:text-xs focus:outline-0 sm:h-11 sm:max-w-4xl sm:basis-10/12 sm:rounded-2xl sm:placeholder:text-base xl:h-12 xl:basis-6/12 xl:rounded-3xl xl:text-lg"
           type="text"
@@ -52,13 +53,10 @@ export const LeftNavBar = () => {
           <NavSearchIcon
             className="absolute top-[10px] right-3 mx-auto hidden h-[1.3em] w-[1.3em] fill-black stroke-black text-center sm:inline md:top-[10.5px] lg:top-[.6em] lg:right-[1em] lg:h-[1.6em] lg:w-[1.6em]"
             viewBox="-2 -2 20 20"
-            onClick={() => setIsSearching(true)}
+            onClick={() => setIsSearchingBigScreen(true)}
           />
         </button>
-        <SearchBigScreenModal
-          isOpen={isSearching}
-          setIsOpen={setIsSearching}
-        />
+        <SearchBigScreenModal />
       </div>
     </div>
   );

@@ -1,13 +1,13 @@
-import { Fragment, useState } from 'react';
+import { Fragment, useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
 import { Combobox, Dialog, Transition } from '@headlessui/react';
 import { filterProductsCategory } from '../../../helpers/filterProductsCategory';
 import { useGetProductBySearchQuery } from '../../../store/apis/productsApi';
 import { NavSearchIcon } from '../../icons/header';
+import { HeaderContext } from './context/HeaderContext';
 
-export const SearchBigScreenModal = ({ isOpen, setIsOpen }) => {
-  const navigate = useNavigate();
+export const SearchBigScreenModal = () => {
+  const { isSearchingBigScreen, setIsSearchingBigScreen } = useContext(HeaderContext);
   const [searchText, setSearchText] = useState('');
   const { data } = useGetProductBySearchQuery(searchText);
   const productsFiltered = searchText ? filterProductsCategory(data.products) : [];
@@ -15,13 +15,12 @@ export const SearchBigScreenModal = ({ isOpen, setIsOpen }) => {
     <Transition.Root
       afterLeave={() => {
         setSearchText('');
-        window.focus();
       }}
-      show={isOpen}
+      show={isSearchingBigScreen}
       as={Fragment}>
       <Dialog
         className="fixed inset-0 z-[5000] hidden overflow-y-auto sm:inline-block "
-        onClose={() => setIsOpen(false)}>
+        onClose={() => setIsSearchingBigScreen(false)}>
         {/* Transition on background  */}
         <Transition.Child
           enter="duration-300 ease-out"
@@ -48,13 +47,13 @@ export const SearchBigScreenModal = ({ isOpen, setIsOpen }) => {
               if (window.location.pathname.includes('product')) {
                 location.replace(`/product/${product.id}`);
               } else {
-                navigate(`/product/${product.id}`);
+                location.replace(`/product/${product.id}`);
               }
             }}>
             <Combobox.Input
               className="h-11 w-full border-0 bg-transparent px-2 text-lg text-gray-800 placeholder:text-lg focus:outline-0 focus:placeholder:text-transparent"
               placeholder="Search for items and brands"
-              onFocus={() => setIsOpen(true)}
+              onFocus={() => setIsSearchingBigScreen(true)}
               onChange={e => setSearchText(e.target.value.toLowerCase())}
             />
             <button className="absolute top-[0.4rem] right-2 mx-auto bg-white">

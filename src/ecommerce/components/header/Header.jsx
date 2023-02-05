@@ -1,9 +1,12 @@
+import { useContext } from 'react';
 import { useEffect, useState, useRef } from 'react';
+import { HeaderContext } from './context/HeaderContext';
 import { LeftNavBar } from './LeftNavBar';
 import { RightNavBar } from './RightNavBar';
 import { SubNavbar } from './SubNavbar';
 
 export const Header = () => {
+  const { isSearchingBigScreen } = useContext(HeaderContext);
   const [scrollPosition, setScrollPosition] = useState(0);
   const [showNavBar, setShowNavBar] = useState(true);
   const headerRef = useRef();
@@ -12,7 +15,7 @@ export const Header = () => {
 
   const onScroll = () => {
     if (typeof window !== 'undefined') {
-      if (window.scrollY > scrollPosition) {
+      if (window.scrollY > scrollPosition && !isSearchingBigScreen && scrollPosition > 700) {
         setShowNavBar(false);
       } else {
         if (!showNavBar) {
@@ -40,7 +43,9 @@ export const Header = () => {
   return (
     <header
       ref={headerRef}
-      className={`will-change-scroll ${showNavBar ? 'sticky-top animate-fade-in-down' : ''} bg-darkGray md:h-24`}>
+      className={`will-change-scroll ${showNavBar ? 'sticky-top animate-fade-in-down' : ''} ${
+        isSearchingBigScreen ? 'fixed w-full' : ''
+      } bg-darkGray md:h-24`}>
       <nav className="flex h-[8vh] flex-nowrap items-center justify-between  px-8 py-8 md:h-full md:py-0 xl:justify-center">
         <LeftNavBar />
         <RightNavBar />

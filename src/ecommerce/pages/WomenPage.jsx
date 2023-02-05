@@ -1,9 +1,16 @@
+import { HeroSection } from '../components/main/men-woman/HeroSection';
 import { EcommerceLayout } from '../layout/EcommerceLayout';
+import WomanImage from '../../assets/images/woman-hero-section.webp';
 
 export const WomenPage = () => {
   return (
     <EcommerceLayout>
-      <h1>Women</h1>
+      <HeroSection
+        color="bg-pink-100"
+        text="fresh lady's style"
+        image={WomanImage}
+        imageAlt="Woman model photo"
+      />
     </EcommerceLayout>
   );
 };

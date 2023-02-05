@@ -30,6 +30,7 @@ module.exports = {
         white: '#fff',
         darkGray: '#2D2D2D',
         lightGray: '#535051',
+        latteFroth: '#F2EEE6',
       },
       boxShadow: {
         '3xl': '-3px 10px 24px 0px rgba(0,0,0,0.69);',
