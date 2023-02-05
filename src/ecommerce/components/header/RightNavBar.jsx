@@ -1,10 +1,9 @@
 import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
-import { Transition } from '@headlessui/react';
-import { Search } from './index';
 import { startLogOut } from '../../../store/auth';
 import { NavHeartIcon, NavSearchIcon, NavShopIcon, NavUserIcon, NavCaretUpIcon } from '../../icons/header';
+import { Search } from './menuModalSmartphones';
 
 export const RightNavBar = () => {
   const { status } = useSelector(state => state.auth);

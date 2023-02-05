@@ -14,4 +14,8 @@
   .active {
     background-color: #535051;
   }
+
+  h2 {
+    user-select: none;
+  }
 }

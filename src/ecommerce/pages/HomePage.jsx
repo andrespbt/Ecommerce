@@ -1,4 +1,4 @@
-import { Slider, ShopByCategory } from '../components/main/home';
+import { Slider, ShopByCategory, OutfitSection, BrandsSection } from '../components/main/home';
 import { EcommerceLayout } from '../layout/EcommerceLayout';
 
 export const HomePage = () => {
@@ -6,6 +6,8 @@ export const HomePage = () => {
     <EcommerceLayout>
       <Slider />
       <ShopByCategory />
+      <OutfitSection />
+      <BrandsSection />
     </EcommerceLayout>
   );
 };

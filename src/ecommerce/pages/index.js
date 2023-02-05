@@ -7,3 +7,5 @@ export * from './PurchasesPage';
 export * from './WomenPage';
 export * from './SearchPage';
 export * from './ErrorPageMain';
+export * from './MenCategoryPage';
+export * from './WomenCategoryPage';

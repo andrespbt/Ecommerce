@@ -1,20 +1,26 @@
-import { useState } from 'react';
 import { Transition } from '@headlessui/react';
 import { ItemListMenuModal } from './ItemListMenuModal';
 import { HeaderMenuModal } from './HeaderMenuModal';
 import { MenCategoryListMenuModal } from './MenCategoryListMenuModal';
 import { WomenCategoryListMenuModal } from './WomenCategoryListMenuModal';
 import { NavHamburgerIcon } from '../../../icons/header';
-import { Search } from '../Search';
+import { Search } from './Search';
+import { useContext } from 'react';
+import { HeaderContext } from '../context/HeaderContext';
 
 export const MenuModal = () => {
-  const [isMenuActive, setIsMenuActive] = useState(false);
-  const [isModalMenOpen, setIsModalMenOpen] = useState(false);
-  const [isModalWomenOpen, setIsModalWomenOpen] = useState(false);
-  const [isSearching, setIsSearching] = useState(false);
+  const {
+    isMenuActive,
+    setIsMenuActive,
+    isModalMenOpen,
+    setIsModalMenOpen,
+    isModalWomenOpen,
+    setIsModalWomenOpen,
+    isSearching,
+    setIsSearching,
+  } = useContext(HeaderContext);
 
   const onMenuActive = () => {
-    console.log(isMenuActive);
     if (isModalMenOpen) setIsModalMenOpen(false);
     if (isModalWomenOpen) setIsModalWomenOpen(false);
     setIsMenuActive(!isMenuActive);
@@ -55,7 +61,7 @@ export const MenuModal = () => {
           leave="transition ease-in-out duration-300 transform"
           leaveFrom="translate-x-0"
           leaveTo="-translate-x-full"
-          className={`z-20 h-full w-80 overflow-y-scroll bg-lightGrayBlue`}
+          className={`fixed z-20 h-full w-80 overflow-y-scroll bg-lightGrayBlue`}
           onClick={e => e.stopPropagation()}>
           {/* Header menu */}
 
@@ -85,7 +91,10 @@ export const MenuModal = () => {
         leaveTo="opacity-0"
         className="absolute left-0 top-0 z-10 h-screen w-80 overflow-x-hidden overflow-y-scroll bg-lightGrayBlue md:hidden">
         <HeaderMenuModal onClick={onMenuActive} />
-        <MenCategoryListMenuModal onClick={onModalMenClick} />
+        <MenCategoryListMenuModal
+          onClick={onModalMenClick}
+          setIsMenuActive={setIsMenuActive}
+        />
       </Transition>
 
       {/* Women Categories */}

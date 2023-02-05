@@ -1,8 +1,8 @@
-import { useState, useRef } from 'react';
+import { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import logo from '../../../assets/images/logo.svg';
-import { MenuModal } from './index';
-import { SearchBigScreenModal } from './menuModalSmartphones/SearchBigScreenModal';
+import { MenuModal, SearchBigScreenModal } from './index';
+
 import { NavSearchIcon } from '../../icons/header/NavSearchIcon.jsx';
 
 export const LeftNavBar = () => {
@@ -11,7 +11,6 @@ export const LeftNavBar = () => {
   return (
     <div className="w-30 flex h-full flex-nowrap items-center justify-center gap-5 sm:grow sm:justify-start md:ml-0 md:h-full md:gap-0 md:text-center xl:mr-10 xl:max-w-7xl">
       <MenuModal />
-
       <Link
         to="/"
         className="min-w-[50px] sm:basis-1/12 md:relative md:mr-2 md:h-full md:w-10 md:basis-[10%] xl:mr-0">

@@ -10,17 +10,17 @@ export const SubNavbar = ({ currentPath, isOpen }) => {
         className="h-14 bg-lightGray">
         <Popover.Panel className="absolute inset-0 z-10 m-auto flex w-96 items-center justify-around gap-5 text-base font-bold text-white xl:text-lg">
           <NavLink
-            to={`/${currentPath}/${dynamicCategory.toLowerCase()}`}
+            to={`/${currentPath}/category/${dynamicCategory.toLowerCase()}`}
             className={({ isActive }) => (isActive ? 'inline-block w-full text-xl' : 'inline-block w-full ')}>
             {dynamicCategory}
           </NavLink>
           <NavLink
-            to={`/${currentPath}/shoes`}
+            to={`/${currentPath}/category/shoes`}
             className={({ isActive }) => (isActive ? 'inline-block w-full text-xl' : 'inline-block w-full ')}>
             Shoes
           </NavLink>
           <NavLink
-            to={`/${currentPath}/watches`}
+            to={`/${currentPath}/category/watches`}
             className={({ isActive }) => (isActive ? 'inline-block w-full text-xl' : 'inline-block w-full ')}>
             Watches
           </NavLink>

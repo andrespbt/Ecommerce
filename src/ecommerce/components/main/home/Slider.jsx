@@ -51,7 +51,7 @@ export const Slider = () => {
         <div
           ref={slideRef}
           style={divStyle}
-          className="peer relative h-[400px] w-full bg-cover bg-center bg-no-repeat md:h-[500px] lg:h-[600px]"></div>
+          className="peer relative h-[400px] w-full bg-cover bg-center bg-no-repeat md:h-[500px] lg:h-[600px] xl:h-[900px]"></div>
         <div className="absolute top-1/2 hidden  w-full -translate-y-1/2 transform animate-fade-in items-start justify-between px-3  hover:flex peer-hover:flex md:justify-around md:gap-60 xl:justify-between xl:p-16 ">
           <button
             onClick={onPrevClick}
@@ -61,13 +61,13 @@ export const Slider = () => {
               viewBox="0 0 20 20"
             />
           </button>
-          <div className="relative top-[180px] flex w-40 justify-between md:top-[220px] xl:top-[260px] xl:w-60">
+          <div className="relative top-[180px] flex w-40 justify-between md:top-[220px] xl:top-[400px] xl:w-60">
             {featuredImages.map((slide, slideIndex) => (
               <button
                 key={slideIndex}
                 className={`${
                   slideIndex === currentIndex ? 'bg-black' : 'bg-white'
-                } h-[.8rem] w-[.8rem] rounded-full xl:h-[1.2rem] xl:w-[1.2rem]`}
+                } h-[.8rem] w-[.8rem] rounded-full xl:h-[1.2rem] xl:w-[1.2rem] `}
                 onClick={() => {
                   slideRef.current?.classList.add('animate-slideInRight');
                   setCurrentIndex(slideIndex);

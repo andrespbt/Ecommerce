@@ -8,6 +8,8 @@ import {
   PurchasesPage,
   SearchPage,
   ProductPage,
+  MenCategoryPage,
+  WomenCategoryPage,
 } from '../pages/index';
 
 export const EcommerceRoutes = () => {
@@ -33,7 +35,7 @@ export const childEcommerceRoutes = [
   },
   {
     path: '/men/category/:category',
-    element: <MenPage />,
+    element: <MenCategoryPage />,
   },
   {
     path: '/women',
@@ -41,7 +43,7 @@ export const childEcommerceRoutes = [
   },
   {
     path: '/women/category/:category',
-    element: <WomenPage />,
+    element: <WomenCategoryPage />,
   },
   {
     path: '/purchases',
