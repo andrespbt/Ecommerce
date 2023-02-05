@@ -1,13 +1,12 @@
 import { useEffect, useRef, useState } from 'react';
+import ManModel from '../../../../assets/images/man-slider-category-1.webp';
+import WomanModel from '../../../../assets/images/woman-slider-category-2.webp';
+import WatchManModel from '../../../../assets/images/man-slider-category-3.webp';
+import WatchWomanModel from '../../../../assets/images/woman-slider-category-4.webp';
+import Shoes from '../../../../assets/images/shoes-slider-category-5.webp';
 import { SliderArrowLeftIcon, SliderArrowRightIcon } from '../../../icons/main/slider';
 
-const featuredImages = [
-  'https://images.pexels.com/photos/1183266/pexels-photo-1183266.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-  'https://images.pexels.com/photos/1805411/pexels-photo-1805411.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-  'https://images.pexels.com/photos/1342609/pexels-photo-1342609.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-  'https://images.pexels.com/photos/179909/pexels-photo-179909.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-  'https://images.pexels.com/photos/609771/pexels-photo-609771.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-];
+const featuredImages = [WomanModel, ManModel, WatchManModel, WatchWomanModel, Shoes];
 
 export const Slider = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -51,7 +50,7 @@ export const Slider = () => {
         <div
           ref={slideRef}
           style={divStyle}
-          className="peer relative h-[400px] w-full bg-cover bg-center bg-no-repeat md:h-[500px] lg:h-[600px] xl:h-[900px]"></div>
+          className="peer relative h-[400px] w-full bg-cover bg-center bg-no-repeat md:h-[500px] lg:h-[600px] xl:h-[91.5vh]"></div>
         <div className="absolute top-1/2 hidden  w-full -translate-y-1/2 transform animate-fade-in items-start justify-between px-3  hover:flex peer-hover:flex md:justify-around md:gap-60 xl:justify-between xl:p-16 ">
           <button
             onClick={onPrevClick}
