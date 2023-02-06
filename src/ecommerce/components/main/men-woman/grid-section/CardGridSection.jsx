@@ -25,7 +25,7 @@ export const CardGridSection = ({ image, imageAlt, category, textContainerClass,
       onMouseLeave={onMouseLeaveCard}>
       <Link to={`/men/category/${category}`}>
         <img
-          className="h-full max-h-[600px] w-full object-cover lg:max-h-[1000px]"
+          className="h-[600px] w-full object-cover lg:h-[800px]"
           src={image}
           alt={imageAlt}
         />

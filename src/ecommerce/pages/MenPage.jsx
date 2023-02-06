@@ -1,7 +1,6 @@
-import { HeroSection } from '../components/main/men-woman/HeroSection';
 import { EcommerceLayout } from '../layout';
+import { ShipmentSection, GridSection, HeroSection } from '../components/main/men-woman';
 import ManImage from '../../assets/images/man-hero-section.webp';
-import { GridSection } from '../components/main/men-woman/grid-section/GridSection';
 import ManImageModel from '../../assets/images/man-manwoman-grid-section-0.webp';
 import ManImageShirts from '../../assets/images/man-manwoman-grid-section-1.webp';
 import ManImageWatch from '../../assets/images/man-manwoman-grid-section-2.webp';
@@ -26,6 +25,7 @@ export const MenPage = () => {
         h3Text="Men's New Arrivals"
         category="shirts"
       />
+      <ShipmentSection />
     </EcommerceLayout>
   );
 };

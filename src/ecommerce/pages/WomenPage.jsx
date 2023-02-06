@@ -1,4 +1,4 @@
-import { HeroSection, GridSection } from '../components/main/men-woman';
+import { HeroSection, GridSection, ShipmentSection } from '../components/main/men-woman';
 import { EcommerceLayout } from '../layout/EcommerceLayout';
 import WomanImage from '../../assets/images/woman-hero-section.webp';
 import WomanModelGridImage from '../../assets/images/woman-manwoman-grid-section-0.webp';
@@ -32,6 +32,8 @@ export const WomenPage = () => {
         h3Text="Women's New Arrivals"
         category="dresses"
       />
+
+      <ShipmentSection />
     </EcommerceLayout>
   );
 };
