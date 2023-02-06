@@ -6,7 +6,7 @@ export const GridSection = ({ images, section, h3Text, category }) => {
       {/* Text */}
       <div className="col-start-1 col-end-5 row-start-1 row-end-2 hidden lg:inline ">
         <img
-          className="h-full"
+          className="h-full object-cover"
           src={images[0]}
           alt={`${section} model`}
         />
