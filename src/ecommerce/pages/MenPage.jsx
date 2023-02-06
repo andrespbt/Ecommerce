@@ -2,6 +2,14 @@ import { HeroSection } from '../components/main/men-woman/HeroSection';
 import { EcommerceLayout } from '../layout';
 import ManImage from '../../assets/images/man-hero-section.webp';
 import { GridSection } from '../components/main/men-woman/grid-section/GridSection';
+import ManImageModel from '../../assets/images/man-manwoman-grid-section-0.webp';
+import ManImageShirts from '../../assets/images/man-manwoman-grid-section-1.webp';
+import ManImageWatch from '../../assets/images/man-manwoman-grid-section-2.webp';
+import ManImageShoes from '../../assets/images/man-manwoman-grid-section-3.webp';
+import ManImageShirtModel from '../../assets/images/man-manwoman-grid-section-4.webp';
+import ShirtImage from '../../assets/images/man-manwoman-grid-section-5.webp';
+
+const images = [ManImageModel, ManImageShirtModel, ShirtImage, ManImageShirts, ManImageWatch, ManImageShoes];
 
 export const MenPage = () => {
   return (
@@ -12,7 +20,12 @@ export const MenPage = () => {
         image={ManImage}
         imageAlt="Man model photo"
       />
-      <GridSection />
+      <GridSection
+        images={images}
+        section="man"
+        h3Text="Men's New Arrivals"
+        category="shirts"
+      />
     </EcommerceLayout>
   );
 };
