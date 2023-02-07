@@ -1,14 +1,14 @@
 import { EcommerceLayout } from '../layout';
 import { ShipmentSection, GridSection, HeroSection } from '../components/main/men-woman';
-import ManImage from '../../assets/images/man-hero-section.webp';
-import ManImageModel from '../../assets/images/man-manwoman-grid-section-0.webp';
-import ManImageShirts from '../../assets/images/man-manwoman-grid-section-1.webp';
-import ManImageWatch from '../../assets/images/man-manwoman-grid-section-2.webp';
-import ManImageShoes from '../../assets/images/man-manwoman-grid-section-3.webp';
-import ManImageShirtModel from '../../assets/images/man-manwoman-grid-section-4.webp';
-import ShirtImage from '../../assets/images/man-manwoman-grid-section-5.webp';
 
-const images = [ManImageModel, ManImageShirtModel, ShirtImage, ManImageShirts, ManImageWatch, ManImageShoes];
+const images = [
+  'https://res.cloudinary.com/dxirtcrxd/image/upload/v1675807855/ecommerceImages/man-woman-grid/man-manwoman-grid-section-0_lioodp.webp',
+  'https://res.cloudinary.com/dxirtcrxd/image/upload/v1675807855/ecommerceImages/man-woman-grid/man-manwoman-grid-section-4_ikttqh.webp',
+  'https://res.cloudinary.com/dxirtcrxd/image/upload/v1675807855/ecommerceImages/man-woman-grid/man-manwoman-grid-section-5_zulavr.webp',
+  'https://res.cloudinary.com/dxirtcrxd/image/upload/v1675807855/ecommerceImages/man-woman-grid/man-manwoman-grid-section-1_l2jpik.webp',
+  'https://res.cloudinary.com/dxirtcrxd/image/upload/v1675807855/ecommerceImages/man-woman-grid/man-manwoman-grid-section-2_utw8bn.webp',
+  'https://res.cloudinary.com/dxirtcrxd/image/upload/v1675807855/ecommerceImages/man-woman-grid/man-manwoman-grid-section-3_mnvj4e.webp',
+];
 
 export const MenPage = () => {
   return (
@@ -16,7 +16,7 @@ export const MenPage = () => {
       <HeroSection
         color="bg-blue-100"
         text="fresh gentleman's style"
-        image={ManImage}
+        image="https://res.cloudinary.com/dxirtcrxd/image/upload/v1675808165/ecommerceImages/hero/man-hero-section_v0jiwy.webp"
         imageAlt="Man model photo"
       />
       <GridSection

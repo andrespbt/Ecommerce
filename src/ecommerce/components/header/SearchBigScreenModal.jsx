@@ -13,7 +13,7 @@ export const SearchBigScreenModal = () => {
   const productsFiltered = searchText ? filterProductsCategory(data.products) : [];
   return (
     <>
-      <div className={`${isSearchingBigScreen ? 'z-50' : ''} relative hidden w-full sm:inline`}>
+      <div className={`${isSearchingBigScreen ? 'z-[2000]' : ''} relative hidden w-full sm:inline`}>
         <Combobox
           className="absolute top-[-1.3rem] w-full divide-y divide-gray-100 rounded-xl bg-white shadow-2xl ring-1 ring-black/5"
           as="ul"
@@ -64,7 +64,7 @@ export const SearchBigScreenModal = () => {
 
       <div
         className={`${
-          isSearchingBigScreen ? 'sm:inline' : ''
+          isSearchingBigScreen ? 'z-[1000] sm:inline' : ''
         } absolute inset-0 z-10 hidden h-[100vh] w-full animate-fade-in bg-black/60`}
         onClick={() => setIsSearchingBigScreen(false)}></div>
     </>

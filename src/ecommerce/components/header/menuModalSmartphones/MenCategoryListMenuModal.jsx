@@ -1,9 +1,5 @@
 import { Link } from 'react-router-dom';
 import { ItemCardMenuModal } from './ItemCardMenuModal';
-import ManModel from '../../../../assets/images/man-model.png';
-import MenShirts from '../../../../assets/images/men-shirts.png';
-import MenShoes from '../../../../assets/images/men-shoes.png';
-import MenWatches from '../../../../assets/images/men-watches.png';
 import { NavMenuModalArrowLeftIcon } from '../../../icons/header';
 
 export const MenCategoryListMenuModal = ({ onClick, setIsMenuActive }) => {
@@ -17,7 +13,7 @@ export const MenCategoryListMenuModal = ({ onClick, setIsMenuActive }) => {
         <Link to="/men">
           <ItemCardMenuModal
             text="Main"
-            image={ManModel}
+            image="https://res.cloudinary.com/dxirtcrxd/image/upload/v1675810726/ecommerceImages/smartphones-menu-modal/man-model_qmprcp.png"
             altImage="Men model"
             onClick={() => setIsMenuActive(false)}
           />
@@ -25,7 +21,7 @@ export const MenCategoryListMenuModal = ({ onClick, setIsMenuActive }) => {
         <Link to="/men/category/shirts">
           <ItemCardMenuModal
             text="Shirts"
-            image={MenShirts}
+            image="https://res.cloudinary.com/dxirtcrxd/image/upload/v1675810727/ecommerceImages/smartphones-menu-modal/men-shirts_xyd3l3.png"
             altImage="Men Shirts"
             onClick={() => setIsMenuActive(false)}
           />
@@ -33,7 +29,7 @@ export const MenCategoryListMenuModal = ({ onClick, setIsMenuActive }) => {
         <Link to="/men/category/shoes">
           <ItemCardMenuModal
             text="Shoes"
-            image={MenShoes}
+            image="https://res.cloudinary.com/dxirtcrxd/image/upload/v1675810727/ecommerceImages/smartphones-menu-modal/men-shoes_tgrb5j.png"
             altImage="Men Shoes"
             onClick={() => setIsMenuActive(false)}
           />
@@ -41,7 +37,7 @@ export const MenCategoryListMenuModal = ({ onClick, setIsMenuActive }) => {
         <Link to="/men/category/watches">
           <ItemCardMenuModal
             text="Watches"
-            image={MenWatches}
+            image="https://res.cloudinary.com/dxirtcrxd/image/upload/v1675810727/ecommerceImages/smartphones-menu-modal/men-watches_fruzco.png"
             altImage="Men Watches"
             onClick={() => setIsMenuActive(false)}
           />

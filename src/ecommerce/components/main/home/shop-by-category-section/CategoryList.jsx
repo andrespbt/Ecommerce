@@ -1,11 +1,5 @@
 import { useNavigate } from 'react-router-dom';
 import { CardCategorySection } from './CardCategorySection';
-import WomanDress from '../../../../../assets/images/woman-dress-category-section.webp';
-import WomanWatch from '../../../../../assets/images/woman-watch-category-section.webp';
-import WomanShoes from '../../../../../assets/images/woman-shoes-category-section.webp';
-import ManShirts from '../../../../../assets/images/man-shirts-category-section.webp';
-import ManWatches from '../../../../../assets/images/man-watches-category-section.webp';
-import ManShoes from '../../../../../assets/images/man-shoes-category-section.webp';
 
 export const CategoryList = () => {
   const navigate = useNavigate();
@@ -22,7 +16,7 @@ export const CategoryList = () => {
     <>
       <h3 className="col-start-2 col-end-10 mb-8 w-full text-4xl font-bold sm:hidden">Women</h3>
       <CardCategorySection
-        imageUrl={WomanDress}
+        imageUrl="https://res.cloudinary.com/dxirtcrxd/image/upload/v1675810481/ecommerceImages/woman/woman-dress-category-section_lfiqm7.webp"
         section={'women'}
         category={'women-dresses'}
         text={'Dresses'}
@@ -31,7 +25,7 @@ export const CategoryList = () => {
       />
 
       <CardCategorySection
-        imageUrl={WomanWatch}
+        imageUrl="https://res.cloudinary.com/dxirtcrxd/image/upload/v1675810481/ecommerceImages/woman/woman-watch-category-section_lxu9x5.webp"
         section={'women'}
         category={'women-watches'}
         onClick={onItemClick}
@@ -40,7 +34,7 @@ export const CategoryList = () => {
       />
 
       <CardCategorySection
-        imageUrl={WomanShoes}
+        imageUrl="https://res.cloudinary.com/dxirtcrxd/image/upload/v1675810481/ecommerceImages/woman/woman-shoes-category-section_euywkw.webp"
         section={'women'}
         category={'women-shoes'}
         onClick={onItemClick}
@@ -51,7 +45,7 @@ export const CategoryList = () => {
       <h3 className="col-start-2 col-end-10 mx-8 w-full text-4xl font-bold sm:hidden">Men</h3>
 
       <CardCategorySection
-        imageUrl={ManShirts}
+        imageUrl="https://res.cloudinary.com/dxirtcrxd/image/upload/v1675810197/ecommerceImages/man/man-shirts-category-section_obgjde.webp"
         section={'men'}
         category={'men-shirts'}
         onClick={onItemClick}
@@ -60,7 +54,7 @@ export const CategoryList = () => {
       />
 
       <CardCategorySection
-        imageUrl={ManWatches}
+        imageUrl="https://res.cloudinary.com/dxirtcrxd/image/upload/v1675810197/ecommerceImages/man/man-watches-category-section_gljlcs.webp"
         section={'men'}
         category={'men-watches'}
         onClick={onItemClick}
@@ -69,7 +63,7 @@ export const CategoryList = () => {
       />
 
       <CardCategorySection
-        imageUrl={ManShoes}
+        imageUrl="https://res.cloudinary.com/dxirtcrxd/image/upload/v1675810197/ecommerceImages/man/man-shoes-category-section_qurnv4.webp"
         section={'men'}
         category={'men-shoes'}
         onClick={onItemClick}

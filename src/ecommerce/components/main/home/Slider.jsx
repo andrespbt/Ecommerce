@@ -1,12 +1,13 @@
 import { useEffect, useRef, useState } from 'react';
-import ManModel from '../../../../assets/images/man-slider-category-1.webp';
-import WomanModel from '../../../../assets/images/woman-slider-category-2.webp';
-import WatchManModel from '../../../../assets/images/man-slider-category-3.webp';
-import WatchWomanModel from '../../../../assets/images/woman-slider-category-4.webp';
-import Shoes from '../../../../assets/images/shoes-slider-category-5.webp';
 import { SliderArrowLeftIcon, SliderArrowRightIcon } from '../../../icons/main/slider';
 
-const featuredImages = [WomanModel, ManModel, WatchManModel, WatchWomanModel, Shoes];
+const featuredImages = [
+  'https://res.cloudinary.com/dxirtcrxd/image/upload/v1675807549/ecommerceImages/slider/woman-slider-category-2_o0nnh2.webp',
+  'https://res.cloudinary.com/dxirtcrxd/image/upload/v1675807549/ecommerceImages/slider/man-slider-category-1_hrngi4.webp',
+  'https://res.cloudinary.com/dxirtcrxd/image/upload/v1675807549/ecommerceImages/slider/man-slider-category-3_mebb41.webp',
+  'https://res.cloudinary.com/dxirtcrxd/image/upload/v1675807550/ecommerceImages/slider/woman-watch-category-section_jnwmvt.webp',
+  'https://res.cloudinary.com/dxirtcrxd/image/upload/v1675807549/ecommerceImages/slider/shoes-slider-category-5_bghc2j.webp',
+];
 
 export const Slider = () => {
   const [currentIndex, setCurrentIndex] = useState(0);

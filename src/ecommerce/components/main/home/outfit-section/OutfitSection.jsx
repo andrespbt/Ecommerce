@@ -1,6 +1,4 @@
 import { Link } from 'react-router-dom';
-import ManImage from '../../../../../assets/images/man-outfit-section.webp';
-import WomanImage from '../../../../../assets/images/woman-outfit-section.jpeg';
 
 export const OutfitSection = () => {
   return (
@@ -10,8 +8,8 @@ export const OutfitSection = () => {
         <Link to="/women/category/women-dresses">
           <div className="flex flex-col items-center gap-7 lg:h-full lg:w-full lg:justify-between">
             <img
-              className="h-[650px] min-w-[300px] lg:h-[750px]"
-              src={WomanImage}
+              className="min-w-[300px] sm:h-[650px] lg:h-[750px]"
+              src="https://res.cloudinary.com/dxirtcrxd/image/upload/v1675810589/ecommerceImages/outfit/woman-outfit-section_fc4ljl.jpg"
               alt="Woman model photo"
             />
             <h4 className="text-4xl font-extrabold">FIND YOURS</h4>
@@ -24,8 +22,8 @@ export const OutfitSection = () => {
         <Link to="/men/category/men-shirts">
           <div className="flex flex-col items-center gap-7 lg:h-full lg:w-full lg:justify-between">
             <img
-              className="h-[650px] min-w-[300px] lg:h-[750px]"
-              src={ManImage}
+              className="min-w-[300px] sm:h-[650px] lg:h-[750px]"
+              src="https://res.cloudinary.com/dxirtcrxd/image/upload/v1675810590/ecommerceImages/outfit/man-outfit-section_uyjgol.webp"
               alt="Man model photo"
             />
             <h4 className="text-4xl font-extrabold">TOPMAN</h4>

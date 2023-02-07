@@ -19,7 +19,7 @@ export const HeroSection = ({ color, text, image, imageAlt }) => {
           </span>
         </div>
 
-        <div className="w-full">
+        <div className="h-full w-[35%]">
           <img
             className="h-full w-full min-w-[382px] object-cover object-center"
             src={image}

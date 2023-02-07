@@ -1,11 +1,5 @@
-import { ItemCardMenuModal } from './ItemCardMenuModal';
-import ManModel from '../../../../assets/images/man-model.png';
-import WomanModel from '../../../../assets/images/woman-model.png';
-import Home from '../../../../assets/images/home.png';
-import Search from '../../../../assets/images/search.png';
-import Purchases from '../../../../assets/images/purchases.png';
-import Favorite from '../../../../assets/images/favorite.png';
 import { Link } from 'react-router-dom';
+import { ItemCardMenuModal } from './ItemCardMenuModal';
 
 export const ItemListMenuModal = ({ onModalMenClick, onModalWomenClick, onSearchClick, setIsMenuActive }) => {
   return (
@@ -15,14 +9,14 @@ export const ItemListMenuModal = ({ onModalMenClick, onModalWomenClick, onSearch
         className="relative">
         <ItemCardMenuModal
           text="Men"
-          image={ManModel}
+          image="https://res.cloudinary.com/dxirtcrxd/image/upload/v1675810726/ecommerceImages/smartphones-menu-modal/man-model_qmprcp.png"
           altImage="Men model"
         />
       </div>
       <div onClick={onModalWomenClick}>
         <ItemCardMenuModal
           text="Women"
-          image={WomanModel}
+          image="https://res.cloudinary.com/dxirtcrxd/image/upload/v1675810753/ecommerceImages/smartphones-menu-modal/woman-model_veo9ke.png"
           altImage="Woman model"
         />
       </div>
@@ -31,7 +25,7 @@ export const ItemListMenuModal = ({ onModalMenClick, onModalWomenClick, onSearch
         replace>
         <ItemCardMenuModal
           text="Home"
-          image={Home}
+          image="https://res.cloudinary.com/dxirtcrxd/image/upload/v1675811236/ecommerceImages/smartphones-menu-modal/others/home_nx7zuh.png"
           altImage="Home"
           onClick={() => setIsMenuActive(false)}
         />
@@ -40,14 +34,14 @@ export const ItemListMenuModal = ({ onModalMenClick, onModalWomenClick, onSearch
       <ItemCardMenuModal
         onClick={onSearchClick}
         text="Search"
-        image={Search}
+        image="https://res.cloudinary.com/dxirtcrxd/image/upload/v1675811236/ecommerceImages/smartphones-menu-modal/others/search_qdvze3.png"
         altImage="Search"
       />
 
       <Link to="/purchases">
         <ItemCardMenuModal
           text="My purchases"
-          image={Purchases}
+          image="https://res.cloudinary.com/dxirtcrxd/image/upload/v1675811236/ecommerceImages/smartphones-menu-modal/others/purchases_cidyve.png"
           altImage="Purchases"
           onClick={() => setIsMenuActive(false)}
         />
@@ -56,7 +50,7 @@ export const ItemListMenuModal = ({ onModalMenClick, onModalWomenClick, onSearch
       <Link to="/favorites">
         <ItemCardMenuModal
           text="My Favorites"
-          image={Favorite}
+          image="https://res.cloudinary.com/dxirtcrxd/image/upload/v1675811236/ecommerceImages/smartphones-menu-modal/others/favorite_dzfwiv.png"
           altImage="Favorite"
           onClick={() => setIsMenuActive(false)}
         />{' '}

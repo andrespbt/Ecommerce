@@ -1,20 +1,13 @@
 import { HeroSection, GridSection, ShipmentSection } from '../components/main/men-woman';
 import { EcommerceLayout } from '../layout/EcommerceLayout';
-import WomanImage from '../../assets/images/woman-hero-section.webp';
-import WomanModelGridImage from '../../assets/images/woman-manwoman-grid-section-0.webp';
-import WomanDressModelGridImageLeft from '../../assets/images/woman-manwoman-grid-section-1.webp';
-import WomanDressModelGridImageRight from '../../assets/images/woman-manwoman-grid-section-2.webp';
-import WomanDressModelGridImage from '../../assets/images/woman-manwoman-grid-section-3.webp';
-import WomanWatchModelGridImage from '../../assets/images/woman-manwoman-grid-section-4.webp';
-import WomanShoesModelGridImage from '../../assets/images/woman-manwoman-grid-section-5.webp';
 
 const images = [
-  WomanModelGridImage,
-  WomanDressModelGridImageLeft,
-  WomanDressModelGridImageRight,
-  WomanDressModelGridImage,
-  WomanWatchModelGridImage,
-  WomanShoesModelGridImage,
+  'https://res.cloudinary.com/dxirtcrxd/image/upload/v1675809667/ecommerceImages/man-woman-grid/woman-manwoman-grid-section-0_u2ufol.webp',
+  'https://res.cloudinary.com/dxirtcrxd/image/upload/v1675809667/ecommerceImages/man-woman-grid/woman-manwoman-grid-section-1_auncs2.webp',
+  'https://res.cloudinary.com/dxirtcrxd/image/upload/v1675809667/ecommerceImages/man-woman-grid/woman-manwoman-grid-section-2_hizyi0.webp',
+  'https://res.cloudinary.com/dxirtcrxd/image/upload/v1675809667/ecommerceImages/man-woman-grid/woman-manwoman-grid-section-3_l2z4kp.webp',
+  'https://res.cloudinary.com/dxirtcrxd/image/upload/v1675809667/ecommerceImages/man-woman-grid/woman-manwoman-grid-section-4_ul8i8o.webp',
+  'https://res.cloudinary.com/dxirtcrxd/image/upload/v1675809667/ecommerceImages/man-woman-grid/woman-manwoman-grid-section-5_wutytq.webp',
 ];
 
 export const WomenPage = () => {
@@ -23,7 +16,7 @@ export const WomenPage = () => {
       <HeroSection
         color="bg-pink-100"
         text="fresh lady's style"
-        image={WomanImage}
+        image="https://res.cloudinary.com/dxirtcrxd/image/upload/v1675808165/ecommerceImages/hero/woman-hero-section_i68ag3.webp"
         imageAlt="Woman model photo"
       />
       <GridSection
