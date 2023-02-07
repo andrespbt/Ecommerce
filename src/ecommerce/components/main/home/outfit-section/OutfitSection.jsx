@@ -10,7 +10,7 @@ export const OutfitSection = () => {
         <Link to="/women/category/women-dresses">
           <div className="flex flex-col items-center gap-7 lg:h-full lg:w-full lg:justify-between">
             <img
-              className="min-w-[300px] lg:w-[450px] xl:w-[650px]"
+              className="h-[650px] min-w-[300px] lg:h-[750px]"
               src={WomanImage}
               alt="Woman model photo"
             />
@@ -24,7 +24,7 @@ export const OutfitSection = () => {
         <Link to="/men/category/men-shirts">
           <div className="flex flex-col items-center gap-7 lg:h-full lg:w-full lg:justify-between">
             <img
-              className="min-w-[300px] lg:w-[450px]  xl:w-[650px]"
+              className="h-[650px] min-w-[300px] lg:h-[750px]"
               src={ManImage}
               alt="Man model photo"
             />

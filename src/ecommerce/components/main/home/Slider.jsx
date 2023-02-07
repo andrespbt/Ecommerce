@@ -50,7 +50,7 @@ export const Slider = () => {
         <div
           ref={slideRef}
           style={divStyle}
-          className="peer relative h-[400px] w-full bg-cover bg-center bg-no-repeat md:h-[500px] lg:h-[600px] xl:h-[91.5vh]"></div>
+          className="peer relative h-[400px] w-full bg-cover bg-center bg-no-repeat md:h-[500px] lg:h-[600px] xl:h-[800px]"></div>
         <div className="absolute top-1/2 hidden  w-full -translate-y-1/2 transform animate-fade-in items-start justify-between px-3  hover:flex peer-hover:flex md:justify-around md:gap-60 xl:justify-between xl:p-16 ">
           <button
             onClick={onPrevClick}
