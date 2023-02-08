@@ -41,7 +41,7 @@ export const MenuModal = () => {
   return (
     <>
       <NavHamburgerIcon
-        className="h-[2.5em] w-[2.5em] min-w-[40px] fill-white hover:cursor-pointer sm:basis-1/12 md:hidden"
+        className="h-[2em] w-[2em] min-w-[40px] fill-white hover:cursor-pointer sm:basis-1/12 md:hidden"
         onClick={onMenuActive}
       />
       <Transition

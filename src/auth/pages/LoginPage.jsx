@@ -59,7 +59,7 @@ export const LoginPage = () => {
 
   return (
     <AuthLayout>
-      <div className="mb-32 sm:mb-0 w-10/12 min-w-[400px] max-w-[400px] animate-fade-in-down rounded-3xl bg-white shadow-3xl sm:min-w-[620px]">
+      <div className="w-10/12 min-w-[400px] animate-fade-in-down rounded-3xl bg-white shadow-3xl sm:h-full">
         <form
           className="p-12"
           onSubmit={handleSubmit(onSubmit)}>

@@ -8,7 +8,7 @@ export const OutfitSection = () => {
         <Link to="/women/category/women-dresses">
           <div className="flex flex-col items-center gap-7 lg:h-full lg:w-full lg:justify-between">
             <img
-              className="min-w-[300px] sm:h-[650px] lg:h-[750px]"
+              className="min-w-[300px] sm:h-[550px] lg:h-[600px]"
               src="https://res.cloudinary.com/dxirtcrxd/image/upload/v1675810589/ecommerceImages/outfit/woman-outfit-section_fc4ljl.jpg"
               alt="Woman model photo"
             />
@@ -22,7 +22,7 @@ export const OutfitSection = () => {
         <Link to="/men/category/men-shirts">
           <div className="flex flex-col items-center gap-7 lg:h-full lg:w-full lg:justify-between">
             <img
-              className="min-w-[300px] sm:h-[650px] lg:h-[750px]"
+              className="min-w-[300px] sm:h-[550px] lg:h-[600px]"
               src="https://res.cloudinary.com/dxirtcrxd/image/upload/v1675810590/ecommerceImages/outfit/man-outfit-section_uyjgol.webp"
               alt="Man model photo"
             />

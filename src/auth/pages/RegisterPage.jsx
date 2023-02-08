@@ -79,9 +79,9 @@ export const RegisterPage = () => {
 
   return (
     <AuthLayout>
-      <div className="mb-32 w-10/12 min-w-[400px] max-w-[400px] animate-fade-in-down rounded-3xl bg-white shadow-3xl sm:mb-0 sm:min-w-[620px]">
+      <div className="sm:h-full w-10/12 min-w-[400px] animate-fade-in-down rounded-3xl bg-white shadow-3xl">
         <form
-          className="p-12 sm:p-24"
+          className="p-12"
           onSubmit={handleSubmit(onSubmit)}>
           <div className="mb-6 flex items-center text-lg sm:mb-8">
             <LoginUserIcon />
