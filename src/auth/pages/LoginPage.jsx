@@ -59,9 +59,9 @@ export const LoginPage = () => {
 
   return (
     <AuthLayout>
-      <div className="mt-10 w-10/12 min-w-[400px] max-w-[400px] animate-fade-in-down rounded-3xl bg-white shadow-3xl sm:min-w-[620px] md:mt-16 md:w-[812px] md:max-w-[812px] lg:w-6/12 lg:min-w-[812px]">
+      <div className="mb-32 sm:mb-0 w-10/12 min-w-[400px] max-w-[400px] animate-fade-in-down rounded-3xl bg-white shadow-3xl sm:min-w-[620px]">
         <form
-          className="p-12 sm:p-24"
+          className="p-12"
           onSubmit={handleSubmit(onSubmit)}>
           {/* Email input */}
           <div className="mb-6 flex items-center text-lg sm:mb-8">
