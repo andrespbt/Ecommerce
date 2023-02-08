@@ -4,17 +4,12 @@ import { AuthRoutes, childAuthRoutes } from '../auth/routes/AuthRoutes';
 import { ErrorPageMain } from '../ecommerce/pages';
 import { childEcommerceRoutes, EcommerceRoutes } from '../ecommerce/routes/EcommerceRoutes';
 import { useCheckAuth } from '../hooks/onCheckAuth';
-import { CheckingAuth } from '../ui/components/CheckingAuth';
 
 export const AppRouter = () => {
   const status = useCheckAuth();
 
   const isAuthenticated = status === 3;
   const isAnon = status === 5;
-
-  if (status === 2) {
-    return <CheckingAuth />;
-  }
 
   const router = createBrowserRouter([
     {

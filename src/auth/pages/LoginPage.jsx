@@ -59,12 +59,12 @@ export const LoginPage = () => {
 
   return (
     <AuthLayout>
-      <div className="w-10/12 min-w-[400px] animate-fade-in-down rounded-3xl bg-white shadow-3xl sm:h-full">
-        <form
-          className="p-12"
-          onSubmit={handleSubmit(onSubmit)}>
-          {/* Email input */}
-          <div className="mb-6 flex items-center text-lg sm:mb-8">
+      <form
+        className="w-10/12 min-w-[400px] max-w-[550px] animate-fade-in-down rounded-3xl bg-white p-8 shadow-3xl"
+        onSubmit={handleSubmit(onSubmit)}>
+        {/* Email input */}
+        <div className="flex h-full max-h-[450px] w-full flex-col gap-3">
+          <div className="flex items-center text-lg">
             <LoginEmailIcon />
             <input
               className="w-full max-w-[620px] rounded-2xl bg-gray-200 py-2 pl-10 text-sm focus:outline-none focus:ring focus:ring-gray-300 focus:placeholder:text-transparent sm:py-4 sm:pl-12 sm:text-xl"
@@ -86,7 +86,7 @@ export const LoginPage = () => {
           {errors.email?.type !== 'custom' && <SmallErrorMessage message={errors.email?.message} />}
 
           {/* Password Input */}
-          <div className="mb-6 flex items-center text-lg sm:mb-8">
+          <div className="flex items-center text-lg">
             <LoginPassIcon />
             <input
               className="w-full max-w-[620px] rounded-2xl bg-gray-200 py-2 pl-10 text-sm  focus:border focus:outline-none focus:ring focus:ring-gray-300 focus:placeholder:text-transparent sm:py-4 sm:pl-12 sm:text-xl "
@@ -133,12 +133,12 @@ export const LoginPage = () => {
           {errors.password?.type === 'custom' && <ErrorMessage message={errors.password?.message} />}
 
           <Link
-            className="mt-5 block text-center text-sm text-gray-400 underline hover:text-gray-300 sm:text-lg"
+            className="block text-center text-sm text-gray-400 underline hover:text-gray-300 sm:text-lg"
             to="/auth/register">
             Create an account
           </Link>
-        </form>
-      </div>
+        </div>
+      </form>
     </AuthLayout>
   );
 };

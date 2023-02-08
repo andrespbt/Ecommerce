@@ -79,11 +79,11 @@ export const RegisterPage = () => {
 
   return (
     <AuthLayout>
-      <div className="sm:h-full w-10/12 min-w-[400px] animate-fade-in-down rounded-3xl bg-white shadow-3xl">
-        <form
-          className="p-12"
-          onSubmit={handleSubmit(onSubmit)}>
-          <div className="mb-6 flex items-center text-lg sm:mb-8">
+      <form
+        className="max-h-[500px] w-10/12 min-w-[400px] max-w-[550px] animate-fade-in-down rounded-3xl bg-white p-8 shadow-3xl"
+        onSubmit={handleSubmit(onSubmit)}>
+        <div className="flex h-full max-h-[450px] w-full flex-col gap-3">
+          <div className="flex items-center text-lg">
             <LoginUserIcon />
             <input
               className="w-full max-w-[620px] rounded-2xl bg-gray-200 py-2 pl-10 text-sm  focus:outline-none focus:ring  focus:ring-gray-300  focus:placeholder:text-transparent sm:py-4 sm:pl-12 sm:text-xl "
@@ -104,7 +104,7 @@ export const RegisterPage = () => {
           {errors.displayName?.type !== 'custom' && <SmallErrorMessage message={errors.displayName?.message} />}
 
           {/* Email input */}
-          <div className="mb-6 flex items-center text-lg sm:mb-8">
+          <div className="flex items-center text-lg">
             <LoginEmailIcon />
             <input
               className="w-full max-w-[620px] rounded-2xl bg-gray-200 py-2 pl-12 text-sm focus:outline-none focus:ring focus:ring-gray-300  focus:placeholder:text-transparent sm:py-4 sm:text-xl"
@@ -125,7 +125,7 @@ export const RegisterPage = () => {
           {errors.email?.type !== 'custom' && <SmallErrorMessage message={errors.email?.message} />}
 
           {/* Password Input */}
-          <div className="mb-6 flex items-center text-lg sm:mb-8">
+          <div className="flex items-center text-lg">
             <LoginPassIcon />
             <input
               className="w-full max-w-[620px] rounded-2xl bg-gray-200 py-2 pl-12 text-sm focus:outline-none focus:ring focus:ring-gray-300 focus:placeholder:text-transparent sm:py-4 sm:text-xl "
@@ -156,12 +156,12 @@ export const RegisterPage = () => {
           {errors.email?.type === 'custom' && <ErrorMessage message={errors.email.message} />}
 
           <Link
-            className="mt-5 block text-center text-sm text-gray-400 underline hover:text-gray-300 sm:text-lg"
+            className="block text-center text-sm text-gray-400 underline hover:text-gray-300 sm:text-lg"
             to="/auth/login">
             Already have an account ? Login
           </Link>
-        </form>
-      </div>
+        </div>
+      </form>
     </AuthLayout>
   );
 };
