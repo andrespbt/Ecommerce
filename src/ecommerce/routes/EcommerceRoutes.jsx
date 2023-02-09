@@ -1,4 +1,5 @@
 import { Navigate, Outlet } from 'react-router-dom';
+import { useGetProductByCategoryQuery } from '../../store/apis/productsApi';
 import {
   AboutPage,
   FavoritesPage,

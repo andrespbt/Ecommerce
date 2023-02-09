@@ -95,7 +95,10 @@ export const RightNavBar = () => {
       {/* End User menu on hover */}
 
       <Link to="/favorites">
-        <NavHeartIcon className="h-[1.4em] w-[1.4em] fill-white stroke-[0.1px] hover:cursor-pointer  md:h-[1.6em] md:w-[1.6em]" />
+        <NavHeartIcon
+          className="h-[1.4em] w-[1.4em] fill-white stroke-[0.1px] hover:cursor-pointer  md:h-[1.6em] md:w-[1.6em]"
+          viewBox="-2 -2 20 20"
+        />
       </Link>
       <Link to="/purchases">
         <NavShopIcon className="h-[1.4em] w-[1.4em] fill-white stroke-[0.1px] hover:cursor-pointer  md:h-[1.6em] md:w-[1.6em]" />

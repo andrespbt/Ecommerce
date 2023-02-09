@@ -19,9 +19,9 @@ export const HeroSection = ({ color, text, image, imageAlt }) => {
           </span>
         </div>
 
-        <div className="h-full w-[35%]">
+        <div className="w-full md:w-[35%]">
           <img
-            className="h-full w-full min-w-[382px] object-cover object-center"
+            className="max-h-[600px] w-full min-w-[382px] object-cover object-center md:h-full md:max-h-full"
             src={image}
             alt={imageAlt}
           />
