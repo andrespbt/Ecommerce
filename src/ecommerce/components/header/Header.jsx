@@ -40,6 +40,8 @@ export const Header = () => {
     };
   }, [scrollPosition]);
 
+  console.log(showNavBar);
+
   return (
     <header
       ref={headerRef}

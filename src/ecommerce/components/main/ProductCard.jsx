@@ -6,12 +6,7 @@ import {
   startNewLikedProduct,
 } from '../../../store/ecommerce/thunks';
 import { NavHeartIcon } from '../../icons/header';
-import {
-  ProductCardCart,
-  ProductCardCartChecked,
-  ProductCardHeartFill,
-  ProductCardZoom,
-} from '../../icons/main/product-card';
+import { ProductCardCart, ProductCardCartChecked, ProductCardHeartFill } from '../../icons/main/product-card';
 
 export const ProductCard = ({ id, title, img, price, discount, isLiked, isInCart }) => {
   const dispatch = useDispatch();

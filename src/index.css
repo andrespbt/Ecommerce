@@ -11,6 +11,11 @@
     font-family: 'Lato', sans-serif;
   }
 
+  main {
+    min-height: calc(100vh - 200px);
+    overflow-x: hidden;
+  }
+
   .active {
     background-color: #535051;
   }

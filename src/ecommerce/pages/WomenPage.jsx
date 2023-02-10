@@ -13,20 +13,22 @@ const images = [
 export const WomenPage = () => {
   return (
     <EcommerceLayout>
-      <HeroSection
-        color="bg-pink-100"
-        text="fresh lady's style"
-        image="https://res.cloudinary.com/dxirtcrxd/image/upload/v1675808165/ecommerceImages/hero/woman-hero-section_i68ag3.webp"
-        imageAlt="Woman model photo"
-      />
-      <GridSection
-        images={images}
-        section="woman"
-        h3Text="Women's New Arrivals"
-        category="dresses"
-      />
+      <main>
+        <HeroSection
+          color="bg-pink-100"
+          text="fresh lady's style"
+          image="https://res.cloudinary.com/dxirtcrxd/image/upload/v1675808165/ecommerceImages/hero/woman-hero-section_i68ag3.webp"
+          imageAlt="Woman model photo"
+        />
+        <GridSection
+          images={images}
+          section="woman"
+          h3Text="Women's New Arrivals"
+          category="dresses"
+        />
 
-      <ShipmentSection />
+        <ShipmentSection />
+      </main>
     </EcommerceLayout>
   );
 };

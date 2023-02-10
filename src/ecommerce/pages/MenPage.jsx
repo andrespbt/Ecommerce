@@ -13,19 +13,21 @@ const images = [
 export const MenPage = () => {
   return (
     <EcommerceLayout>
-      <HeroSection
-        color="bg-blue-100"
-        text="fresh gentleman's style"
-        image="https://res.cloudinary.com/dxirtcrxd/image/upload/v1675808165/ecommerceImages/hero/man-hero-section_v0jiwy.webp"
-        imageAlt="Man model photo"
-      />
-      <GridSection
-        images={images}
-        section="man"
-        h3Text="Men's New Arrivals"
-        category="shirts"
-      />
-      <ShipmentSection />
+      <main>
+        <HeroSection
+          color="bg-blue-100"
+          text="fresh gentleman's style"
+          image="https://res.cloudinary.com/dxirtcrxd/image/upload/v1675808165/ecommerceImages/hero/man-hero-section_v0jiwy.webp"
+          imageAlt="Man model photo"
+        />
+        <GridSection
+          images={images}
+          section="man"
+          h3Text="Men's New Arrivals"
+          category="shirts"
+        />
+        <ShipmentSection />
+      </main>
     </EcommerceLayout>
   );
 };

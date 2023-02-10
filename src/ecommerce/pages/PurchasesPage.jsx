@@ -3,7 +3,9 @@ import { EcommerceLayout } from '../layout/EcommerceLayout';
 export const PurchasesPage = () => {
   return (
     <EcommerceLayout>
-      <div>Purchases</div>
+      <main>
+        <div>Purchases</div>
+      </main>
     </EcommerceLayout>
   );
 };

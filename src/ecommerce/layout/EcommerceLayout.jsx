@@ -6,6 +6,8 @@ import { Header } from '../components/header/Header';
 export const EcommerceLayout = ({ children }) => {
   const { isMenuActive } = useContext(HeaderContext);
 
+  console.log(isMenuActive);
+
   useEffect(() => {
     isMenuActive ? (document.body.style.overflow = 'hidden') : (document.body.style.overflow = 'auto');
   }, [isMenuActive]);
@@ -13,7 +15,7 @@ export const EcommerceLayout = ({ children }) => {
   return (
     <>
       <Header />
-      <main className={`bg-gray-50`}>{children}</main>
+      {children}
       <Footer />
     </>
   );
