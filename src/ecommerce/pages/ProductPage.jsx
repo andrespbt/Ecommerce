@@ -5,7 +5,7 @@ export const ProductPage = () => {
     <>
       <EcommerceLayout>
         <main>
-        <div className="px-20 py-5">Product</div>
+          <ProductSection />
         </main>
       </EcommerceLayout>
     </>
