@@ -83,8 +83,8 @@ export const RegisterPage = () => {
         className="max-h-[500px] w-10/12 min-w-[10/12] max-w-[550px] animate-fade-in-down rounded-3xl bg-white p-8 shadow-3xl"
         onSubmit={handleSubmit(onSubmit)}>
         <div className="flex h-full max-h-[450px] w-full flex-col gap-3">
-          <div className="flex items-center text-lg">
-            <LoginUserIcon />
+          <div className="relative flex items-center text-lg">
+            <LoginUserIcon className="absolute" />
             <input
               className="w-full max-w-[620px] rounded-2xl bg-gray-200 py-2 pl-10 text-sm  focus:outline-none focus:ring  focus:ring-gray-300  focus:placeholder:text-transparent sm:py-4 sm:pl-12 sm:text-xl "
               type="text"
@@ -104,8 +104,8 @@ export const RegisterPage = () => {
           {errors.displayName?.type !== 'custom' && <SmallErrorMessage message={errors.displayName?.message} />}
 
           {/* Email input */}
-          <div className="flex items-center text-lg">
-            <LoginEmailIcon />
+          <div className="relative flex items-center text-lg">
+            <LoginEmailIcon className="absolute" />
             <input
               className="w-full max-w-[620px] rounded-2xl bg-gray-200 py-2 pl-12 text-sm focus:outline-none focus:ring focus:ring-gray-300  focus:placeholder:text-transparent sm:py-4 sm:text-xl"
               placeholder="Email"
@@ -125,8 +125,8 @@ export const RegisterPage = () => {
           {errors.email?.type !== 'custom' && <SmallErrorMessage message={errors.email?.message} />}
 
           {/* Password Input */}
-          <div className="flex items-center text-lg">
-            <LoginPassIcon />
+          <div className="relative flex items-center text-lg">
+            <LoginPassIcon className="absolute" />
             <input
               className="w-full max-w-[620px] rounded-2xl bg-gray-200 py-2 pl-12 text-sm focus:outline-none focus:ring focus:ring-gray-300 focus:placeholder:text-transparent sm:py-4 sm:text-xl "
               type="password"
