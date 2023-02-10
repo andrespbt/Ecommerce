@@ -4,7 +4,7 @@ import { MenuModal, SearchBigScreenModal } from './index';
 
 export const LeftNavBar = () => {
   return (
-    <div className="w-30 flex flex-nowrap items-center justify-center gap-5 sm:grow sm:justify-start md:ml-0 md:h-full md:gap-0 md:text-center xl:mr-10 xl:max-w-7xl">
+    <div className="w-30 flex flex-nowrap items-center justify-center gap-1 sm:grow sm:justify-start md:ml-0 md:h-full md:gap-0 md:text-center xl:mr-10 xl:max-w-7xl">
       <MenuModal />
       <Link
         to="/"

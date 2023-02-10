@@ -76,10 +76,10 @@ module.exports = {
         roll: {
           '0%': {
             transform: 'rotate(360deg)',
-            transform: 'translateX(-100%)',
+            transform: 'translateX(-1000px)',
           },
 
-          '50%': {
+          '70%': {
             transform: 'translateX(100px)',
             transform: 'rotate(-180deg)',
           },

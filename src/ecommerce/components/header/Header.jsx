@@ -47,8 +47,8 @@ export const Header = () => {
       ref={headerRef}
       className={`will-change-scroll ${showNavBar ? 'sticky-top' : ''} ${
         isSearchingBigScreen ? 'w-full' : ''
-      } bg-darkGray md:h-24`}>
-      <nav className="flex h-[8vh] flex-nowrap items-center justify-between  px-8 py-8 md:h-full md:py-0 xl:justify-center">
+      } w-full bg-darkGray md:block md:h-24`}>
+      <nav className="flex h-[8vh] flex-nowrap items-center  justify-between px-8 py-8 md:h-full md:py-0 xl:justify-center">
         <LeftNavBar />
         <RightNavBar />
       </nav>

@@ -60,7 +60,7 @@ export const LoginPage = () => {
   return (
     <AuthLayout>
       <form
-        className="w-10/12 min-w-[400px] max-w-[550px] animate-fade-in-down rounded-3xl bg-white p-8 shadow-3xl"
+        className="w-10/12 min-w-[10/12] max-w-[550px] animate-fade-in-down rounded-3xl bg-white p-8 shadow-3xl"
         onSubmit={handleSubmit(onSubmit)}>
         {/* Email input */}
         <div className="flex h-full max-h-[450px] w-full flex-col gap-3">
