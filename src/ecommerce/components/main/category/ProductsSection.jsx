@@ -4,16 +4,7 @@ import { ProductCard } from '../ProductCard';
 
 export const ProductsSection = ({ data }) => {
   const products = data?.products;
-  const { likes } = useSelector(state => state.ecommerce);
-  let isLiked = null;
-
-  // useEffect(() => {
-  //   for (const prop of likes) {
-  //     isLiked = prop.id === id;
-  //   }
-  // }, [likes]);
-
-  console.log();
+  const { likes, cart } = useSelector(state => state.ecommerce);
 
   return (
     <section className="my-10 mx-6">
@@ -26,7 +17,8 @@ export const ProductsSection = ({ data }) => {
               img={product.thumbnail}
               price={product.price}
               discount={Math.floor(product.discountPercentage)}
-              isLiked={likes.some(likedProduct => likedProduct.id === product.id)}></ProductCard>
+              isLiked={likes.some(likedProduct => likedProduct.id === product.id)}
+              isInCart={cart?.some(cartProduct => cartProduct.id === product.id)}></ProductCard>
           </li>
         ))}
       </ul>

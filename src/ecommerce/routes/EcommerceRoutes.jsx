@@ -1,5 +1,4 @@
 import { Navigate, Outlet } from 'react-router-dom';
-import { useGetProductByCategoryQuery } from '../../store/apis/productsApi';
 import {
   AboutPage,
   FavoritesPage,
@@ -9,8 +8,7 @@ import {
   PurchasesPage,
   SearchPage,
   ProductPage,
-  MenCategoryPage,
-  WomenCategoryPage,
+  CategoryPage,
 } from '../pages/index';
 
 export const EcommerceRoutes = () => {
@@ -36,7 +34,7 @@ export const childEcommerceRoutes = [
   },
   {
     path: '/men/category/:category',
-    element: <MenCategoryPage />,
+    element: <CategoryPage />,
   },
   {
     path: '/women',
@@ -44,7 +42,7 @@ export const childEcommerceRoutes = [
   },
   {
     path: '/women/category/:category',
-    element: <WomenCategoryPage />,
+    element: <CategoryPage />,
   },
   {
     path: '/purchases',

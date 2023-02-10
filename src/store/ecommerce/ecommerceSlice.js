@@ -33,10 +33,18 @@ export const ecommerceSlice = createSlice({
     deleteLikedProductById: (state, action) => {
       state.likes = state.likes.filter(product => product.id !== action.payload);
     },
-    addNewCartProduct: (state, action) => {},
+    deleteCartProductById: (state, action) => {
+      state.cart = state.cart.filter(product => product.id !== action.payload);
+    },
+
+    addNewCartProduct: (state, action) => {
+      state.cart.push(action.payload);
+      state.isSaving = false;
+    },
     removeCartProductById: (state, action) => {},
     updateCart: (state, action) => {},
     loadProducts: (state, { payload }) => {
+      state.cart = payload.cartProducts;
       state.likes = payload.likedProducts;
     },
   },
@@ -45,6 +53,7 @@ export const ecommerceSlice = createSlice({
 export const {
   addNewCartProduct,
   addNewLikedProduct,
+  deleteCartProductById,
   deleteLikedProductById,
   isSaving,
   loadProducts,

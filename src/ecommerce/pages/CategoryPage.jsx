@@ -3,7 +3,7 @@ import { HeroSection, ProductsSection } from '../components/main/category';
 import { EcommerceLayout } from '../layout';
 import { useGetProductByCategoryQuery } from '../../store/apis/productsApi';
 
-export const MenCategoryPage = () => {
+export const CategoryPage = () => {
   const location = useLocation();
   const section = location.pathname.split('/')[1];
   const category = location.pathname.split('/')[3];
