@@ -27,7 +27,8 @@ export const ProductCard = ({ id, title, img, price, discount, isLiked, isInCart
   };
 
   const onNewProductCart = (id, title, img, price, discount) => {
-    dispatch(startNewCartProduct(id, title, img, price, discount));
+    const ammount = 1;
+    dispatch(startNewCartProduct(id, title, img, price, discount, ammount));
   };
 
   const onDeleteProductCart = id => {

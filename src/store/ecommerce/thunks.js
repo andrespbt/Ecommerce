@@ -58,7 +58,7 @@ export const startDeleteLikedProduct = id => {
   };
 };
 
-export const startNewCartProduct = (id, title, img, price, discount) => {
+export const startNewCartProduct = (id, title, img, price, discount, ammount) => {
   return async (dispatch, getState) => {
     dispatch(isSaving());
 
@@ -70,6 +70,7 @@ export const startNewCartProduct = (id, title, img, price, discount) => {
       price,
       discount,
       id,
+      ammount,
     };
 
     const resp = await addDoc(collection(FirebaseDB, `${uid}/ecommerce`, 'cartProducts'), {
