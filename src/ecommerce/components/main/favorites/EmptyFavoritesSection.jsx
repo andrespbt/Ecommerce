@@ -5,8 +5,6 @@ import { FavoriteHeartBreak } from '../../../icons/main/favorite';
 export const EmptyFavoritesSection = () => {
   const { logged } = useSelector(state => state.auth);
 
-  console.log(logged);
-
   return (
     <div className="absolute top-[45%] w-full translate-y-[-50%] text-center">
       <div className="mb-[.5rem] flex justify-center">

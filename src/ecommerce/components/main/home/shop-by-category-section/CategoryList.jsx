@@ -8,7 +8,7 @@ export const CategoryList = () => {
     if (window.location.pathname.includes('category')) {
       navigate(`${section}/category/${category}`);
     } else {
-      navigate(`${section}/category/${category}`);
+      navigate(`${section}/category/${category.split('-')[1]}`);
       navigate(0);
     }
   };

@@ -6,8 +6,6 @@ import { Header } from '../components/header/Header';
 export const EcommerceLayout = ({ children }) => {
   const { isMenuActive } = useContext(HeaderContext);
 
-  console.log(isMenuActive);
-
   useEffect(() => {
     isMenuActive ? (document.body.style.overflow = 'hidden') : (document.body.style.overflow = 'auto');
   }, [isMenuActive]);

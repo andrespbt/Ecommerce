@@ -1,4 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import {
   startDeleteCartProduct,
   startDeleteLikedProduct,
@@ -34,6 +35,8 @@ export const ProductCard = ({ id, title, img, price, discount, isLiked, isInCart
   };
 
   return (
+    /* Image Div */
+
     <div className="relative flex h-[350px] w-[224px] animate-fade-in flex-col rounded-md border-[1px] shadow-lg transition-opacity duration-300 ease-in hover:cursor-pointer hover:shadow-3xl">
       <div className="relative h-full max-h-[224px] w-full max-w-[224px] border-b-[1px]">
         <img
@@ -65,15 +68,20 @@ export const ProductCard = ({ id, title, img, price, discount, isLiked, isInCart
         )}
       </div>
 
-      <div className="mt-3 flex flex-col justify-center gap-4 px-2 text-center">
-        <span className="font-semibold capitalize">{title.toLowerCase()}</span>
-        <span className="self-start text-lg font-semibold">
-          {`$${price}`}
-          <span className="ml-5 h-full align-text-top text-sm font-medium text-red-700">
-            {discount ? `${discount}% OFF` : ''}
+      {/* End Image Div */}
+
+      {/* Text Div */}
+      <Link to={`/product/${id}`}>
+        <div className="mt-3 flex flex-col justify-center gap-4 px-2 text-center">
+          <span className="font-semibold capitalize">{title.toLowerCase()}</span>
+          <span className="self-start text-lg font-semibold">
+            {`$${price}`}
+            <span className="ml-5 h-full align-text-top text-sm font-medium text-red-700">
+              {discount ? `${discount}% OFF` : ''}
+            </span>
           </span>
-        </span>
-      </div>
+        </div>
+      </Link>
       <div className="absolute bottom-1 right-[-95px] flex w-full justify-center gap-3">
         {isInCart ? (
           <button onClick={() => onDeleteProductCart(id)}>
@@ -91,6 +99,8 @@ export const ProductCard = ({ id, title, img, price, discount, isLiked, isInCart
           </button>
         )}
       </div>
+
+      {/* End Text Div */}
     </div>
   );
 };

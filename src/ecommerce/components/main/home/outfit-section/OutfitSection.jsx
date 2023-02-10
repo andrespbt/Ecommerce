@@ -5,7 +5,7 @@ export const OutfitSection = () => {
     <section className="flex flex-col gap-[7rem] pb-36">
       <h3 className="text-center text-4xl font-bold lg:text-5xl">Wear Now, Love Forever</h3>
       <div className="mx-auto flex w-[70%] flex-col gap-[7rem] bg-transparent lg:w-[90%] lg:flex-row lg:justify-between xl:justify-around">
-        <Link to="/women/category/women-dresses">
+        <Link to="/women/category/dresses">
           <div className="flex flex-col items-center gap-7 lg:h-full lg:w-full lg:justify-between">
             <img
               className="min-w-[300px] sm:h-[550px] lg:h-[600px]"
@@ -19,7 +19,7 @@ export const OutfitSection = () => {
             </button>
           </div>
         </Link>
-        <Link to="/men/category/men-shirts">
+        <Link to="/men/category/shirts">
           <div className="flex flex-col items-center gap-7 lg:h-full lg:w-full lg:justify-between">
             <img
               className="min-w-[300px] sm:h-[550px] lg:h-[600px]"
