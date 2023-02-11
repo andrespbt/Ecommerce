@@ -7,7 +7,7 @@ import { AmmountTableData, EmptyCartSection } from '.';
 
 export const CartSection = () => {
   const dispatch = useDispatch();
-  const { cart, buys } = useSelector(state => state.ecommerce);
+  const { cart } = useSelector(state => state.ecommerce);
   const navigate = useNavigate();
 
   const onProductDelete = id => {
@@ -23,10 +23,10 @@ export const CartSection = () => {
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
       confirmButtonText: 'Yes, buy it!',
-    }).then(result => {
+    }).then(async result => {
       if (result.isConfirmed) {
-        dispatch(startAddingBuys());
-        dispatch(startDeletingCart());
+        await dispatch(startAddingBuys());
+        await dispatch(startDeletingCart());
         Swal.fire('Bought!', 'Thanks to buy in our store!', 'success');
       }
     });

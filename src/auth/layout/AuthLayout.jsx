@@ -1,6 +1,6 @@
 export const AuthLayout = ({ children }) => {
   return (
-    <main className="flex h-screen flex-col items-center justify-around gap-8 bg-gradient-to-b from-[#2D2D2D] via-[#363636] to-[#535051] py-10">
+    <main className="flex h-screen flex-col items-center justify-center gap-8 bg-gradient-to-b from-[#2D2D2D] via-[#363636] to-[#535051] py-10">
       <div>
         <h1 className="flex w-full animate-roll justify-center">
           <img
