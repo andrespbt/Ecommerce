@@ -25,9 +25,10 @@ export const GridSection = ({ images, section, h3Text, category }) => {
         category={category}
         gridPosition="hidden lg:inline col-start-1 col-end-9 row-start-2 row-end-3"
         image={images[1]}
-        imageAlt="Man shirt model"
+        imageAlt={`${section} ${category} model`}
         textH3="New Arrivals"
         textSpan=" "
+        section={section}
       />
 
       <img
@@ -41,19 +42,22 @@ export const GridSection = ({ images, section, h3Text, category }) => {
         category={category}
         gridPosition="lg:col-start-1 lg:col-end-5 lg:row-start-3 lg:row-end-4"
         image={images[3]}
-        imageAlt={`${section} shirt model`}
+        imageAlt={`${section} ${category} model`}
+        section={section}
       />
       <CardGridSection
         category="watches"
         gridPosition="lg:col-start-5 lg:col-end-9 lg:row-start-3 lg:row-end-4"
         image={images[4]}
         imageAlt={`${section} watch model`}
+        section={section}
       />
       <CardGridSection
         category="shoes"
         gridPosition="lg:col-start-9 lg:col-end-13 lg:row-start-3 lg:row-end-4"
         image={images[5]}
         imageAlt="Shoes photo"
+        section={section}
       />
     </section>
   );

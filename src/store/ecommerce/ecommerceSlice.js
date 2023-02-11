@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, current } from '@reduxjs/toolkit';
 
 export const ecommerceSlice = createSlice({
   name: 'ecommerce',
@@ -41,16 +41,25 @@ export const ecommerceSlice = createSlice({
       state.cart.push(action.payload);
       state.isSaving = false;
     },
+
+    addNewBuys: (state, { payload }) => {
+      payload.forEach(product => state.buys.push(product));
+    },
     removeCartProductById: (state, action) => {},
-    updateCart: (state, action) => {},
+
+    updateCartProductAmmount: (state, { payload }) => {
+      state.cart.map(product => (product.id === payload.id ? payload : product));
+    },
     loadProducts: (state, { payload }) => {
       state.cart = payload.cartProducts;
       state.likes = payload.likedProducts;
+      state.buys = payload.boughtProducts;
     },
   },
 });
 
 export const {
+  addNewBuys,
   addNewCartProduct,
   addNewLikedProduct,
   deleteCartProductById,
@@ -58,5 +67,5 @@ export const {
   isSaving,
   loadProducts,
   removeCartProductById,
-  updateCart,
+  updateCartProductAmmount,
 } = ecommerceSlice.actions;

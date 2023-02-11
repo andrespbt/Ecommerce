@@ -6,7 +6,7 @@ export const FavoritesSection = () => {
   const { likes, cart } = useSelector(state => state.ecommerce);
 
   return (
-    <section className={`${likes.length > 0 ? 'align-middle' : ''} h-full w-full bg-white`}>
+    <section className={`${likes.length > 0 ? 'align-middle' : ''} h-full w-full bg-white py-10`}>
       {likes.length > 0 ? (
         <ul className="flex h-full w-full flex-wrap justify-center gap-4">
           {likes?.map(product => (

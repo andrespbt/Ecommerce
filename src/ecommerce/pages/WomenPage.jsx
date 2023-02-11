@@ -22,7 +22,7 @@ export const WomenPage = () => {
         />
         <GridSection
           images={images}
-          section="woman"
+          section="women"
           h3Text="Women's New Arrivals"
           category="dresses"
         />

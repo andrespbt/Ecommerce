@@ -22,7 +22,7 @@ export const MenPage = () => {
         />
         <GridSection
           images={images}
-          section="man"
+          section="men"
           h3Text="Men's New Arrivals"
           category="shirts"
         />

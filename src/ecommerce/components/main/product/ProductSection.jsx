@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { useCounter } from '../../../../hooks/useCounter';
 import { startNewCartProduct } from '../../../../store/ecommerce/thunks';
+import { CountBar } from '../CountBar';
 
 const imageCascade =
   'https://res.cloudinary.com/dxirtcrxd/image/upload/v1676062996/ecommerceImages/image-cascade_yst1u6.webp';
@@ -34,71 +35,67 @@ export const ProductSection = ({ data }) => {
     const ammount = counter;
 
     dispatch(startNewCartProduct(id, title, img, price, discount, ammount));
-    navigate('/purchases');
+    navigate('/cart');
   };
 
   return (
-    <section className="my-10 grid grid-cols-8 grid-rows-[1fr_.3fr_.3fr_.7fr] gap-6 text-center">
-      <div className="col-start-2 col-end-8 border-2 hover:cursor-pointer">
+    <section className="my-10 mx-4 grid grid-cols-8 grid-rows-[1fr_.3fr_.3fr_.7fr] gap-6 text-center md:grid-cols-12 md:grid-rows-[5fr_3fr] md:gap-0 md:gap-y-10 lg:gap-y-20">
+      {/* Main image */}
+      <div className="col-start-2 col-end-8 h-[292px] w-full border-2 hover:cursor-pointer sm:h-[320px] md:col-end-9 md:h-[560px] lg:col-start-3 lg:col-end-8 lg:max-h-[560px] lg:max-w-[600px]">
         <img
+          className="h-full w-full md:object-cover "
           src={imagePosition.main}
           alt={title}
           name="main"
         />
       </div>
-      <div className="col-start-2 col-end-8 row-start-2 row-end-3 flex justify-between">
+
+      {/* Images */}
+      <div className="col-start-2 col-end-8 row-start-2 row-end-3 flex h-[100px] justify-between md:col-start-10 md:col-end-12 md:row-start-1 md:row-end-2 md:h-[560px] md:flex-col lg:col-start-9 lg:col-end-11 lg:h-[560px]">
         <img
           onClick={onImageclick}
-          className="h-[80px] w-[80px] border-2 hover:cursor-pointer"
+          className="w-[30%] border-2 hover:cursor-pointer sm:h-[120px] md:h-[150px] md:w-full lg:h-[183px] lg:w-full"
           src={imagePosition.sub1}
           alt={title}
           name="sub1"
         />
         <img
           onClick={onImageclick}
-          className="h-[80px] w-[80px] border-2 hover:cursor-pointer"
+          className="w-[30%] border-2 hover:cursor-pointer sm:h-[120px] md:h-[150px] md:w-full lg:h-[183px] lg:w-full"
           src={imagePosition.sub2}
           alt={title}
           name="sub2"
         />
         <img
           onClick={onImageclick}
-          className="h-[80px] w-[80px] border-2 hover:cursor-pointer"
+          className="w-[30%] border-2 hover:cursor-pointer sm:h-[120px] md:h-[150px] md:w-full lg:h-[183px] lg:w-full"
           src={imagePosition.sub3}
           alt={title}
           name="sub3"
         />
       </div>
 
-      <div className="col-start-2 col-end-8 row-start-3 row-end-4 flex flex-col gap-5">
-        <h2 className="text-2xl font-bold">{brand}</h2>
+      {/* Text */}
+
+      <div className="col-start-2 col-end-8 row-start-3 row-end-4 flex flex-col gap-5 md:col-end-7 md:row-start-2 md:row-end-3 lg:col-start-4 lg:col-end-7">
+        <h2 className="text-2xl font-bold capitalize">{title.toLowerCase()}</h2>
+        <h2 className="text-lg font-bold">{brand}</h2>
         <p className="text-lg">{description}</p>
       </div>
 
-      <div className="col-start-2 col-end-8 row-start-4 row-end-5 flex flex-col border-2">
-        <div className="flex h-[120px] items-center justify-around border-b-2">
-          <div>
-            <span className="text-xl font-bold">${price * counter}</span>
-          </div>
-          <div className="flex w-[140px] items-center justify-between">
-            <button
-              className="h-[40px] w-full bg-gray-500 text-lg font-bold text-white"
-              onClick={() => decrement(1)}>
-              -
-            </button>
-            <div className="flex h-[40px] w-full items-center justify-center bg-gray-300 text-lg font-bold">
-              <span className="">{counter}</span>
-            </div>
-            <button
-              className="h-[40px] w-full bg-gray-500 text-lg font-bold text-white"
-              onClick={() => increment(1)}>
-              +
-            </button>
-          </div>
-        </div>
-        <div className="flex h-full items-center justify-center">
+      {/* Counter and price */}
+      <div className="col-start-2 col-end-8 row-start-4 row-end-5 flex max-h-[260px] flex-col border-2 md:col-start-7 md:col-end-12 md:row-start-2 md:row-end-3 md:h-[100px] md:flex-row md:items-center md:justify-between md:rounded-2xl lg:col-start-8">
+        <CountBar
+          counter={counter}
+          increment={increment}
+          decrement={decrement}
+          price={price}
+        />
+
+        {/* Button */}
+        <div className="flex h-full items-center justify-center md:w-full">
           <button
-            className="h-[50px] w-[180px] rounded-xl bg-darkGray font-bold text-white"
+            className="h-[50px] w-[50%] rounded-xl bg-darkGray font-bold text-white md:mx-4 md:w-full"
             onClick={onCartAddClick}>
             ADD TO CART
           </button>

@@ -28,3 +28,18 @@ export const loadCartProducts = async (uid = '') => {
 
   return cartProducts;
 };
+
+export const loadBoughtProducts = async (uid = '') => {
+  if (!uid) throw new Error("The user's uid doesn't exists");
+
+  const docs = await getDocs(collection(FirebaseDB, `${uid}/ecommerce/buys`));
+
+  const boughtProducts = [];
+
+  docs.forEach(doc => {
+    boughtProducts.push({ firebaseId: doc.id, ...doc.data() });
+  });
+
+  return boughtProducts;
+
+}

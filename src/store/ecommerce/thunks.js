@@ -1,13 +1,15 @@
-import { addDoc, collection, deleteDoc, doc } from 'firebase/firestore/lite';
+import { addDoc, collection, deleteDoc, doc, setDoc } from 'firebase/firestore/lite';
 import { FirebaseDB } from '../../firebase/config';
-import { loadCartProducts, loadLikedProducts } from '../../helpers/loadProducts';
+import { loadBoughtProducts, loadCartProducts, loadLikedProducts } from '../../helpers/loadProducts';
 import {
+  addNewBuys,
   addNewCartProduct,
   addNewLikedProduct,
   deleteCartProductById,
   deleteLikedProductById,
   isSaving,
   loadProducts,
+  updateCartProductAmmount,
 } from './ecommerceSlice';
 
 export const startLoadingProducts = () => {
@@ -15,7 +17,8 @@ export const startLoadingProducts = () => {
     const { uid } = getState().auth;
     const likedProducts = await loadLikedProducts(uid);
     const cartProducts = await loadCartProducts(uid);
-    dispatch(loadProducts({ cartProducts, likedProducts }));
+    const boughtProducts = await loadBoughtProducts(uid);
+    dispatch(loadProducts({ cartProducts, likedProducts, boughtProducts }));
   };
 };
 
@@ -95,6 +98,54 @@ export const startDeleteCartProduct = id => {
     await deleteDoc(docRef);
 
     dispatch(deleteCartProductById(id));
+    dispatch(startLoadingProducts());
+  };
+};
+
+export const startUpdatingAmmount = productUpdated => {
+  return async (dispatch, getState) => {
+    const { uid } = getState().auth;
+    const { cart } = getState().ecommerce;
+    let productFirebaseId = null;
+
+    cart.forEach(product => {
+      if (product.id === productUpdated.id) {
+        productFirebaseId = product.firebaseId;
+      }
+    });
+
+    const docRef = doc(FirebaseDB, `${uid}/ecommerce/cartProducts/${productFirebaseId}`);
+
+    await setDoc(docRef, productUpdated, { merge: true });
+    dispatch(updateCartProductAmmount(productUpdated));
+    dispatch(startLoadingProducts());
+  };
+};
+
+export const startAddingBuys = () => {
+  return async (dispatch, getState) => {
+    const { uid } = getState().auth;
+    const { cart } = getState().ecommerce;
+
+    cart.forEach(async product => {
+      await addDoc(collection(FirebaseDB, `${uid}/ecommerce`, 'buys'), {
+        ...product,
+      });
+    });
+
+    dispatch(addNewBuys(cart));
+  };
+};
+
+export const startDeletingCart = () => {
+  return async (dispatch, getState) => {
+    const { uid } = getState().auth;
+    const { cart } = getState().ecommerce;
+
+    cart.forEach(async product => {
+      await deleteDoc(doc(FirebaseDB, `${uid}/ecommerce/cartProducts/${product.firebaseId}`));
+    });
+
     dispatch(startLoadingProducts());
   };
 };

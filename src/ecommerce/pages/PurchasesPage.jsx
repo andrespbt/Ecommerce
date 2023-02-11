@@ -1,10 +1,11 @@
-import { EcommerceLayout } from '../layout/EcommerceLayout';
+import { PurchasesSection } from '../components/main/purchases/PurchasesSection';
+import { EcommerceLayout } from '../layout';
 
 export const PurchasesPage = () => {
   return (
     <EcommerceLayout>
       <main>
-        <div>Purchases</div>
+        <PurchasesSection />
       </main>
     </EcommerceLayout>
   );

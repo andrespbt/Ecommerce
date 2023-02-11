@@ -1,7 +1,16 @@
 import { useRef } from 'react';
 import { Link } from 'react-router-dom';
 
-export const CardGridSection = ({ image, imageAlt, category, textContainerClass, textH3, textSpan, gridPosition }) => {
+export const CardGridSection = ({
+  image,
+  imageAlt,
+  category,
+  textContainerClass,
+  textH3,
+  textSpan,
+  gridPosition,
+  section,
+}) => {
   const modalRef = useRef();
   const textContainerRef = useRef();
   const spanTextRef = useRef();
@@ -17,13 +26,15 @@ export const CardGridSection = ({ image, imageAlt, category, textContainerClass,
     textContainerRef.current.classList.remove('text-white', 'z-50', 'translate-x-[5%]', 'text-center');
     spanTextRef.current.classList.remove('underline');
   };
+  
+  console.log(section, category)
 
   return (
     <div
       className={`${gridPosition} relative hover:cursor-pointer`}
       onMouseEnter={onMouseEnterCard}
       onMouseLeave={onMouseLeaveCard}>
-      <Link to={`/men/category/${category}`}>
+      <Link to={`/${section}/category/${category}`}>
         <img
           className="h-[600px] w-full object-cover"
           src={image}
