@@ -1,6 +1,15 @@
 import { Navigate, Outlet } from 'react-router-dom';
-import { FavoritesPage, HomePage, MenPage, WomenPage, CartPage, ProductPage, CategoryPage } from '../pages/index';
-import { PurchasesPage } from '../pages/PurchasesPage';
+import {
+  FavoritesPage,
+  HomePage,
+  MenPage,
+  WomenPage,
+  CartPage,
+  ProductPage,
+  CategoryPage,
+  PurchasesPage,
+  AccountPage,
+} from '../pages/index';
 
 export const EcommerceRoutes = () => {
   return <Outlet />;
@@ -42,6 +51,10 @@ export const childEcommerceRoutes = [
   {
     path: '/purchases',
     element: <PurchasesPage />,
+  },
+  {
+    path: '/account',
+    element: <AccountPage />,
   },
   {
     path: '/*',

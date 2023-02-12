@@ -6,3 +6,5 @@ export * from './CartPage';
 export * from './WomenPage';
 export * from './ErrorPageMain';
 export * from './CategoryPage';
+export * from './PurchasesPage';
+export * from './AccountPage';

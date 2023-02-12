@@ -92,7 +92,9 @@ export const RightNavBar = () => {
                 isUserMenuOpen ? 'relative bottom-4' : ''
               } bg-gray-5 grid grid-cols-10 grid-rows-5 bg-gray-50 md:relative md:top-[-15px]`}>
               {/*  */}
-              <div className="col-start-2 col-end-8 row-start-2 row-end-3 flex flex-row-reverse items-center justify-end hover:cursor-pointer hover:fill-gray-400 hover:text-gray-400">
+              <div
+                className="col-start-2 col-end-8 row-start-2 row-end-3 flex flex-row-reverse items-center justify-end hover:cursor-pointer hover:fill-gray-400 hover:text-gray-400"
+                onClick={() => navigate('/account')}>
                 <span className="peer text-base xl:text-lg ">My Account</span>
                 <NavUserIcon className="mr-2 h-[1.1em] w-[1.1em] stroke-black stroke-[0.1px] lg:h-[1.3em] lg:w-[1.3em]" />
               </div>
