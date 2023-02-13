@@ -8,7 +8,7 @@ export const Header = () => {
   const [scrollPosition, setScrollPosition] = useState(0);
   const [showNavBar, setShowNavBar] = useState(true);
   const headerRef = useRef();
-  console.log(window.location);
+  console.log(window.location.href.split('/'));
   const currentPath =
     window.location.href?.split('/')[4] === '' || undefined
       ? null
