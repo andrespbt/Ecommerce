@@ -9,12 +9,8 @@ export const Header = () => {
   const [showNavBar, setShowNavBar] = useState(true);
   const headerRef = useRef();
   console.log(window.location.href.split('/'));
-  const currentPath =
-    window.location.href?.split('/')[4] === '' || undefined
-      ? null
-      : window.location.href?.split('/')[4].includes('women')
-      ? 'women'
-      : 'men';
+  const path = window.location.href.split('/')[4];
+  const currentPath = !path ? null : window.location.href?.split('/')[4].includes('women') ? 'women' : 'men';
 
   const onScroll = () => {
     if (typeof window !== 'undefined') {
