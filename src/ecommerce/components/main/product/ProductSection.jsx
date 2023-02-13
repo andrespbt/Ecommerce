@@ -1,6 +1,6 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { useCounter } from '../../../../hooks/useCounter';
 import { startNewCartProduct } from '../../../../store/ecommerce/thunks';
 import { CountBar } from '../CountBar';
@@ -11,6 +11,7 @@ const imageCascade =
 export const ProductSection = ({ data }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const location = useLocation();
   const { brand, description, images, price, thumbnail, title, discountPercentage, id } = data;
   const [imagePosition, setImagePosition] = useState({
     main: thumbnail,

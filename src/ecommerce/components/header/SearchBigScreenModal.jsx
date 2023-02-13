@@ -1,6 +1,6 @@
-import { Fragment, useContext, useState } from 'react';
+import { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Combobox, Dialog, Transition } from '@headlessui/react';
+import { Combobox } from '@headlessui/react';
 import { filterProductsCategory } from '../../../helpers/filterProductsCategory';
 import { useGetProductBySearchQuery } from '../../../store/apis/productsApi';
 import { NavSearchIcon } from '../../icons/header';
@@ -8,6 +8,7 @@ import { HeaderContext } from './context/HeaderContext';
 
 export const SearchBigScreenModal = () => {
   const { isSearchingBigScreen, setIsSearchingBigScreen } = useContext(HeaderContext);
+  const navigate = useNavigate();
   const [searchText, setSearchText] = useState('');
   const { data } = useGetProductBySearchQuery(searchText);
   const productsFiltered = searchText ? filterProductsCategory(data.products) : [];
@@ -16,14 +17,7 @@ export const SearchBigScreenModal = () => {
       <div className={`${isSearchingBigScreen ? 'z-[2000]' : ''} relative hidden w-full sm:inline`}>
         <Combobox
           className="absolute top-[-1.3rem] w-full divide-y divide-gray-100 rounded-xl bg-white shadow-2xl ring-1 ring-black/5"
-          as="ul"
-          onChange={product => {
-            if (window.location.pathname.includes('product')) {
-              location.replace(`/product/${product.id}`);
-            } else {
-              location.replace(`/product/${product.id}`);
-            }
-          }}>
+          as="ul">
           <Combobox.Input
             className="h-11 w-full border-0 bg-white bg-transparent px-2 text-lg text-gray-800 placeholder:text-base focus:outline-0 focus:placeholder:text-transparent md:placeholder:text-lg"
             placeholder="Search for items and brands"
@@ -42,7 +36,11 @@ export const SearchBigScreenModal = () => {
               {productsFiltered.map(product => (
                 <Combobox.Option
                   key={product.id}
-                  value={product}>
+                  value={product}
+                  onClick={() => {
+                    navigate(`/product/${product.id}`, { replace: true });
+                    navigate(0);
+                  }}>
                   {({ active }) => (
                     <div
                       className={`space-x-1 px-4 py-2 capitalize ${

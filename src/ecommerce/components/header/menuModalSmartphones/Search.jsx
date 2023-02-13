@@ -1,5 +1,6 @@
 import { Fragment, useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { Combobox, Dialog, Transition } from '@headlessui/react';
 import { NavMenuModalCloseIcon, NavSearchIcon } from '../../../icons/header';
 import { useGetProductBySearchQuery } from '../../../../store/apis/productsApi';
@@ -8,6 +9,7 @@ import { isLoading } from '../../../../store/auth';
 
 export const Search = ({ setOpen, isOpen }) => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [searchText, setSearchText] = useState('');
   const { data } = useGetProductBySearchQuery(searchText);
   const productsFiltered = searchText ? filterProductsCategory(data.products) : [];
@@ -51,7 +53,8 @@ export const Search = ({ setOpen, isOpen }) => {
             as="div"
             onChange={product => {
               dispatch(isLoading());
-              location.replace(`/product/${product.id}`);
+              navigate(`/product/${product.id}`, { replace: true });
+              navigate(0);
             }}>
             <Combobox.Input
               className="h-11 w-full border-0 bg-transparent px-2 text-lg text-gray-800 placeholder:text-lg focus:outline-0 focus:placeholder:text-transparent"
