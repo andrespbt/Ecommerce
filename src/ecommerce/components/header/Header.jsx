@@ -10,7 +10,7 @@ export const Header = () => {
   const headerRef = useRef();
   console.log(window.location);
   const currentPath =
-    window.location.href?.split('/')[4] === ''
+    window.location.href?.split('/')[4] === '' || undefined
       ? null
       : window.location.href?.split('/')[4].includes('women')
       ? 'women'
