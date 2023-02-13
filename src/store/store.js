@@ -9,5 +9,6 @@ export const store = configureStore({
     ecommerce: ecommerceSlice.reducer,
     [productsApi.reducerPath]: productsApi.reducer,
   },
+  devTools: false,
   middleware: getDefaultMiddleware => getDefaultMiddleware().concat(productsApi.middleware),
 });
