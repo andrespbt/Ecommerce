@@ -1,9 +1,7 @@
 import { useContext } from 'react';
 import { useEffect, useState, useRef } from 'react';
 import { HeaderContext } from './context/HeaderContext';
-import { LeftNavBar } from './LeftNavBar';
-import { RightNavBar } from './RightNavBar';
-import { SubNavbar } from './SubNavbar';
+import { LeftNavBar, SubNavbar, RightNavBar } from './';
 
 export const Header = () => {
   const { isSearchingBigScreen } = useContext(HeaderContext);

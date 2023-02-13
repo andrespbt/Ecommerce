@@ -2,9 +2,7 @@ import { useSelector } from 'react-redux';
 import { ProductCard } from '../ProductCard';
 import { EmptyFavoritesSection } from './EmptyFavoritesSection';
 
-export const FavoritesSection = () => {
-  const { likes, cart } = useSelector(state => state.ecommerce);
-
+export const FavoritesSection = ({ likes, cart }) => {
   return (
     <section className={`${likes.length > 0 ? 'align-middle' : ''} h-full w-full bg-white py-10`}>
       {likes.length > 0 ? (

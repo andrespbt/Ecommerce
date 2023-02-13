@@ -4,3 +4,4 @@ export * from './RightNavBar';
 export * from './NavBarLink';
 export * from './menuModalSmartphones/MenuModal';
 export * from './SearchBigScreenModal';
+export * from './SubNavbar';

@@ -3,8 +3,6 @@ import { ProductCard } from '../ProductCard';
 export const BuysInfoSection = ({ buys, likes, cart }) => {
   const ids = buys.map(product => product.id);
   const buysFiltered = buys.filter(({ id }, index) => !ids.includes(id, index + 1));
-
-  console.log(buysFiltered);
   return (
     <section className="my-10 mx-6">
       <h2 className="my-6 text-center text-lg font-bold">Products that you already have</h2>

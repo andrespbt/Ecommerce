@@ -5,7 +5,7 @@ import { CartEmptyCartIcon } from '../../../icons/main/cart/CartEmptyCartIcon';
 export const EmptyCartSection = () => {
   const { logged } = useSelector(state => state.auth);
   return (
-    <div className="absolute top-[45%] w-full translate-y-[-50%] text-center">
+    <div className="w-full text-center">
       <div className="mb-[.5rem] flex justify-center">
         {/* Icon */}
         <CartEmptyCartIcon

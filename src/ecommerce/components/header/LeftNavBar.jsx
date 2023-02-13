@@ -1,5 +1,4 @@
 import { Link, NavLink } from 'react-router-dom';
-
 import { MenuModal, SearchBigScreenModal } from './index';
 
 export const LeftNavBar = () => {

@@ -14,7 +14,7 @@ export const AccountPage = () => {
 
   return (
     <EcommerceLayout>
-      <main>
+      <main className={`${email ? '' : 'flex items-center justify-center'}`}>
         {email ? (
           <>
             <AccountInfoSection />

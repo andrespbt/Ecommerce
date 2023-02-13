@@ -26,8 +26,6 @@ export const CardGridSection = ({
     textContainerRef.current.classList.remove('text-white', 'z-50', 'translate-x-[5%]', 'text-center');
     spanTextRef.current.classList.remove('underline');
   };
-  
-  console.log(section, category)
 
   return (
     <div

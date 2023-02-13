@@ -1,11 +1,7 @@
-import { Transition } from '@headlessui/react';
-import { ItemListMenuModal } from './ItemListMenuModal';
-import { HeaderMenuModal } from './HeaderMenuModal';
-import { MenCategoryListMenuModal } from './MenCategoryListMenuModal';
-import { WomenCategoryListMenuModal } from './WomenCategoryListMenuModal';
-import { NavHamburgerIcon } from '../../../icons/header';
-import { Search } from './Search';
 import { useContext } from 'react';
+import { Transition } from '@headlessui/react';
+import { ItemListMenuModal, HeaderMenuModal, MenCategoryListMenuModal, WomenCategoryListMenuModal, Search } from './';
+import { NavHamburgerIcon } from '../../../icons/header';
 import { HeaderContext } from '../context/HeaderContext';
 
 export const MenuModal = () => {

@@ -1,4 +1,4 @@
-import { createSlice, current } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 
 export const ecommerceSlice = createSlice({
   name: 'ecommerce',
@@ -7,20 +7,6 @@ export const ecommerceSlice = createSlice({
     cart: [],
     likes: [],
     buys: [],
-
-    /*
-
-    buys: [
-        {
-            productId: 'ABC',
-            productTitle: 'Shirt',
-            productImg: image,
-            discount: '12%',
-            date: 12341241
-        }
-    ]
-    
-    */
   },
   reducers: {
     isSaving: state => {
@@ -45,7 +31,6 @@ export const ecommerceSlice = createSlice({
     addNewBuys: (state, { payload }) => {
       payload.forEach(product => state.buys.push(product));
     },
-    removeCartProductById: (state, action) => {},
 
     updateCartProductAmmount: (state, { payload }) => {
       state.cart.map(product => (product.id === payload.id ? payload : product));

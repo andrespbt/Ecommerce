@@ -1,14 +1,11 @@
-import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import Swal from 'sweetalert2';
 import { startAddingBuys, startDeleteCartProduct, startDeletingCart } from '../../../../store/ecommerce/thunks';
 import { CartTrashIcon } from '../../../icons/main/cart/CartTrashIcon';
-import { AmmountTableData, EmptyCartSection } from '.';
+import { AmmountTableData, EmptyCartSection } from './';
 
-export const CartSection = () => {
+export const CartSection = ({ cart }) => {
   const dispatch = useDispatch();
-  const { cart } = useSelector(state => state.ecommerce);
-  const navigate = useNavigate();
 
   const onProductDelete = id => {
     dispatch(startDeleteCartProduct(id));
@@ -53,12 +50,10 @@ export const CartSection = () => {
                       className="relative border-b-2"
                       key={id}>
                       {/* Image and Title */}
-                      <td
-                        className="flex h-[100px] w-full items-center justify-between gap-3 hover:cursor-pointer md:h-full md:justify-evenly lg:justify-center lg:gap-10"
-                        onClick={() => navigate(`/product/${id}`)}>
+                      <td className="flex h-[100px] w-full items-center justify-between gap-3 hover:cursor-pointer md:h-full md:justify-evenly lg:justify-center lg:gap-40">
                         <div className="flex h-full w-[80px] items-center sm:w-[120px] md:w-[150px]">
                           <img
-                            className="h-[80%] w-full"
+                            className="h-[80%] w-full md:h-[150px] md:w-[150px] md:object-cover"
                             src={img}
                             alt={title}
                           />

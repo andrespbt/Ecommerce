@@ -1,5 +1,4 @@
-import { ButtonCategorySection } from './ButtonCategorySection';
-import { ImageCategorySection } from './ImageCategorySection';
+import { ButtonCategorySection, ImageCategorySection } from './';
 
 export const CardCategorySection = ({ imageUrl, section, category, onClick, text, classes }) => {
   return (
