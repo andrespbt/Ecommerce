@@ -15,6 +15,7 @@ export const Header = () => {
       ? 'women'
       : 'men';
 
+  console.log(window.location);
   const onScroll = () => {
     if (typeof window !== 'undefined') {
       if (window.scrollY > scrollPosition && !isSearchingBigScreen && scrollPosition > 700) {
