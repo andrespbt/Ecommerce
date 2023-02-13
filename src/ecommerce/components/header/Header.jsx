@@ -8,6 +8,7 @@ export const Header = () => {
   const [scrollPosition, setScrollPosition] = useState(0);
   const [showNavBar, setShowNavBar] = useState(true);
   const headerRef = useRef();
+  console.log(window.location);
   const currentPath =
     window.location.href?.split('/')[4] === ''
       ? null
@@ -15,7 +16,6 @@ export const Header = () => {
       ? 'women'
       : 'men';
 
-  console.log(window.location);
   const onScroll = () => {
     if (typeof window !== 'undefined') {
       if (window.scrollY > scrollPosition && !isSearchingBigScreen && scrollPosition > 700) {
