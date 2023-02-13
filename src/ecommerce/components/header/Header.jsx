@@ -9,7 +9,11 @@ export const Header = () => {
   const [showNavBar, setShowNavBar] = useState(true);
   const headerRef = useRef();
   const currentPath =
-    window.location.pathname.slice(1) === '' ? null : window.location.pathname.includes('women') ? 'women' : 'men';
+    window.location.href.split('/')[4] === ''
+      ? null
+      : window.location.href.split('/')[4].includes('women')
+      ? 'women'
+      : 'men';
 
   const onScroll = () => {
     if (typeof window !== 'undefined') {
@@ -49,7 +53,7 @@ export const Header = () => {
         <RightNavBar />
       </nav>
       {/* Sub navbar */}
-      {(window.location.pathname.includes('women') || window.location.pathname.includes('men')) && (
+      {(window.location.href.includes('women') || window.location.href.includes('men')) && (
         <SubNavbar
           currentPath={currentPath}
           isOpen={currentPath ? true : false}

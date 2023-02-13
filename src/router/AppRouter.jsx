@@ -1,4 +1,4 @@
-import { createBrowserRouter, RouterProvider, Navigate } from 'react-router-dom';
+import { RouterProvider, Navigate, createHashRouter } from 'react-router-dom';
 import { ErrorPageAuth } from '../auth/pages/ErrorPageAuth';
 import { AuthRoutes, childAuthRoutes } from '../auth/routes/AuthRoutes';
 import { ErrorPageMain } from '../ecommerce/pages';
@@ -11,7 +11,7 @@ export const AppRouter = () => {
   const isAuthenticated = status === 3;
   const isAnon = status === 5;
 
-  const router = createBrowserRouter([
+  const router = createHashRouter([
     {
       path: '/auth/*',
       element:
