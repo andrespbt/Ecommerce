@@ -9,9 +9,9 @@ export const Header = () => {
   const [showNavBar, setShowNavBar] = useState(true);
   const headerRef = useRef();
   const currentPath =
-    window.location.href.split('/')[4] === ''
+    window.location.href?.split('/')[4] === ''
       ? null
-      : window.location.href.split('/')[4].includes('women')
+      : window.location.href?.split('/')[4].includes('women')
       ? 'women'
       : 'men';
 
@@ -53,7 +53,7 @@ export const Header = () => {
         <RightNavBar />
       </nav>
       {/* Sub navbar */}
-      {(window.location.href.includes('women') || window.location.href.includes('men')) && (
+      {(window.location.href?.includes('women') || window.location.href?.includes('men')) && (
         <SubNavbar
           currentPath={currentPath}
           isOpen={currentPath ? true : false}
