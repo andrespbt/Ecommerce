@@ -5,10 +5,10 @@ export const HomePage = () => {
   return (
     <EcommerceLayout>
       <main>
-      <Slider />
-      <ShopByCategory />
-      <OutfitSection />
-      <BrandsSection />
+        <Slider />
+        <ShopByCategory />
+        <OutfitSection />
+        <BrandsSection />
       </main>
     </EcommerceLayout>
   );
