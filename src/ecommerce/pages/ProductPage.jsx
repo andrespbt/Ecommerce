@@ -1,7 +1,7 @@
 import { useLocation } from 'react-router-dom';
-import { useGetProductByIdQuery } from '../../store/apis/productsApi';
 import { ProductSection } from '../components/main/product/ProductSection';
 import { EcommerceLayout } from '../layout/EcommerceLayout';
+import { useGetProductByIdQuery } from '../../store/apis/productsApi';
 
 export const ProductPage = () => {
   const location = useLocation();

@@ -7,7 +7,7 @@ This is an E-commerce page created with React where i apply all my knowledge and
 - View the optimal layout for the site depending on their device's screen size.
 - Be able to like, add to cart and buy products and also remove them.
 - Be able to create an account and login using different ways of authentication.
-- Render products with their images, price, title, description from an API.
+- Render products with their images, price, title, description, discount from an API.
 - Be able to search products by their name.
 - Be able to see purchases, account information, cart and liked products.
 

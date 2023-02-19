@@ -1,7 +1,7 @@
 import { useLocation } from 'react-router-dom';
+import { useGetProductByCategoryQuery } from '../../store/apis/productsApi';
 import { HeroSection, ProductsSection } from '../components/main/category';
 import { EcommerceLayout } from '../layout';
-import { useGetProductByCategoryQuery } from '../../store/apis/productsApi';
 
 export const CategoryPage = () => {
   const location = useLocation();

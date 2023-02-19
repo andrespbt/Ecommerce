@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 import Swal from 'sweetalert2';
-import { startAddingBuys, startDeleteCartProduct, startDeletingCart } from '../../../../store/ecommerce/thunks';
+import { startAddingBuys, startDeleteCartProduct, startDeletingCart } from '../../../../store/ecommerce';
 import { CartTrashIcon } from '../../../icons/main/cart/CartTrashIcon';
 import { AmmountTableData, EmptyCartSection } from './';
 
